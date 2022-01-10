@@ -11,17 +11,17 @@ const Hero = () => {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-playfair font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Data to enrich your</span> <span className="block text-sky-300 xl:inline">online business</span>
+                <span className="block xl:block">All of the luxury,</span> <span className="block text-sky-300 xl:block">none of the cost</span>
               </h1>
               <p className="mt-3 font-lato text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-xl transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:py-4 md:text-lg md:px-10">
+                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:py-4 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
                     Get started
                   </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-sky-500 bg-indigo-100 hover:bg-sky-100 md:py-4 md:text-lg md:px-10">
+                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md text-sky-400 bg-gray-200 transition duration-300 hover:bg-sky-100 hover:shadow-2xl md:py-4 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 active:bg-gray-300">
                     View Shop
                   </a>
                 </div>
