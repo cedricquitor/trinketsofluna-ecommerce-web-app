@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Collections from "../components/Collections";
 import Carousel from "../components/Carousel";
+import Personalize from "../components/Personalize";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
           <Hero />
           <Collections />
           <Carousel />
+          <Personalize />
+          <Footer />
         </div>
       </div>
     </div>

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Outline in debugging CSS, uncomment to apply */
+/* 
+* {
+  @apply outline-[1px] outline-red-100 outline;
+} */
