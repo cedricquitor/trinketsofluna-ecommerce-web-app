@@ -16,9 +16,9 @@ const Home = () => {
           <Collections />
           <Carousel />
           <Personalize />
-          <Footer />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
