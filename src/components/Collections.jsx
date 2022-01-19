@@ -25,7 +25,7 @@ const Collections = () => {
       </div>
       <div className="mt-8 grid grid-cols-2 relative left-28">
         <div className="block">
-          <img class="w-3/4 object-cover float-left" src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.6435-9/189144528_4038192529579268_4664427365204957489_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_eui2=AeGSYzsHCdoFgO2mxkJWqYQtLt69Fkc6cB0u3r0WRzpwHXILLpkEWjPSI3Q1F3VSt5k&_nc_ohc=qEEgLLFTRSwAX8maUfL&_nc_ht=scontent.fmnl8-2.fna&oh=00_AT_6xsc209W1gmcYvdzOumelOItO76LJilKz8Ur6I334QA&oe=6203527C" />
+          <img class="w-3/4 object-cover drop-shadow-2xl float-left" src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.6435-9/189144528_4038192529579268_4664427365204957489_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_eui2=AeGSYzsHCdoFgO2mxkJWqYQtLt69Fkc6cB0u3r0WRzpwHXILLpkEWjPSI3Q1F3VSt5k&_nc_ohc=qEEgLLFTRSwAX8maUfL&_nc_ht=scontent.fmnl8-2.fna&oh=00_AT_6xsc209W1gmcYvdzOumelOItO76LJilKz8Ur6I334QA&oe=6203527C" />
         </div>
         <div className="block mt-12">
           <h1 className="text-gray-900 text-6xl font-playfair font-extrabold tracking-tight">Second Collection</h1>

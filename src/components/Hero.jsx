@@ -21,7 +21,7 @@ const Hero = () => {
                   </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md text-sky-400 bg-gray-200 transition duration-300 hover:bg-sky-100 hover:shadow-2xl md:py-4 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 active:bg-gray-300">
+                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-400 text-base font-medium shadow-md text-sky-400 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:py-4 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 active:bg-gray-300">
                     View Shop
                   </a>
                 </div>

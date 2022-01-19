@@ -2,14 +2,14 @@ import React from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-const Contact = () => {
+const Cart = () => {
   return (
     <div>
       <Navbar />
-      <h1>Contact</h1>
+      <h1>Cart</h1>
       <Footer />
     </div>
   );
 };
 
-export default Contact;
+export default Cart;
