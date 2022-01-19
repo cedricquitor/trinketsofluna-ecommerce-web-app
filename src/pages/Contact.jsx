@@ -1,13 +1,9 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 
 const Contact = () => {
   return (
     <div>
-      <Navbar />
-      <h1>Contact</h1>
-      <Footer />
+      <h1 className="text-2xl text-red-500">Contact</h1>
     </div>
   );
 };

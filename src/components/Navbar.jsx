@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,10 +23,18 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="flex flex-row font-playfair font-medium my-auto">
-          <p className={isScrolled ? "ml-14 mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>Home</p>
-          <p className={isScrolled ? "mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>Shop</p>
-          <p className={isScrolled ? "mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>About</p>
-          <p className={isScrolled ? "mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>Contact</p>
+          <Link to="/" className={isScrolled ? "ml-14 mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>
+            Home
+          </Link>
+          <Link to="/shop" className={isScrolled ? "mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>
+            Shop
+          </Link>
+          <Link to="/about" className={isScrolled ? "mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>
+            About
+          </Link>
+          <Link to="/contact" className={isScrolled ? "mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>
+            Contact
+          </Link>
         </div>
         <div className="my-auto flex flex-row text-gray-600">
           <svg xmlns="http://www.w3.org/2000/svg" className={isScrolled ? "h-4 w-4 mr-4 cursor-pointer transition duration hover:text-cyan-400" : "h-6 w-6 mr-4 cursor-pointer transition duration hover:text-cyan-400"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
