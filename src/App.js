@@ -1,25 +1,70 @@
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
-import About from "./pages/About";
-import Shop from "./pages/Shop";
-import Contact from "./pages/Contact";
-import Registration from "./pages/Registration";
-import Login from "./pages/Login";
+
+// Layout
+import MainLayout from "./layouts/MainLayout";
+
+// Pages
+import Home from "./pages";
+import About from "./pages/about";
+import Shop from "./pages/shop";
+import Contact from "./pages/contact";
+import Registration from "./pages/registration";
+import Login from "./pages/login";
 
 function App() {
   return (
-    <div className="bg-sky-50">
-      <Navbar />
+    <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/"
+          element={
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <MainLayout>
+              <Shop />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <MainLayout>
+              <About />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <MainLayout>
+              <Contact />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <MainLayout>
+              <Registration />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <MainLayout>
+              <Login />
+            </MainLayout>
+          }
+        />
       </Routes>
-      <Footer />
-    </div>
+    </>
   );
 }
 

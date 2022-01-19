@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const changeNavbarColor = () => {
-    if (window.scrollY >= 100) {
+    if (window.scrollY >= 150) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -18,11 +18,12 @@ const Navbar = () => {
     <div className={isScrolled ? "fixed top-0 w-full transition duration-500 bg-cyan-50 shadow-xl py-3 z-20" : "fixed top-0 transition duration-300 w-full py-8 bg-transparent z-20"}>
       <div className="container mx-auto flex flex-row justify-between">
         <div className="my-auto">
-          <h1 className={isScrolled ? "text-xl text-gray-600 font-playfair" : "text-3xl text-gray-600 font-playfair"}>
+          <Link to="/" className={isScrolled ? "text-xl text-gray-600 font-playfair" : "text-3xl text-gray-600 font-playfair"}>
             <span className="text-sky-300">Trinkets</span> of Luna
-          </h1>
+          </Link>
         </div>
         <div className="flex flex-row font-playfair font-medium my-auto">
+          {/* Turn to Unordered List & List Items for SEO */}
           <Link to="/" className={isScrolled ? "ml-14 mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>
             Home
           </Link>
