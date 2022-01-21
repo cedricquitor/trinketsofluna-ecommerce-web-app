@@ -6,13 +6,11 @@ import Personalize from "../components/Personalize";
 
 const Home = () => {
   return (
-    <div className="container mx-auto py-20">
-      <div className="mt-28">
-        <Hero />
-        <Collections />
-        <Carousel />
-        <Personalize />
-      </div>
+    <div className="mt-28">
+      <Hero />
+      <Collections />
+      <Carousel />
+      <Personalize />
     </div>
   );
 };

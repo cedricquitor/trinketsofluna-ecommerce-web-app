@@ -6,7 +6,7 @@ const MainLayout = (props) => {
   return (
     <div className="bg-sky-50">
       <Navbar />
-      {props.children}
+      <div className="container mx-auto py-20">{props.children}</div>
       <Footer />
     </div>
   );
