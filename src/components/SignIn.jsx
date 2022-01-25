@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithGoogle } from "../firebase/utils";
 
+import data from "../test/data";
+
 const SignIn = () => {
+  const [products, setProducts] = useState(data);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    return () => {};
+  }, [index]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
@@ -10,8 +19,27 @@ const SignIn = () => {
   return (
     <div className="relative mt-12 bg-white w-3/4 m-auto drop-shadow-xl">
       <div className="grid grid-cols-2">
-        <div className="bg-red-200">
-          <h1 className="text-4xl text-gray-900 font-playfair">Left Items</h1>
+        <div className="bg-red-200 flex flex-row justify-center items-center overflow-hidden">
+          {products.map((product, productIndex) => {
+            const { productName, productThumbnail } = product;
+
+            let position = "slider__img--nextSlide";
+            if (productIndex === index) {
+              position = "slider__img--activeSlide";
+            }
+            if (productIndex === index - 1 || (index === 0 && productIndex === products.length - 1)) {
+              position = "slider__img--lastSlide";
+            }
+
+            return (
+              <div className={position + " absolute"} key={productName}>
+                <img src={productThumbnail} alt={productName} className="object-cover" width="580px" />
+              </div>
+            );
+          })}
+          {/* <div className="bg-blue-200 flex items-center justify-center overflow-hidden max-h- aspect-h-4 aspect-w-3">
+            <img src={products[1].productThumbnail} className="object-cover" />
+          </div> */}
         </div>
         <div className="mx-auto text-center my-16">
           <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Be a part of our story. Be a part of the brand.</p>
