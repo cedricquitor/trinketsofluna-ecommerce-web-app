@@ -9,7 +9,20 @@ const SignIn = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    return () => {};
+    const lastIndex = products.length - 1;
+    if (index < 0) {
+      setIndex(lastIndex);
+    }
+    if (index > lastIndex) {
+      setIndex(0);
+    }
+  }, [index]);
+
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1);
+    }, 4000);
+    return () => clearInterval(slider);
   }, [index]);
 
   const handleSubmit = async (e) => {

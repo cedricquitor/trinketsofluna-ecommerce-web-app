@@ -20,4 +20,17 @@
   }
 
   /* Navbar Styles */
+
+  /* Slider Styles */
+  .slider__img--activeSlide {
+    @apply transition opacity-100 translate-x-0;
+  }
+
+  .slider__img--nextSlide {
+    @apply transition opacity-0 -translate-x-full;
+  }
+
+  .slider__img--lastSlide {
+    @apply transition opacity-10 translate-x-full;
+  }
 }

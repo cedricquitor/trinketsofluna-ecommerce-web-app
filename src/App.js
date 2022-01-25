@@ -1,3 +1,4 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Layout
@@ -11,7 +12,11 @@ import Contact from "./pages/contact";
 import Registration from "./pages/registration";
 import Login from "./pages/login";
 
-function App() {
+// Global Context
+export const AuthContext = React.createContext();
+export const ThemeContext = React.createContext();
+
+const App = () => {
   return (
     <>
       {/* Routes that will redirect to the page that matches the forward slash "/" below. */}
@@ -67,6 +72,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;
