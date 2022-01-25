@@ -1,5 +1,15 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import { auth } from "./config";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-import { firebaseConfig } from "./config";
+// Allows the user to sign in with Google Account
+export const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
