@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  // State handler to check if the page is scrolled.
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+
+  // If the page is scrolled, it will update the state and styles
+  // of the navbar using a ternary operator in the className attribute.
   const changeNavbarColor = () => {
-    if (window.scrollY >= 150) {
+    if (window.scrollY >= 50) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
   };
 
+  // Scroll Event Listener
   window.addEventListener("scroll", changeNavbarColor);
 
   return (
@@ -23,7 +27,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex flex-row font-playfair font-medium my-auto">
-          {/* Turn to Unordered List & List Items for SEO */}
+          {/* TODO: Turn to Unordered List & List Items for SEO */}
           <Link to="/" className={isScrolled ? "ml-14 mr-8 text-md text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400" : "mr-8 text-xl text-gray-600 cursor-pointer transition duration-300 hover:text-cyan-400"}>
             Home
           </Link>
