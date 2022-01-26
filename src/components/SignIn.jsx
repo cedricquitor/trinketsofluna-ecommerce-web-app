@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { signInWithGoogle } from "../firebase/utils";
-
 import data from "../test/data";
 
 const SignIn = () => {

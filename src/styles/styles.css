@@ -21,7 +21,7 @@
 
   /* Navbar Styles */
 
-  /* Slider Styles */
+  /* SignIn Carousel Styles */
   .slider__img--activeSlide {
     @apply transition duration-300 opacity-100 translate-x-0;
   }
@@ -33,4 +33,13 @@
   .slider__img--lastSlide {
     @apply transition duration-300 opacity-[3%] translate-x-full;
   }
+}
+
+/* Slider Styles */
+.slider__slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slider__slides {
+  scrollbar-width: none;
 }
