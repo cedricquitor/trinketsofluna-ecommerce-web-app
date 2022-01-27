@@ -7,10 +7,11 @@ const SignIn = () => {
   // State handler for index and assigning data to products.
   const [products, setProducts] = useState(data);
   const [index, setIndex] = useState(0);
+  const featuredProducts = products.filter((product) => product.productFeatured);
 
   // UseEffect hook that solves the slider's caveat.
   useEffect(() => {
-    const lastIndex = products.length - 1;
+    const lastIndex = featuredProducts.length - 1;
     // Set index to the last index if it is less than 0.
     if (index < 0) {
       setIndex(lastIndex);
@@ -40,14 +41,14 @@ const SignIn = () => {
         {/* Left Side Grid */}
         <div className="bg-sky-100 flex flex-row justify-center items-center overflow-hidden basis-1/2">
           {/* Map the products from the data source. Giving each product an index.*/}
-          {products.map((product, productIndex) => {
+          {featuredProducts.map((product, productIndex) => {
             // Deconstructing product name and its thumbnail from the product array.
             const { productName, productThumbnail } = product;
             let position = "slider__img--nextSlide";
             if (productIndex === index) {
               position = "slider__img--activeSlide";
             }
-            if (productIndex === index - 1 || (index === 0 && productIndex === products.length - 1)) {
+            if (productIndex === index - 1 || (index === 0 && productIndex === featuredProducts.length - 1)) {
               position = "slider__img--lastSlide";
             }
             // For each product, return a div.
