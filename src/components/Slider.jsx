@@ -18,8 +18,20 @@ const Carousel = (props) => {
   };
 
   return (
-    <div className="container my-16">
-      <h1>Hello</h1>
+    <section className="container my-16">
+      <div className="text-center mt-28 mb-12">
+        <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Gorgeous jewelry, exquisitely crafted.</p>
+        <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight">Our Selection</h1>
+      </div>
+      <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-20 my-4">
+        <h2>Featured Products</h2>
+        <h2 className="flex cursor-pointer transition duration-200 hover:text-cyan-400 hover:border-cyan-400">
+          View All Products
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-2 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </h2>
+      </div>
       <div className="flex justify-center items-center">
         <div className="relative w-full h-full flex items-center">
           {/* Left Arrow */}
@@ -53,7 +65,7 @@ const Carousel = (props) => {
           <BsArrowRightSquare onClick={slideRight} className="h-12 w-12 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

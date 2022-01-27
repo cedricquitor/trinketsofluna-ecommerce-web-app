@@ -19,7 +19,7 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   return (
-    <div className={isScrolled ? "fixed top-0 w-full transition duration-500 bg-cyan-50 shadow-xl py-3 z-20" : "fixed top-0 transition duration-300 w-full py-8 bg-transparent z-20"}>
+    <nav className={isScrolled ? "fixed top-0 w-full transition duration-500 bg-cyan-50 shadow-xl py-3 z-20" : "fixed top-0 transition duration-300 w-full py-8 bg-transparent z-20"}>
       <div className="container mx-auto flex flex-row justify-between">
         <div className="my-auto">
           <Link to="/" className={isScrolled ? "text-xl text-gray-600 font-playfair" : "text-3xl text-gray-600 font-playfair"}>
@@ -55,7 +55,7 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-sky-200 pt-20 pb-4 mt-12">
+    <footer className="bg-sky-200 pt-20 pb-4 mt-12">
       <div className="container mx-auto flex flex-col">
         {/* Top Part */}
         <div className="mb-8 flex flex-row justify-between">
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

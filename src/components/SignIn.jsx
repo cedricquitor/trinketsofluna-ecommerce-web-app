@@ -36,7 +36,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="relative mt-12 bg-white w-5/6 m-auto drop-shadow-xl">
+    <section className="relative mt-12 bg-white w-5/6 m-auto drop-shadow-xl">
       <div className="flex flex-row">
         {/* Left Side Grid */}
         <div className="bg-sky-100 flex flex-row justify-center items-center overflow-hidden basis-1/2">
@@ -103,7 +103,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

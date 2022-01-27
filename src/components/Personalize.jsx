@@ -2,7 +2,7 @@ import React from "react";
 
 const Personalize = () => {
   return (
-    <div className="container bg-sky-100 rounded-md my-8 pt-12 pb-14 justify-center w-10/12 mx-auto">
+    <section className="container bg-sky-100 rounded-md mt-20 pt-12 pb-14 justify-center w-10/12 mx-auto">
       <h1 className="text-4xl tracking-tight font-playfair mx-auto font-extrabold text-gray-900 mt-8 w-2/3 text-center">We make it possible for you to discover your own style.</h1>
       <p className="mt-6 mb-12 w-4/5 mx-auto text-center font-lato text-xl text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis obcaecati adipisci et. Sed dolor, maiores qui rerum molestiae laborum dolores necessitatibus corporis quisquam alias consequatur perspiciatis iure nostrum fugit nihil!</p>
       <div className="mt-8 flex justify-center">
@@ -13,7 +13,7 @@ const Personalize = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
