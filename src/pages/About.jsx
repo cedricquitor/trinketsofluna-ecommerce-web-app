@@ -1,10 +1,11 @@
 import React from "react";
+import AboutUs from "../components/AboutUs";
 
 const About = () => {
   return (
-    <div>
-      <h1 className="text-2xl text-red-500">About</h1>
-    </div>
+    <>
+      <AboutUs />
+    </>
   );
 };
 

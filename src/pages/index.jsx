@@ -1,9 +1,10 @@
 import React from "react";
 import Hero from "../components/Hero";
+import Incentives from "../components/Incentives";
 import Collections from "../components/Collections";
 import Slider from "../components/Slider";
 import Personalize from "../components/Personalize";
-import Incentives from "../components/Incentives";
+import FrequentlyAskedQuestions from "../components/FrequenlyAskedQuestions";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Collections />
       <Slider />
       <Personalize />
+      <FrequentlyAskedQuestions />
     </div>
   );
 };
