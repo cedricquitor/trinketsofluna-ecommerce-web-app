@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import ScrollToTop from "./util/ScrollToTop";
 
 // Layout
 import MainLayout from "./layouts/MainLayout";
@@ -20,56 +21,58 @@ const App = () => {
   return (
     <>
       {/* Routes that will redirect to the page that matches the forward slash "/" below. */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/shop"
-          element={
-            <MainLayout>
-              <Shop />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <MainLayout>
-              <About />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <MainLayout>
-              <Contact />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/registration"
-          element={
-            <MainLayout>
-              <Registration />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <MainLayout>
-              <Login />
-            </MainLayout>
-          }
-        />
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <Home />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/shop"
+            element={
+              <MainLayout>
+                <Shop />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <MainLayout>
+                <About />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <MainLayout>
+                <Contact />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/registration"
+            element={
+              <MainLayout>
+                <Registration />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <MainLayout>
+                <Login />
+              </MainLayout>
+            }
+          />
+        </Routes>
+      </ScrollToTop>
     </>
   );
 };

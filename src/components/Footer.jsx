@@ -1,4 +1,6 @@
 import React from "react";
+import { AiFillShopping, AiFillInstagram } from "react-icons/ai";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -56,8 +58,16 @@ const Footer = () => {
           <div>
             <h1 className="font-semibold text-sm text-gray-500">Copyright 2021 Trinkets of Luna. All rights reserved.</h1>
           </div>
-          <div>
-            <h1>Right Side Social Links</h1>
+          <div className="flex my-auto">
+            <a href="https://shopee.ph/trinketsofluna/" target="_new">
+              <AiFillShopping className="h-7 w-7 mr-1 p-1 my-auto border-2 border-gray-500 rounded-full text-gray-500 transition duration-300 hover:text-[#FF6600] hover:border-[#FF6600]" />
+            </a>
+            <a href="https://www.facebook.com/trinketsofluna/" target="_new">
+              <FaFacebookSquare className="h-7 w-7 mx-1 p-1 my-auto border-2 border-gray-500 rounded-full text-gray-500 transition duration-300 hover:text-[#3b5998] hover:border-[#3b5998]" />
+            </a>
+            <a href="https://www.instagram.com/trinketsofluna/" target="_new">
+              <AiFillInstagram className="h-7 w-7 ml-1 p-1 my-auto border-2 border-gray-500 rounded-full text-gray-500 transition duration-300 hover:text-[#833AB4] hover:border-[#833AB4]" />
+            </a>
           </div>
         </div>
       </div>

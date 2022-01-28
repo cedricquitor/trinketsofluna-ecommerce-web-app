@@ -6,7 +6,7 @@ const Incentives = () => {
       <div className="container mx-auto">
         <div className="text-center">
           <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">We built our business around customer service.</p>
-          <h1 className="font-playfair font-bold text-6xl text-gray-900">Why Trinkets of Luna?</h1>
+          <h1 className="font-playfair font-bold text-6xl tracking-tight text-gray-900">Why Trinkets of Luna?</h1>
         </div>
         <div className="flex justify-around mt-16">
           <div className="text-center w-1/3 px-16">

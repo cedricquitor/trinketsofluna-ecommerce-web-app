@@ -6,7 +6,7 @@ const MainLayout = (props) => {
   return (
     <div className="bg-sky-50 flex flex-col flex-between">
       <Navbar />
-      <div className=" my-20">{props.children}</div>
+      <div className="my-20">{props.children}</div>
       <Footer />
     </div>
   );

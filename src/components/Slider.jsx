@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { BsArrowLeftSquare, BsArrowRightSquare, BsCartPlus } from "react-icons/bs";
 import data from "../test/data";
 
@@ -25,12 +26,12 @@ const Carousel = (props) => {
       </div>
       <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-20 my-4">
         <h2>Featured Products</h2>
-        <h2 className="flex cursor-pointer transition duration-200 hover:text-cyan-400 active:text-cyan-600">
+        <Link to="/shop" className="flex cursor-pointer transition duration-200 hover:text-cyan-400 active:text-cyan-600">
           View All Products
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-2 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
-        </h2>
+        </Link>
       </div>
       <div className="flex justify-center items-center">
         <div className="relative w-full h-full flex items-center">
@@ -39,7 +40,7 @@ const Carousel = (props) => {
           {/* Slider Content */}
           <div id="scroll" className="slider__slides w-11/12 h-full whitespace-nowrap overflow-x-scroll mx-auto scrollbar scroll-smooth">
             {featuredSlide.map((slide, slideIndex) => {
-              const { productName, productPrice, productThumbnail } = slide;
+              const { productCategory, productName, productPrice, productThumbnail } = slide;
               // TODO: Add key
               return (
                 <div key={productName} className="relative bg-white inline-block mx-4 shadow-md">
@@ -47,7 +48,7 @@ const Carousel = (props) => {
                   <div className="mx-4 my-4">
                     <div className="flex justify-between">
                       <h2 className="text-xl font-playfair font-medium text-gray-900">{productName}</h2>
-                      <h2 className="bg-gray-100 px-4 text-sm my-auto rounded-2xl text-gray-400 cursor-pointer transition duration-300 hover:bg-gray-300 active:bg-gray-400 active:text-gray-500">necklace</h2>
+                      <h2 className="bg-gray-100 px-4 text-sm my-auto rounded-2xl text-gray-400 cursor-pointer transition duration-300 hover:bg-gray-300 active:bg-gray-400 active:text-gray-500">{productCategory}</h2>
                     </div>
                     <h1 className="text-2xl font-lato font-bold text-gray-900">&#8369;{productPrice}</h1>
                     <div className="flex justify-between mt-4">
