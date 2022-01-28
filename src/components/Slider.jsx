@@ -41,7 +41,6 @@ const Carousel = (props) => {
           <div id="scroll" className="slider__slides w-11/12 h-full whitespace-nowrap overflow-x-scroll mx-auto scrollbar scroll-smooth">
             {featuredSlide.map((slide, slideIndex) => {
               const { productCategory, productName, productPrice, productThumbnail } = slide;
-              // TODO: Add key
               return (
                 <div key={productName} className="relative bg-white inline-block mx-4 shadow-md">
                   <img src={productThumbnail} alt={productName} className="w-[20rem] h-[24rem] object-cover" />
