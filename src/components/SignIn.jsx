@@ -38,9 +38,9 @@ const SignIn = () => {
   return (
     <section className="container mx-auto relative mt-12">
       <div className="bg-white w-5/6 m-auto drop-shadow-xl">
-        <div className="flex flex-row">
+        <div className="flex lg:flex-row sm:flex-col">
           {/* Left Side Grid */}
-          <div className="bg-sky-100 flex flex-row justify-center items-center overflow-hidden basis-1/2">
+          <div className="bg-sky-100 flex flex-row justify-center items-center overflow-hidden basis-1/2 sm:hidden lg:block">
             {/* Map the products from the data source. Giving each product an index.*/}
             {featuredProducts.map((product, productIndex) => {
               // Deconstructing product name and its thumbnail from the product array.

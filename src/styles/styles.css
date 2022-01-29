@@ -10,18 +10,47 @@
 
 /* Refactored TailwindCSS Class */
 @layer components {
-  /* Input Styles */
+  /* ---------- Navbar Styles Start ---------- */
+  .nav__container {
+    @apply fixed top-0 w-full z-20 transition duration-500;
+  }
+
+  .nav__logo {
+    @apply font-playfair text-gray-600;
+  }
+
+  .nav__itemContainer {
+    @apply my-auto flex flex-row;
+  }
+
+  .nav__item--main {
+    @apply mr-8 text-gray-600 cursor-pointer transition duration-300 
+    hover:text-cyan-400 
+    active:text-cyan-600;
+  }
+
+  .nav__item--secondary {
+    @apply mr-4 cursor-pointer text-gray-600 transition duration-300 
+    hover:text-cyan-400 
+    active:text-cyan-600;
+  }
+  /* ---------- Navbar Styles End ---------- */
+
+  /* ---------- SignIn Styles Start ---------- */
+  /* SignIn Input */
   .input__text {
-    @apply block mb-4 py-2 px-3 w-full text-xl shadow-sm border-2 border-sky-100 placeholder-transparent transition hover:border-sky-200 focus:outline-none focus:border-sky-300;
+    @apply block mb-4 py-2 px-3 w-full text-xl shadow-sm border-2 border-sky-100 placeholder-transparent transition 
+    hover:border-sky-200 
+    focus:outline-none focus:border-sky-300;
   }
 
   .input__label {
-    @apply absolute px-2 left-8 bg-white font-lato text-xs text-gray-900 transition-all peer-focus:bg-white peer-focus:px-2 peer-focus:left-8 peer-focus:text-xs peer-focus:text-gray-900 peer-placeholder-shown:text-xl peer-placeholder-shown:left-[1.9rem] peer-placeholder-shown:text-gray-400 peer-placeholder-shown:bg-none peer-placeholder-shown:px-0;
+    @apply absolute px-2 left-8 bg-white font-lato text-xs text-gray-900 transition-all 
+    peer-focus:bg-white peer-focus:px-2 peer-focus:left-8 peer-focus:text-xs peer-focus:text-gray-900 
+    peer-placeholder-shown:text-xl peer-placeholder-shown:left-[1.9rem] peer-placeholder-shown:text-gray-400 peer-placeholder-shown:bg-none peer-placeholder-shown:px-0;
   }
 
-  /* Navbar Styles */
-
-  /* SignIn Carousel Styles */
+  /* SignIn Carousel */
   .slider__img--activeSlide {
     @apply transition duration-300 opacity-100 translate-x-0;
   }
@@ -33,9 +62,11 @@
   .slider__img--lastSlide {
     @apply transition duration-300 opacity-[3%] translate-x-full;
   }
+  /* ---------- SignIn Styles End ---------- */
 }
 
-/* Slider Styles */
+/* ---------- Slider Styles Start ---------- */
+/* Slider Y-Scrollbar */
 .slider__slides::-webkit-scrollbar {
   display: none;
 }
@@ -43,3 +74,4 @@
 .slider__slides {
   scrollbar-width: none;
 }
+/* ---------- Slider Styles End ---------- */

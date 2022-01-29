@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="container mx-auto relative overflow-hidden grid grid-cols-2">
+    <section className="container mx-auto relative overflow-hidden grid lg:grid-cols-2 sm:grid-cols-1">
       <div className="relative before:absolute before:-top-5 before:w-full before:h-full before:bg-sky-300">
         <img className="absolute left-6 top-5 h-full w-full object-cover rounded-tl-full lg:w-[100%] inset-0" src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t1.6435-9/190472214_4029164170482104_1745585824208856443_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=0debeb&_nc_eui2=AeEEwmHPO99XEJVer8hoEQcrTgAgZRYUaQpOACBlFhRpCguUA9YwjUb4cT5BSOBVKy0&_nc_ohc=J4SQk-B-xc8AX_xe_i8&_nc_ht=scontent.fmnl4-6.fna&oh=00_AT_V-2-IhZmuPU3DPPa6Aw_GMbDyuDgHguiMfvyYQjGxzQ&oe=61FF1D82" alt="" />
       </div>

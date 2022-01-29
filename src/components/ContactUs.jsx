@@ -23,7 +23,7 @@ const ContactUs = () => {
           We'll be glad to address your concerns and queries between <span className="font-medium text-sky-300">8:00AM and 10:00PM</span>, from <span className="font-medium text-sky-300">Mondays through Saturdays</span>
         </p>
         <p className="mt-12 font-lato text-gray-500 text-xl">Alternatively, you could also reach us at:</p>
-        <div className="grid grid-cols-3 gap-24 mt-8">
+        <div className="mt-8 grid gap-24 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <div className="flex">
               <FiPhoneCall className="w-6 h-6 mr-4 my-auto text-sky-300" />
