@@ -9,7 +9,7 @@ const Incentives = () => {
           <h1 className="font-playfair font-bold text-6xl tracking-tight text-gray-900">Why Trinkets of Luna?</h1>
         </div>
         <div className="grid lg:grid-cols-3 sm:grid-cols-1 mt-16">
-          <div className="text-center px-16 transition duration-500 hover:-translate-y-4">
+          <div className="text-center px-16 transition duration-500 md:hover:-translate-y-4 mb-16 md:mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 mx-auto text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />

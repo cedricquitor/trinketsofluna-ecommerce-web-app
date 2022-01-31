@@ -36,11 +36,11 @@ const SignIn = () => {
   };
 
   return (
-    <section className="container mx-auto relative mt-12">
-      <div className="bg-white w-5/6 m-auto drop-shadow-xl">
-        <div className="flex lg:flex-row sm:flex-col">
+    <section className="container mx-auto relative mt-12 overflow-hidden">
+      <div className="bg-white lg-1/3 xl:w-5/6 m-auto drop-shadow-xl">
+        <div className="flex lg:flex-row flex-col">
           {/* Left Side Grid */}
-          <div className="bg-sky-100 flex flex-row justify-center items-center overflow-hidden basis-1/2 sm:hidden lg:block">
+          <div className="bg-sky-100 hidden lg:flex lg:flex-row lg:justify-center lg:items-center lg:overflow-hidden lg:basis-1/2">
             {/* Map the products from the data source. Giving each product an index.*/}
             {featuredProducts.map((product, productIndex) => {
               // Deconstructing product name and its thumbnail from the product array.
@@ -55,7 +55,7 @@ const SignIn = () => {
               // For each product, return a div.
               return (
                 <div className={position + " absolute"} key={productName}>
-                  <img src={productThumbnail} alt={productName} className="object-cover h-[40.4rem] w-full" width="650px" />
+                  <img src={productThumbnail} alt={productName} className="object-cover lg:h-[48rem] lg:w-[33rem] 2xl:h-[40.4rem] 2xl:w-[41rem]" width="650px" />
                 </div>
               );
             })}

@@ -22,12 +22,12 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mx-auto">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 mx-auto">
         {products.map((product, productIndex) => {
           const { productCategory, productName, productPrice, productThumbnail } = product;
           return (
             <div key={productName} className="relative bg-white inline-block mx-auto mb-12 shadow-md">
-              <img src={productThumbnail} alt={productName} className="w-[20rem] h-[24rem] object-cover" />
+              <img src={productThumbnail} alt={productName} className="w-[18rem] h-[22rem] object-cover" />
               <div className="mx-4 my-4">
                 <div className="flex justify-between">
                   <h2 className="text-xl font-playfair font-medium text-gray-900">{productName}</h2>
