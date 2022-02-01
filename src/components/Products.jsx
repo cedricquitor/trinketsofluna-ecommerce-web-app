@@ -23,6 +23,7 @@ const Products = () => {
       });
       // TODO: Remove the clg when deploying to production.
       setProducts(getProductsResult);
+      console.log(getProductsResult);
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +39,7 @@ const Products = () => {
         <div className="py-3 my-8 border-t-[1px] border-b-[1px] border-gray-300 flex flex-row justify-between">
           <div className="flex">
             <h2 className="mr-4 font-lato font-medium text-xl uppercase">Sort by</h2>
-            {/* TODO: Add a select drop down for category filtering */}
+            {/* TODO: Add a select drop down for category filtering & maybe (?) a search bar */}
           </div>
           <div>
             <h2 className="font-lato font-medium text-xl">{`${products.length} Products`}</h2>
@@ -47,9 +48,9 @@ const Products = () => {
       </div>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 mx-auto">
         {products.map((product, productIndex) => {
-          const { productCategory, productName, productPrice, productThumbnail } = product;
+          const { id, productCategory, productName, productPrice, productThumbnail } = product;
           return (
-            <div key={productName} className="relative bg-white inline-block mx-auto mb-12 shadow-md">
+            <div key={id} className="relative bg-white inline-block mx-auto mb-12 shadow-md">
               <img src={productThumbnail} alt={productName} className="w-[18rem] h-[22rem] object-cover" />
               <div className="mx-4 my-4">
                 <div className="flex justify-between">

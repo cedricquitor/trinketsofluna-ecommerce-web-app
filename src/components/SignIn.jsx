@@ -67,7 +67,7 @@ const SignIn = () => {
             {/* Map the products from the data source. Giving each product an index.*/}
             {featuredProducts.map((product, productIndex) => {
               // Deconstructing product name and its thumbnail from the product array.
-              const { productName, productThumbnail } = product;
+              const { id, productName, productThumbnail } = product;
               let position = "slider__img--nextSlide";
               if (productIndex === index) {
                 position = "slider__img--activeSlide";
@@ -77,7 +77,7 @@ const SignIn = () => {
               }
               // For each product, return a div.
               return (
-                <div className={position + " absolute"} key={productName}>
+                <div className={position + " absolute"} key={id}>
                   <img src={productThumbnail} alt={productName} className="object-cover lg:h-[48rem] lg:w-[33rem] 2xl:h-[40.4rem] 2xl:w-[41rem]" width="650px" />
                 </div>
               );
