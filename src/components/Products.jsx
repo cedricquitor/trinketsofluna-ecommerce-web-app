@@ -1,9 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 import { BsCartPlus } from "react-icons/bs";
-import data from "../test/data";
 
 const Products = () => {
-  const [products, setProducts] = useState(data);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    try {
+      const getProductsQuery = await getDocs(collection(db, "products"));
+      const getProductsResult = [];
+      getProductsQuery.forEach((doc) => {
+        const object = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        getProductsResult.push(object);
+      });
+      // TODO: Remove the clg when deploying to production.
+      setProducts(getProductsResult);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="mt-12 container mx-auto">

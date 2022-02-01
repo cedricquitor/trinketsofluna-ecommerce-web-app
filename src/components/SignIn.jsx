@@ -1,13 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 import { signInWithGoogle } from "../firebase/utils";
-import data from "../test/data";
+import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
   // State handler for index and assigning data to products.
-  const [products, setProducts] = useState(data);
+  const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
   const featuredProducts = products.filter((product) => product.productFeatured);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    try {
+      const getProductsQuery = await getDocs(collection(db, "products"));
+      const getProductsResult = [];
+      getProductsQuery.forEach((doc) => {
+        const object = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        getProductsResult.push(object);
+      });
+      // TODO: Remove the clg when deploying to production.
+      setProducts(getProductsResult);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // UseEffect hook that solves the slider's caveat.
   useEffect(() => {

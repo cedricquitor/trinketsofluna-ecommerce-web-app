@@ -12,6 +12,7 @@ import Shop from "./pages/shop";
 import Contact from "./pages/contact";
 import Registration from "./pages/registration";
 import Login from "./pages/login";
+import Admin from "./pages/admin";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -68,6 +69,14 @@ const App = () => {
             element={
               <MainLayout>
                 <Login />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <MainLayout>
+                <Admin />
               </MainLayout>
             }
           />

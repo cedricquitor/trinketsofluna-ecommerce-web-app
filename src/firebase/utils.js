@@ -1,4 +1,4 @@
-import { auth } from "./config";
+import { auth, db } from "./config";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 // Allows the user to sign in with Google Account

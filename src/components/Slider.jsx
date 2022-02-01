@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 import { BsArrowLeftSquare, BsArrowRightSquare, BsCartPlus } from "react-icons/bs";
-import data from "../test/data";
 
-const Carousel = (props) => {
-  const [products, setProducts] = useState(data);
-  const slides = products;
+const Slider = () => {
+  const [slides, setSlides] = useState([]);
   const featuredSlide = slides.filter((slide) => slide.productFeatured);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    try {
+      const getProductsQuery = await getDocs(collection(db, "products"));
+      const getProductsResult = [];
+      getProductsQuery.forEach((doc) => {
+        const object = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        getProductsResult.push(object);
+      });
+      // TODO: Remove the clg when deploying to production.
+      setSlides(getProductsResult);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const slideLeft = () => {
     var slider = document.getElementById("scroll");
@@ -69,4 +91,4 @@ const Carousel = (props) => {
   );
 };
 
-export default Carousel;
+export default Slider;
