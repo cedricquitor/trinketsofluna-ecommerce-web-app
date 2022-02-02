@@ -10,7 +10,7 @@ import Home from "./pages";
 import About from "./pages/about";
 import Shop from "./pages/shop";
 import Contact from "./pages/contact";
-import Registration from "./pages/registration";
+import SignUp from "./pages/signup";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
 
@@ -57,10 +57,10 @@ const App = () => {
             }
           />
           <Route
-            path="/registration"
+            path="/signup"
             element={
               <MainLayout>
-                <Registration />
+                <SignUp />
               </MainLayout>
             }
           />

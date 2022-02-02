@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AiFillShopping, AiFillInstagram } from "react-icons/ai";
 import { FaFacebookSquare } from "react-icons/fa";
 
@@ -9,9 +10,9 @@ const Footer = () => {
         {/* Top Part */}
         <div className="mb-8 flex flex-row justify-between">
           <div className="w-1/4 text-gray-500">
-            <h1 className="text-2xl font-playfair text-gray-600">
+            <Link to="/" className="text-2xl font-playfair text-gray-600">
               <span className="text-sky-700">Trinkets</span> of Luna
-            </h1>
+            </Link>
             <p className="my-4">
               123 Address Street
               <br />
