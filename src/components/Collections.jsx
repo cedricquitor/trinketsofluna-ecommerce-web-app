@@ -4,7 +4,8 @@ const Collections = () => {
   return (
     <section className="relative container mt-36 w-8/12 mx-auto ">
       <div className="text-center my-20">
-        <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Be a part of our story. Be a part of the brand.</p>
+        {/* TODO: Fill the placeholder here. */}
+        <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Lorem ipsum. Just a placeholder.</p>
         <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight">Our Collections</h1>
       </div>
       <div className="mt-8 flex flex-row relative left-20">

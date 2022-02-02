@@ -44,7 +44,7 @@ const Slider = () => {
     <section className="container mt-36 mx-auto">
       <div className="text-center mb-12">
         <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Gorgeous jewelry, exquisitely crafted.</p>
-        <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight">Our Selection</h1>
+        <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight">Our Favorites</h1>
       </div>
       <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-20 my-4">
         <h2>Featured Products</h2>

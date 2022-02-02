@@ -12,6 +12,7 @@ import Shop from "./pages/shop";
 import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
+import Recovery from "./pages/recovery";
 import Admin from "./pages/admin";
 
 // Global Context
@@ -69,6 +70,14 @@ const App = () => {
             element={
               <MainLayout>
                 <Login />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/recovery"
+            element={
+              <MainLayout>
+                <Recovery />
               </MainLayout>
             }
           />

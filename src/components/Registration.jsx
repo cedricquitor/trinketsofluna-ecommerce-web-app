@@ -119,7 +119,7 @@ const Registration = () => {
                     </label>
                   </div>
                   <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
-                    Login
+                    Create your account
                   </a>
                   <p className="block font-playfair font-normal text-sm text-gray-400 mb-4">
                     Already have an account?
