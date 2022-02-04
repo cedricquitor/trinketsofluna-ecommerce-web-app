@@ -1,10 +1,10 @@
 import React, { createContext, useState } from "react";
 import { auth } from "../firebase/config";
-import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 
 const AuthContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
   /* TODO: Use this context as a reference.
   Set up state handlers for loading and error */
   const [user, setUser] = useState(null);
@@ -64,15 +64,24 @@ const AuthContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
-  const forgotPassword = (email) => {
-    console.log("forgotPassword");
+  const logoutUser = () => {
+    signOut(auth);
   };
 
-  const logoutUser = () => {};
+  const forgotPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
 
-  const contextValue = {};
+  const contextValue = {
+    user,
+    loading,
+    error,
+    registerUserWithEmail,
+    registerUserWithGoogle,
+    signInUser,
+    logoutUser,
+    forgotPassword,
+  };
 
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };
-
-export default AuthContextProvider;
