@@ -42,7 +42,7 @@ const Registration = () => {
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index]);
+  }, [featuredProducts.length, index]);
 
   // UseEffect hook that slides the image every 4 seconds.
   useEffect(() => {
@@ -100,27 +100,25 @@ const Registration = () => {
               <div className="relative">
                 <form onSubmit={handleSubmit} className="mx-4">
                   <p className="font-playfair font-medium text-base text-left text-gray-900 mb-2">Join using your email</p>
+                  <div className="">
+                    <input type="text" id="name" className="input__text peer" placeholder="Name" />
+                    <label htmlFor="name" className="input__label top-6 peer-placeholder-shown:top-[2.6rem] peer-focus:top-6">
+                      Name
+                    </label>
+                  </div>
                   <div>
-                    <input type="text" id="email" className="input__text peer" placeholder="Email Address" />
-                    <label htmlFor="email" className="input__label top-6 peer-placeholder-shown:top-[2.6rem] peer-focus:top-6">
+                    <input type="password" id="email" className="input__text peer" placeholder="Email Address" />
+                    <label htmlFor="email" className="input__label top-[5.5rem] peer-placeholder-shown:top-[6.6rem] peer-focus:top-[5.5rem]">
                       Email Address
                     </label>
                   </div>
-                  <div>
+                  <div className="mb-10">
                     <input type="password" id="password" className="input__text peer" placeholder="Password" />
-                    <label htmlFor="password" className="input__label top-[5.5rem] peer-placeholder-shown:top-[6.6rem] peer-focus:top-[5.5rem]">
+                    <label htmlFor="password" className="input__label top-[8.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
                       Password
                     </label>
                   </div>
-                  <div className="mb-10">
-                    <input type="password" id="confirm" className="input__text peer" placeholder="Confirm Password" />
-                    <label htmlFor="confirm" className="input__label top-[8.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
-                      Confirm Password
-                    </label>
-                  </div>
-                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
-                    Create your account
-                  </a>
+                  <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">Create your account</button>
                   <p className="block font-playfair font-normal text-sm text-gray-400 mb-4">
                     Already have an account?
                     <Link to="/login" className="ml-2 text-sky-300 transition hover:text-sky-500 hover:drop-shadow-sm active:text-sky-600">

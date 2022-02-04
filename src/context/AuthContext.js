@@ -1,32 +1,67 @@
 import React, { createContext, useState } from "react";
 import { auth } from "../firebase/config";
-import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
 
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
+  /* TODO: Use this context as a reference.
+  Set up state handlers for loading and error */
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState();
   const [error, setError] = useState("");
 
-  const registerUserWithEmail = (email, password) => {
-    console.log("registerUserWithEmail");
+  useEffect(() => {
+    setLoading(true);
+    const unsubscribe = onAuthStateChanged(auth, (res) => {
+      res ? setUser(res) : setUser(null);
+      setError("");
+      setLoading(false);
+    });
+    return unsubscribe;
+  }, []);
+
+  const registerUserWithEmail = (name, email, password) => {
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        return updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+      })
+      .then((res) => console.log(res))
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      })
+      .finally(() => setLoading(false));
   };
 
   const registerUserWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-
+    setLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
       })
       .catch((error) => {
         console.log(error);
-      });
+        setError(error.message);
+      })
+      .finally(() => setLoading(false));
   };
 
   const signInUser = (email, passowrd) => {
-    console.log("loginUser");
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, passowrd)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      })
+      .finally(() => setLoading(false));
   };
 
   const forgotPassword = (email) => {
