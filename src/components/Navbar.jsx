@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import useDarkMode from "../hooks/useDarkMode";
+import { useThemeContext } from "../context/ThemeContext";
 
 const Navbar = () => {
   // State handler to check if the page is scrolled.
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Custom hook for theme (light/dark).
-  const [colorTheme, setTheme] = useDarkMode();
+  const { colorTheme, setTheme } = useThemeContext();
 
   // If the page is scrolled, it will update the state and styles
   // of the navbar using a ternary operator in the className attribute.

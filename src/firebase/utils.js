@@ -9,6 +9,7 @@ export const signInWithGoogle = () => {
     .then((result) => {
       console.log(result);
       console.log(result.user);
+      console.log(result.user.uid);
     })
     .catch((error) => {
       console.log(error);

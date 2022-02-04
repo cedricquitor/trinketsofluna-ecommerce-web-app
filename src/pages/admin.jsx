@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 const Admin = () => {
   return (
     <>
-      <Loading />
+      <AddProducts />
     </>
   );
 };

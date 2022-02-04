@@ -4,12 +4,18 @@ import "./styles/styles.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import { AuthContextProvider } from "./context/AuthContext";
+import { ThemeContextProvider } from "./context/ThemeContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AuthContextProvider>
+      <ThemeContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
