@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { signInWithGoogle } from "../firebase/utils";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useAuthContext } from "../context/AuthContext";
 
 const SignIn = () => {
   // State handler for index and assigning data to products.
   const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
   const featuredProducts = products.filter((product) => product.productFeatured);
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const { signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
 
   useEffect(() => {
     getProducts();
@@ -44,7 +49,7 @@ const SignIn = () => {
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index]);
+  }, [featuredProducts.length, index]);
 
   // UseEffect hook that slides the image every 4 seconds.
   useEffect(() => {
@@ -57,6 +62,11 @@ const SignIn = () => {
   // Form submit will not refresh the page.
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    if (email && password) {
+      signInUserWithEmail(email, password);
+    }
   };
 
   return (
@@ -104,13 +114,13 @@ const SignIn = () => {
                 <form onSubmit={handleSubmit} className="mx-4">
                   <p className="font-playfair font-medium text-base text-left text-gray-900 mb-2">Login with email</p>
                   <div>
-                    <input type="text" id="email" className="input__text peer" placeholder="Email Address" />
+                    <input type="text" id="email" placeholder="Email Address" ref={emailRef} className="input__text peer" />
                     <label htmlFor="email" className="input__label top-6 peer-placeholder-shown:top-[2.6rem] peer-focus:top-6">
                       Email Address
                     </label>
                   </div>
                   <div>
-                    <input type="password" id="password" className="input__text peer" placeholder="Password" />
+                    <input type="password" id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
                     <label htmlFor="password" className="input__label top-[5.5rem] peer-placeholder-shown:top-[6.6rem] peer-focus:top-[5.5rem]">
                       Password
                     </label>
@@ -118,11 +128,11 @@ const SignIn = () => {
                   <Link to="/recovery" className="block mb-4 py-auto font-playfair font-normal text-sm text-gray-400 text-left transition hover:text-gray-600 active:text-gray-900">
                     Forgot your password?
                   </Link>
-                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
+                  <button onClick={handleSubmit} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
                     Login
-                  </a>
+                  </button>
                   <p className="font-playfair text-base font-medium text-left mb-2">Connect with Socials</p>
-                  <button onClick={signInWithGoogle} className="w-[99%] mx-auto flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600">
+                  <button onClick={signInUserWithGoogle} className="w-[99%] mx-auto flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600">
                     <FcGoogle className="mr-4 my-auto" />
                     Sign in with Google
                   </button>

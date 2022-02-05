@@ -123,14 +123,14 @@ const Registration = () => {
                     </label>
                   </div>
                   <div>
-                    <input type="password" id="email" placeholder="Email Address" ref={emailRef} className="input__text peer" />
+                    <input type="email" id="email" placeholder="Email Address" ref={emailRef} className="input__text peer" />
                     <label htmlFor="email" className="input__label top-[5.5rem] peer-placeholder-shown:top-[6.6rem] peer-focus:top-[5.5rem]">
                       Email Address
                     </label>
                   </div>
                   <div className="mb-10">
                     <input type="password" id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
-                    <label htmlFor="password" className="input__label top-[8.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
+                    <label htmlFor="password" className="input__label top-[9.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
                       Password
                     </label>
                   </div>

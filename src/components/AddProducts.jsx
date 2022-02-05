@@ -39,7 +39,7 @@ const AddProducts = () => {
   };
 
   const testToast = () => {
-    toast("This is a test toast!");
+    toast.success("This is a test toast!");
     console.log(theme);
   };
 

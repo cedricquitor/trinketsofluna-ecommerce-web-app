@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
-  const registerUserWithGoogle = () => {
+  const signInUserWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     setLoading(true);
     signInWithPopup(auth, provider)
@@ -53,7 +53,7 @@ export const AuthContextProvider = ({ children }) => {
       .finally(() => setLoading(false));
   };
 
-  const signInUser = (email, passowrd) => {
+  const signInUserWithEmail = (email, passowrd) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, passowrd)
       .then((result) => {
@@ -79,8 +79,8 @@ export const AuthContextProvider = ({ children }) => {
     loading,
     error,
     registerUserWithEmail,
-    registerUserWithGoogle,
-    signInUser,
+    signInUserWithGoogle,
+    signInUserWithEmail,
     logoutUser,
     forgotPassword,
   };
