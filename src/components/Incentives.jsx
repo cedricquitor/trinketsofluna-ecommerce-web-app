@@ -2,7 +2,7 @@ import React from "react";
 
 const Incentives = () => {
   return (
-    <div className="bg-white bg-opacity-70 py-20 mt-28 dark:bg-opacity-100 dark:bg-gray-800">
+    <div className="bg-white bg-opacity-70 py-20 mt-28 dark:bg-opacity-100 dark:bg-gray-800 transition duration-500">
       <div className="container mx-auto">
         <div className="text-center">
           <p className="text-gray-500 text-sm font-lato uppercase tracking-widest dark:text-gray-400">We built our business around customer service.</p>
