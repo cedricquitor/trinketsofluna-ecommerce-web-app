@@ -23,10 +23,16 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   return (
-    <nav className={isScrolled ? "nav__container py-3 bg-cyan-100 shadow-xl dark:bg-gray-700" : "nav__container py-8 bg-transparent"}>
+    <nav className={isScrolled ? "nav__container lg:py-3 lg:bg-cyan-100" : "nav__container lg:shadow-none lg:py-8 lg:bg-transparent dark:lg:bg-transparent"}>
       <div className="container mx-auto flex flex-row justify-between">
+        <div className="flex md:flex lg:hidden">
+          {/* Hamburger Menu */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </div>
         <div className="my-auto">
-          <Link to="/" className={isScrolled ? "nav__logo text-xl" : "nav__logo text-3xl"}>
+          <Link to="/" className={isScrolled ? "nav__logo text-lg md:text-3xl lg:text-xl" : "nav__logo text-lg md:text-3xl lg:text-3xl"}>
             <span className="text-sky-300 dark:text-sky-500">Trinkets</span> of Luna
           </Link>
         </div>
@@ -69,6 +75,12 @@ const Navbar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </Link>
+        </div>
+        <div className="flex lg:hidden">
+          {/* Shopping Bag */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
         </div>
       </div>
     </nav>

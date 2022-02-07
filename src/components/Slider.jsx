@@ -43,11 +43,11 @@ const Slider = () => {
   return (
     <section className="container mt-36 mx-auto">
       <div className="text-center mb-12">
-        <p className="text-gray-500 text-sm font-lato uppercase tracking-widest dark:text-gray-400">Gorgeous jewelry, exquisitely crafted.</p>
-        <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight dark:text-zinc-100">Our Favorites</h1>
+        <p className="text-gray-500 text-xs md:text-sm font-lato uppercase tracking-widest dark:text-gray-400">Gorgeous jewelry, exquisitely crafted.</p>
+        <h1 className="text-5xl md:text-8xl text-gray-900 font-playfair font-extrabold tracking-tight dark:text-zinc-100">Our Favorites</h1>
       </div>
-      <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-20 my-4 dark:text-zinc-100">
-        <h2>Featured Products</h2>
+      <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-8 md:mx-12 lg:mx-16 2xl:mx-20 my-4 dark:text-zinc-100">
+        <h2 className="hidden md:flex">Featured Products</h2>
         <Link to="/shop" className="flex cursor-pointer transition duration-300 hover:text-cyan-400 active:text-cyan-600 dark:text-zinc-100 dark:hover:text-cyan-400 dark:active:text-cyan-600">
           View All Products
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-2 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -84,7 +84,7 @@ const Slider = () => {
             })}
           </div>
           {/* Right Arrow */}
-          <BsArrowRightSquare onClick={slideRight} className="h-12 w-12 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block dark:text-gray-700" />
+          <BsArrowRightSquare onClick={slideRight} className="h-8 w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block dark:text-gray-700" />
         </div>
       </div>
     </section>
