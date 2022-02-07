@@ -3,6 +3,8 @@ import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import { useThemeContext } from "../context/ThemeContext";
+import { ToastContainer } from "react-toastify";
 
 const Registration = () => {
   // State handler for index and assigning data to products.
@@ -15,6 +17,7 @@ const Registration = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const { theme } = useThemeContext();
   const { registerUserWithEmail } = useAuthContext();
 
   useEffect(() => {
@@ -148,6 +151,7 @@ const Registration = () => {
           </div>
         </div>
       </div>
+      <ToastContainer theme={theme} />
     </section>
   );
 };

@@ -1,6 +1,15 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { auth } from "../firebase/config";
-import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { toast } from "react-toastify";
 
 const AuthContext = createContext();
@@ -12,13 +21,11 @@ export const AuthContextProvider = ({ children }) => {
   Set up state handlers for loading and error */
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState();
-  const [error, setError] = useState("");
 
   useEffect(() => {
     setLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (res) => {
       res ? setUser(res) : setUser(null);
-      setError("");
       setLoading(false);
     });
     return unsubscribe;
@@ -34,10 +41,14 @@ export const AuthContextProvider = ({ children }) => {
       })
       .then((res) => console.log(res))
       .catch((error) => {
-        console.log(error);
-        setError(error.message);
+        toast.error(error.message);
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        toast.success(
+          "Congratulations, your account has been successfully created!"
+        );
+      });
   };
 
   const signInUserWithGoogle = () => {
@@ -48,10 +59,12 @@ export const AuthContextProvider = ({ children }) => {
         console.log(result);
       })
       .catch((error) => {
-        console.log(error);
-        setError(error.message);
+        toast.error(error.message);
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        toast.success(`Sign-in confirmed. Welcome back, ${user.displayName}!`);
+      });
   };
 
   const signInUserWithEmail = (email, passowrd) => {
@@ -61,25 +74,32 @@ export const AuthContextProvider = ({ children }) => {
         console.log(result);
       })
       .catch((error) => {
-        console.log(error);
-        setError(error.message);
         toast.error(error.message);
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        toast.success(`Sign in confirmed. Welcome back, ${user.displayName}!`);
+      });
   };
 
   const logoutUser = () => {
     signOut(auth);
+    toast.success(`Signed out. We hope to see you again soon!`);
   };
 
   const forgotPassword = (email) => {
-    return sendPasswordResetEmail(auth, email);
+    return sendPasswordResetEmail(auth, email)
+    .catch((error) => {
+      toast.error(error.message);
+    })
+    .finally(() => {
+      toast.success("Password Reset request sent. Click the link in that message to reset your password.")
+    })
   };
 
   const contextValue = {
     user,
     loading,
-    error,
     registerUserWithEmail,
     signInUserWithGoogle,
     signInUserWithEmail,
@@ -87,5 +107,7 @@ export const AuthContextProvider = ({ children }) => {
     forgotPassword,
   };
 
-  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 };

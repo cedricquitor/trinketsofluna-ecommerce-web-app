@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { BiLock } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
+import { useThemeContext } from "../context/ThemeContext";
 
 const ForgotPassword = () => {
   const emailRef = useRef();
 
+  const { theme } = useThemeContext();
   const { forgotPassword } = useAuthContext();
 
   const handleSubmit = async (e) => {
@@ -17,11 +20,11 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="mt-20 flex justify-center">
+    <section className="mt-20 flex justify-center">
       <div className="mx-auto my-auto py-8 w-2/3 md:w-1/2 xl:w-1/3 2xl:w-1/4 bg-white shadow-lg">
         <div className="mx-16 mb-8">
           <BiLock className="h-32 w-32 mb-2 mx-auto text-sky-300" />
-          <h1 className="mb-2 font-playfair text-gray-900 text-3xl text-center">Trouble logging in?</h1>
+          <h1 className="mb-2 font-playfair font-medium text-gray-900 text-3xl text-center">Trouble logging in?</h1>
           <p className="font-lato text-gray-400 text-xl text-center">Enter your email and we'll send you a link to get back into your account.</p>
         </div>
         <div className="w-5/6 mx-auto">
@@ -46,7 +49,8 @@ const ForgotPassword = () => {
           </p>
         </div>
       </div>
-    </div>
+      <ToastContainer theme={theme} />
+    </section>
   );
 };
 
