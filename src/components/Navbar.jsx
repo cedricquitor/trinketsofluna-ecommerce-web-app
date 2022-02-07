@@ -23,11 +23,11 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   return (
-    <nav className={isScrolled ? "nav__container py-3 bg-cyan-50 shadow-xl" : "nav__container py-8 bg-transparent"}>
+    <nav className={isScrolled ? "nav__container py-3 bg-cyan-50 shadow-xl dark:bg-gray-700" : "nav__container py-8 bg-transparent"}>
       <div className="container mx-auto flex flex-row justify-between">
         <div className="my-auto">
           <Link to="/" className={isScrolled ? "nav__logo text-xl" : "nav__logo text-3xl"}>
-            <span className="text-sky-300">Trinkets</span> of Luna
+            <span className="text-sky-300 dark:text-sky-500">Trinkets</span> of Luna
           </Link>
         </div>
         <div className="nav__itemContainer font-playfair font-medium">

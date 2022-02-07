@@ -19,7 +19,6 @@ const Registration = () => {
 
   useEffect(() => {
     getProducts();
-    console.log(localStorage.getItem("theme"));
   }, []);
 
   const getProducts = async () => {

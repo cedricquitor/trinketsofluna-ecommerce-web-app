@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const MainLayout = (props) => {
   return (
-    <div className="bg-sky-50 flex flex-col justify-between transition duration-500 dark:bg-gray-800">
+    <div className="bg-sky-50 flex flex-col justify-between transition duration-500 dark:bg-zinc-900">
       <Navbar />
       <div className="my-20">{props.children}</div>
       <Footer />

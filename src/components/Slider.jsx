@@ -43,12 +43,12 @@ const Slider = () => {
   return (
     <section className="container mt-36 mx-auto">
       <div className="text-center mb-12">
-        <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Gorgeous jewelry, exquisitely crafted.</p>
-        <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight">Our Favorites</h1>
+        <p className="text-gray-500 text-sm font-lato uppercase tracking-widest dark:text-gray-400">Gorgeous jewelry, exquisitely crafted.</p>
+        <h1 className="text-8xl text-gray-900 font-playfair font-extrabold tracking-tight dark:text-zinc-100">Our Favorites</h1>
       </div>
-      <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-20 my-4">
+      <div className="flex justify-between font-medium font-playfair text-2xl text-gray-900 mx-20 my-4 dark:text-zinc-100">
         <h2>Featured Products</h2>
-        <Link to="/shop" className="flex cursor-pointer transition duration-200 hover:text-cyan-400 active:text-cyan-600">
+        <Link to="/shop" className="flex cursor-pointer transition duration-300 hover:text-cyan-400 active:text-cyan-600 dark:text-zinc-100 dark:hover:text-cyan-400 dark:active:text-cyan-600">
           View All Products
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-2 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -58,23 +58,23 @@ const Slider = () => {
       <div className="flex justify-center items-center">
         <div className="relative w-full h-full flex items-center">
           {/* Left Arrow */}
-          <BsArrowLeftSquare onClick={slideLeft} className="h-12 w-12 absolute left-0 text-sky-200 shadow-sm transition cursor-pointer opacity-40 hover:opacity-100 hidden md:block" />
+          <BsArrowLeftSquare onClick={slideLeft} className="h-12 w-12 absolute left-0 text-sky-200 shadow-sm transition cursor-pointer opacity-40 hover:opacity-100 hidden md:block dark:text-gray-700" />
           {/* Slider Content */}
           <div id="scroll" className="slider__slides w-11/12 h-full whitespace-nowrap overflow-x-scroll mx-auto scrollbar scroll-smooth">
             {featuredSlide.map((slide, slideIndex) => {
               const { id, productCategory, productName, productPrice, productThumbnail } = slide;
               return (
-                <div key={id} className="relative bg-white inline-block mx-4 shadow-md">
+                <div key={id} className="relative bg-white inline-block mx-4 shadow-md dark:bg-gray-800">
                   <img src={productThumbnail} alt={productName} className="w-[20rem] h-[24rem] object-cover" />
                   <div className="mx-4 my-4">
                     <div className="flex justify-between">
-                      <h2 className="text-xl font-playfair font-medium text-gray-900">{productName}</h2>
-                      <h2 className="bg-gray-100 px-4 text-sm my-auto rounded-2xl text-gray-400 cursor-pointer transition duration-300 hover:bg-gray-300 active:bg-gray-400 active:text-gray-500">{productCategory}</h2>
+                      <h2 className="text-xl font-playfair font-medium text-gray-900 dark:text-zinc-100">{productName}</h2>
+                      <h2 className="bg-gray-100 px-4 text-sm my-auto rounded-2xl text-gray-400 cursor-pointer transition duration-300 hover:bg-gray-300 active:bg-gray-400 active:text-gray-500 dark:bg-gray-700 dark:text-gray-500">{productCategory}</h2>
                     </div>
-                    <h1 className="text-2xl font-lato font-bold text-gray-900">&#8369;{productPrice}</h1>
+                    <h1 className="text-2xl font-lato font-bold text-gray-900 dark:text-zinc-100">&#8369;{productPrice}</h1>
                     <div className="flex justify-between mt-4">
-                      <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600" />
-                      <a href="#" className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:py-2 md:text-lg md:px-8 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
+                      <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600 dark:text-sky-500" />
+                      <a href="#" className="btn--primary md:py-2 md:px-8 focus:ring-2">
                         Buy Now
                       </a>
                     </div>
@@ -84,7 +84,7 @@ const Slider = () => {
             })}
           </div>
           {/* Right Arrow */}
-          <BsArrowRightSquare onClick={slideRight} className="h-12 w-12 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block" />
+          <BsArrowRightSquare onClick={slideRight} className="h-12 w-12 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block dark:text-gray-700" />
         </div>
       </div>
     </section>

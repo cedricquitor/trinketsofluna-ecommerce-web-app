@@ -4,6 +4,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "../context/AuthContext";
+import { ToastContainer } from "react-toastify";
+import { useThemeContext } from "../context/ThemeContext";
 
 const SignIn = () => {
   // State handler for index and assigning data to products.
@@ -14,6 +16,7 @@ const SignIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const { theme } = useThemeContext();
   const { signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
 
   useEffect(() => {
@@ -148,6 +151,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <ToastContainer theme={theme} />
     </section>
   );
 };
