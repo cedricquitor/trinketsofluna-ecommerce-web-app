@@ -23,7 +23,7 @@ const Navbar = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   return (
-    <nav className={isScrolled ? "nav__container py-3 bg-cyan-50 shadow-xl dark:bg-gray-700" : "nav__container py-8 bg-transparent"}>
+    <nav className={isScrolled ? "nav__container py-3 bg-cyan-100 shadow-xl dark:bg-gray-700" : "nav__container py-8 bg-transparent"}>
       <div className="container mx-auto flex flex-row justify-between">
         <div className="my-auto">
           <Link to="/" className={isScrolled ? "nav__logo text-xl" : "nav__logo text-3xl"}>
