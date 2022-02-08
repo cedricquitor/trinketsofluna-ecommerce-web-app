@@ -9,7 +9,7 @@ const ContactUs = () => {
     <div className="mt-12 mx-auto container">
       <div className="pb-14 text-center border-b-[1px] border-gray-300">
         <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">We expect to hear from you soon.</p>
-        <h1 className="font-playfair font-bold text-8xl tracking-tight text-gray-900">Contact Us</h1>
+        <h1 className="font-playfair font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900">Contact Us</h1>
       </div>
       <div className="mt-8 w-5/6 mx-auto">
         <p className="mt-4 font-lato text-gray-500 text-xl">

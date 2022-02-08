@@ -33,10 +33,10 @@ const Products = () => {
     <div className="mt-12 container mx-auto">
       <div className="text-center">
         <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Choose the one that fits your style.</p>
-        <h1 className="font-playfair font-bold text-8xl tracking-tight text-gray-900">Our Jewelries</h1>
+        <h1 className="font-playfair font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900">Our Jewelries</h1>
       </div>
       <div className="container">
-        <div className="py-3 my-8 border-t-[1px] border-b-[1px] border-gray-300 flex flex-row justify-between">
+        <div className="py-3 my-8 border-t-[1px] border-b-[1px] border-gray-300 flex flex-row justify-between mx-8 2xl:mx-0">
           <div className="flex">
             <h2 className="mr-4 font-lato font-medium text-xl uppercase">Sort by</h2>
             {/* TODO: Add a select drop down for category filtering & maybe (?) a search bar */}

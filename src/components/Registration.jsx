@@ -77,7 +77,7 @@ const Registration = () => {
 
   return (
     <section className="container mx-auto relative mt-12 overflow-hidden">
-      <div className="bg-white lg-1/3 xl:w-5/6 2xl:h-[40.2rem] m-auto drop-shadow-xl">
+      <div className="bg-white w-11/12 md:w-5/6 xl:w-5/6 2xl:h-[40.2rem] m-auto drop-shadow-xl">
         <div className="flex lg:flex-row flex-col h-full">
           {/* Left Side Grid */}
           <div className="bg-sky-100 hidden lg:flex lg:flex-row lg:justify-center lg:items-center lg:overflow-hidden lg:basis-1/2">
@@ -102,7 +102,7 @@ const Registration = () => {
           </div>
           {/* Right Side Grid */}
           <div className="mx-auto text-center my-8 basis-1/2 z-10">
-            <div className="mx-24">
+            <div className="mx-8 md:mx-24 lg:mx-12 2xl:mx-24">
               <div className="flex mb-8 justify-center items-center">
                 <Link to="/login" className="mx-4 font-medium font-playfair text-xl cursor-pointer transition duration-300 text-gray-400 hover:text-sky-400 active:text-sky-600">
                   Login
@@ -111,8 +111,8 @@ const Registration = () => {
                   Sign Up
                 </Link>
               </div>
-              <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Be a part of our story. Be a part of the brand.</p>
-              <h1 className="text-5xl text-gray-900 font-playfair mb-8">
+              <p className="text-gray-400 text-xs md:text-sm lg:text-xs 2xl:text-sm font-lato uppercase tracking-widest">Be a part of our story. Be a part of the brand.</p>
+              <h1 className="text-4xl md:text-5xl lg:text-4xl 2xl:text-5xl text-gray-900 font-playfair mb-8">
                 <span className="text-sky-300">Trinkets</span> of Luna
               </h1>
               <div className="relative">
@@ -136,10 +136,10 @@ const Registration = () => {
                       Password
                     </label>
                   </div>
-                  <button onClick={() => handleSubmit()} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
+                  <button onClick={() => handleSubmit()} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base lg:text-sm 2xl:text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
                     Create your account
                   </button>
-                  <p className="block font-playfair font-normal text-sm text-gray-400 mb-4">
+                  <p className="block font-playfair font-normal text-sm text-gray-400 mb-4 mt-4">
                     Already have an account?
                     <Link to="/login" className="ml-2 text-sky-300 transition hover:text-sky-500 hover:drop-shadow-sm active:text-sky-600">
                       Login

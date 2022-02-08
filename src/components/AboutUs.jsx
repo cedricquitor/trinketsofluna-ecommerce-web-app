@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div className="mt-12 mx-auto container">
       <div className="pb-14 text-center border-b-[1px] border-gray-300">
         <p className="text-gray-400 text-sm font-lato uppercase tracking-widest">Trinket of Luna's Story</p>
-        <h1 className="font-playfair font-bold text-8xl tracking-tight text-gray-900">About Us</h1>
+        <h1 className="font-playfair font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900">About Us</h1>
       </div>
       <div className="mt-8 w-5/6 mx-auto">
         <h2 className="font-playfair font-semibold text-4xl tracking-tight text-gray-900">Who are we?</h2>
