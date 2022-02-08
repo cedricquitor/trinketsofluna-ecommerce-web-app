@@ -58,7 +58,7 @@ const Slider = () => {
       <div className="flex justify-center items-center">
         <div className="relative w-full h-full flex items-center">
           {/* Left Arrow */}
-          <BsArrowLeftSquare onClick={slideLeft} className="h-12 w-12 absolute left-0 text-sky-200 shadow-sm transition cursor-pointer opacity-40 hover:opacity-100 hidden md:block dark:text-gray-700" />
+          <BsArrowLeftSquare onClick={slideLeft} className="h-8 w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12 ml-2 z-10 absolute left-0 text-sky-200 shadow-sm transition cursor-pointer opacity-40 hover:opacity-100 hidden md:block dark:text-gray-700" />
           {/* Slider Content */}
           <div id="scroll" className="slider__slides w-11/12 h-full whitespace-nowrap overflow-x-scroll mx-auto scrollbar scroll-smooth">
             {featuredSlide.map((slide, slideIndex) => {
@@ -84,7 +84,7 @@ const Slider = () => {
             })}
           </div>
           {/* Right Arrow */}
-          <BsArrowRightSquare onClick={slideRight} className="h-8 w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block dark:text-gray-700" />
+          <BsArrowRightSquare onClick={slideRight} className="h-8 w-8 lg:h-10 lg:w-10 2xl:h-12 2xl:w-12 mr-2 z-10 absolute right-0 text-sky-200 shadow-sm transition cursor-pointer opacity-50 hover:opacity-100 hidden md:block dark:text-gray-700" />
         </div>
       </div>
     </section>

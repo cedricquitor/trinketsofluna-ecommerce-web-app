@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="container mx-auto relative overflow-hidden grid lg:grid-cols-2 sm:grid-cols-1">
-      <div className="relative before:absolute before:-top-5 before:w-full before:h-full before:bg-sky-300 before:dark:bg-sky-500">
-        <img className="hidden lg:block absolute left-6 top-5 h-full w-full object-cover rounded-tl-full lg:w-[100%] inset-0" src="https://pbs.twimg.com/media/FEzJSkyVIAcTBeq?format=jpg&name=medium" alt="A Trinket of Luna jewelry" />
+      <div className="relative before:absolute before:-top-5 lg:before:w-[90%] lg:before:h-[100%] 2xl:before:w-full 2xl:before:h-full before:bg-sky-300 before:dark:bg-sky-500 lg:ml-12 2xl:ml-0">
+        <img className="hidden lg:block absolute left-6 top-5 h-full w-full object-cover rounded-tl-full lg:w-[90%] 2xl:w-[100%] inset-0" src="https://pbs.twimg.com/media/FEzJSkyVIAcTBeq?format=jpg&name=medium" alt="A Trinket of Luna jewelry" />
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto lg:mr-8 2xl:mr-0">
         <div className="relative pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">

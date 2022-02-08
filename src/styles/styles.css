@@ -37,6 +37,7 @@
 
   .nav__logo {
     @apply font-playfair text-gray-600
+    lg:ml-12 2xl:ml-0
     dark:text-zinc-100;
   }
 

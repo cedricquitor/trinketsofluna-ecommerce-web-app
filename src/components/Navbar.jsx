@@ -51,7 +51,7 @@ const Navbar = () => {
             Contact
           </Link>
         </div>
-        <div className="nav__itemContainer">
+        <div className="nav__itemContainer lg:mr-8 2xl:mr-0">
           {colorTheme === "light" ? (
             <span onClick={() => setTheme(colorTheme)}>
               <svg xmlns="http://www.w3.org/2000/svg" className={isScrolled ? "nav__item--secondary h-4 w-4" : "nav__item--secondary h-6 w-6"} fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -6,10 +6,10 @@ import { FaFacebookSquare } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-cyan-100 pt-12 pb-8 lg:pt-20 lg:pb-4 mt-12 dark:bg-gray-700 transition duration-500">
-      <div className="container mx-auto flex flex-col">
+      <div className="container flex flex-col lg:mx-auto">
         {/* Top Part */}
         <div className="mb-8 flex flex-col lg:flex-row lg:justify-between">
-          <div className="lg:w-1/4 text-gray-500 dark:text-gray-400 mx-auto lg:mx-0">
+          <div className="lg:w-1/4 text-gray-500 dark:text-gray-400 mx-auto lg:mx-16 2xl:mx-0">
             <Link to="/" className="text-3xl md:text-4xl lg:text-2xl font-playfair text-gray-600 dark:text-zinc-100">
               <span className="text-sky-700 dark:text-sky-500">Trinkets</span> of Luna
             </Link>
@@ -27,7 +27,7 @@ const Footer = () => {
               <strong className="font-medium mr-1">Email:</strong>info@trinketsofluna.com
             </p>
           </div>
-          <div className="lg:w-3/5 flex flex-col lg:flex-row justify-end mt-6 lg:mt-0">
+          <div className="lg:w-3/5 flex flex-col lg:flex-row justify-end mt-6 lg:mt-0 lg:mx-16 2xl:mx-0">
             <div className="mx-auto lg:mx-12 mt-2 lg:mt-0">
               <h4 className="lg:mb-2 text-lg md:text-xl text-gray-900 font-playfair font-medium dark:text-zinc-100 text-center lg:text-left">Brand</h4>
               <ul className="text-gray-500 font-lato leading-loose dark:text-gray-400 flex lg:block">
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Bottom Part */}
-        <div className="flex flex-col lg:flex-row justify-between lg:mt-8">
+        <div className="flex flex-col lg:flex-row justify-between lg:mt-8 lg:mx-16 2xl:mx-0">
           <div className="mx-auto mb-2 lg:mb-0 lg:mx-0">
             <h1 className="font-semibold text-sm text-gray-500 dark:text-gray-400">Copyright 2021 Trinkets of Luna. All rights reserved.</h1>
           </div>
