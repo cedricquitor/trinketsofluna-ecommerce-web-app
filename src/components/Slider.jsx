@@ -69,7 +69,9 @@ const Slider = () => {
                   <div className="mx-4 my-4">
                     <div className="flex justify-between">
                       <h2 className="text-xl font-playfair font-medium text-gray-900 dark:text-zinc-100">{productName}</h2>
-                      <h2 className="bg-gray-100 px-4 text-sm my-auto rounded-2xl text-gray-400 cursor-pointer transition duration-300 hover:bg-gray-300 active:bg-gray-400 active:text-gray-500 dark:bg-gray-700 dark:text-gray-500">{productCategory}</h2>
+                      <h2 className="bg-gray-100 px-4 text-sm my-auto rounded-2xl text-gray-400 cursor-pointer transition duration-300 hover:bg-gray-300 active:bg-gray-400 active:text-gray-500 dark:bg-gray-700 dark:text-gray-500">
+                        {productCategory}
+                      </h2>
                     </div>
                     <h1 className="text-2xl font-lato font-bold text-gray-900 dark:text-zinc-100">&#8369;{productPrice}</h1>
                     <div className="flex justify-between mt-4">

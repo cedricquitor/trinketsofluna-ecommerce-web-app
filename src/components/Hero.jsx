@@ -14,7 +14,9 @@ const Hero = () => {
               <h1 className="text-4xl tracking-tight font-playfair font-extrabold text-gray-900 sm:text-5xl md:text-6xl dark:text-zinc-100">
                 <span className="block xl:block">All of the luxury,</span> <span className="block text-sky-300 xl:block dark:text-sky-500">none of the cost</span>
               </h1>
-              <p className="mt-3 font-lato text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-gray-400">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+              <p className="mt-3 font-lato text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 dark:text-gray-400">
+                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+              </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-lg shadow">
                   {/* TODO: Link to SignUp */}

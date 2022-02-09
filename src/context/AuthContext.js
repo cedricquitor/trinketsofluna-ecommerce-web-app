@@ -45,9 +45,7 @@ export const AuthContextProvider = ({ children }) => {
       })
       .finally(() => {
         setLoading(false);
-        toast.success(
-          "Congratulations, your account has been successfully created!"
-        );
+        toast.success("Congratulations, your account has been successfully created!");
       });
   };
 
@@ -89,12 +87,14 @@ export const AuthContextProvider = ({ children }) => {
 
   const forgotPassword = (email) => {
     return sendPasswordResetEmail(auth, email)
-    .catch((error) => {
-      toast.error(error.message);
-    })
-    .finally(() => {
-      toast.success("Password Reset request sent. Click the link in that message to reset your password.")
-    })
+      .catch((error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        toast.success(
+          "Password Reset request sent. Click the link in that message to reset your password."
+        );
+      });
   };
 
   const contextValue = {
@@ -107,7 +107,5 @@ export const AuthContextProvider = ({ children }) => {
     forgotPassword,
   };
 
-  return (
-    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };

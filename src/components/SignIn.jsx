@@ -99,7 +99,7 @@ const SignIn = () => {
           </div>
           {/* Right Side Grid */}
           <div className="mx-auto text-center my-8 basis-1/2 z-10">
-            <div className="mx-8 md:mx-24 lg:mx-12 2xl:mx-244">
+            <div className="mx-8 md:mx-24 lg:mx-12 2xl:mx-24">
               <div className="flex mb-8 justify-center items-center">
                 <Link to="/login" className="mx-4 font-medium font-playfair text-xl cursor-pointer text-sky-400 transition duration-300 active:text-sky-600">
                   Login
@@ -131,11 +131,17 @@ const SignIn = () => {
                   <Link to="/recovery" className="block mb-6 md:mb-4 py-auto font-playfair font-normal text-sm text-gray-400 text-left transition hover:text-gray-600 active:text-gray-900">
                     Forgot your password?
                   </Link>
-                  <button onClick={handleSubmit} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600">
+                  <button
+                    onClick={handleSubmit}
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:mb-8 md:py-3 md:mx-auto md:text-lg md:w-2/3 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600"
+                  >
                     Login
                   </button>
                   <p className="font-playfair text-base font-medium text-left mt-6 md:mt-0 mb-2">Connect with Socials</p>
-                  <button onClick={signInUserWithGoogle} className="w-[99%] mx-auto flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600">
+                  <button
+                    onClick={signInUserWithGoogle}
+                    className="w-[99%] mx-auto flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600"
+                  >
                     <FcGoogle className="mr-4 my-auto" />
                     Sign in with Google
                   </button>

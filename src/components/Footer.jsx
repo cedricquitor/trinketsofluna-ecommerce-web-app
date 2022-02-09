@@ -24,7 +24,8 @@ const Footer = () => {
               <strong className="font-medium mr-1">Phone:</strong>+63912 345 6789
             </p>
             <p className="hidden lg:block">
-              <strong className="font-medium mr-1">Email:</strong>info@trinketsofluna.com
+              <strong className="font-medium mr-1">Email:</strong>
+              info@trinketsofluna.com
             </p>
           </div>
           <div className="lg:w-3/5 flex flex-col lg:flex-row justify-end mt-6 lg:mt-0 lg:mx-16 2xl:mx-0">
