@@ -22,20 +22,12 @@ const Collections = () => {
           </p>
         </div>
         <div className="block basis-1/2 my-auto mx-auto">
-          <img
-            className="2xl:w-3/4 object-cover drop-shadow-2xl"
-            src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.6435-9/189144528_4038192529579268_4664427365204957489_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_eui2=AeGSYzsHCdoFgO2mxkJWqYQtLt69Fkc6cB0u3r0WRzpwHXILLpkEWjPSI3Q1F3VSt5k&_nc_ohc=qEEgLLFTRSwAX8maUfL&_nc_ht=scontent.fmnl8-2.fna&oh=00_AT_6xsc209W1gmcYvdzOumelOItO76LJilKz8Ur6I334QA&oe=6203527C"
-            alt="A jewelry from Collection 1"
-          />
+          <img className="2xl:w-3/4 object-cover drop-shadow-2xl" src="https://pbs.twimg.com/media/FEzJSkyVIAcTBeq?format=jpg&name=medium" alt="A jewelry from Collection 1" />
         </div>
       </div>
       <div className="mt-8 flex flex-col lg:flex-row relative 2xl:left-20">
         <div className="block basis-1/2 my-auto mx-auto">
-          <img
-            className="2xl:w-3/4 object-cover drop-shadow-2xl float-left"
-            src="https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.6435-9/189144528_4038192529579268_4664427365204957489_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=0debeb&_nc_eui2=AeGSYzsHCdoFgO2mxkJWqYQtLt69Fkc6cB0u3r0WRzpwHXILLpkEWjPSI3Q1F3VSt5k&_nc_ohc=qEEgLLFTRSwAX8maUfL&_nc_ht=scontent.fmnl8-2.fna&oh=00_AT_6xsc209W1gmcYvdzOumelOItO76LJilKz8Ur6I334QA&oe=6203527C"
-            alt="A jewelry from Collection 2"
-          />
+          <img className="2xl:w-3/4 object-cover drop-shadow-2xl float-left" src="https://pbs.twimg.com/media/FEzJSkyVIAcTBeq?format=jpg&name=medium" alt="A jewelry from Collection 2" />
         </div>
         <div className="block mt-12 basis-1/2 lg:pl-20 2xl:pl-0">
           <h2 className="text-gray-900 text-5xl font-playfair font-extrabold tracking-tight dark:text-zinc-100">Second Collection</h2>
