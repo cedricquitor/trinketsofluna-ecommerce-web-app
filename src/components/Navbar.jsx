@@ -39,11 +39,11 @@ const Navbar = () => {
             }}
           >
             {isClicked ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8 dark:text-zinc-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8 dark:text-zinc-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -96,7 +96,7 @@ const Navbar = () => {
         </div>
         <div className="flex lg:hidden">
           {/* Shopping Bag */}
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8 dark:text-zinc-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
         </div>
@@ -104,11 +104,11 @@ const Navbar = () => {
       <div
         className={
           isClicked
-            ? "bg-cyan-100 w-full transition-all duration-700 ease-out lg:hidden opacity-100 absolute top-[3.7rem] md:top-[4.1rem] shadow-lg -z-10 border-t-2 border-t-cyan-200"
-            : "bg-cyan-100 w-full absolute transition-all duration-100 ease-in-out opacity-0 -top-[49rem] -z-10"
+            ? "bg-cyan-100 w-full transition-all duration-700 ease-out lg:hidden opacity-100 absolute top-[3.7rem] md:top-[4.1rem] shadow-lg -z-10 border-t-2 border-t-cyan-200 dark:bg-gray-700 dark:border-t-gray-800"
+            : "bg-cyan-100 w-full absolute opacity-0 -top-[49rem] -z-10 dark:bg-gray-700"
         }
       >
-        <ul className="font-lato text-sm md:text-base text-gray-600" onClick={() => setIsClicked(false)}>
+        <ul className="font-lato text-sm md:text-base text-gray-600 dark:text-zinc-100" onClick={() => setIsClicked(false)}>
           <Link to="/" className="block px-5 py-2 mt-4 mb-2 md:px-10">
             <li className="flex">
               <FiHome className="w-5 h-5 my-auto" />
