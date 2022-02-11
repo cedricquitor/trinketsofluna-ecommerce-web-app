@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+
+// Contexts
+import { useCartContext } from "../context/CartContext";
+
+// Icons
 import { BsCartPlus } from "react-icons/bs";
 
 const Products = () => {
@@ -10,6 +15,7 @@ const Products = () => {
     getProducts();
   }, []);
 
+  // Fetching Products from Firebase
   const getProducts = async () => {
     try {
       const getProductsQuery = await getDocs(collection(db, "products"));
@@ -28,6 +34,8 @@ const Products = () => {
       console.log(error);
     }
   };
+
+  const { addProduct, cartItems } = useCartContext();
 
   return (
     <div className="mt-12 container mx-auto">
@@ -59,13 +67,20 @@ const Products = () => {
                 </div>
                 <h1 className="text-2xl font-lato font-bold text-gray-900 dark:text-zinc-100">&#8369;{productPrice}</h1>
                 <div className="flex justify-between mt-4">
-                  <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600 dark:text-sky-500" />
-                  <a
+                  <button
+                    onClick={() => {
+                      addProduct(product);
+                      console.log(cartItems);
+                    }}
+                  >
+                    <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600 dark:text-sky-500" />
+                  </button>
+                  <button
                     href="#"
                     className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:py-2 md:text-lg md:px-8 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600"
                   >
                     Buy Now
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

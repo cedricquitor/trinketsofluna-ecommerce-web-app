@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 // Contexts
 import { useThemeContext } from "../context/ThemeContext";
-import { useCartContext } from "../context/CartContext";
 
 // Icons
 import { FiHome } from "react-icons/fi";
@@ -113,7 +112,10 @@ const Navbar = () => {
             : "bg-cyan-100 w-full absolute opacity-0 -top-[49rem] -z-10 dark:bg-gray-700"
         }
       >
-        <ul className="font-lato text-sm md:text-base text-gray-600 dark:text-zinc-100" onClick={() => setIsClicked(false)}>
+        <ul
+          className={isClicked ? "font-lato text-sm md:text-base text-gray-600 dark:text-zinc-100 transition-all duration-[1200ms] ease-in opacity-100" : "font-lato text-sm md:text-base text-gray-600 dark:text-zinc-100 opacity-0"}
+          onClick={() => setIsClicked(false)}
+        >
           <Link to="/" className="block px-5 py-2 mt-4 mb-2 md:px-10">
             <li className="flex">
               <FiHome className="w-5 h-5 my-auto" />
