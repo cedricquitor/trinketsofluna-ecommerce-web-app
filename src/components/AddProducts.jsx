@@ -44,19 +44,21 @@ const AddProducts = () => {
   };
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-center text-8xl text-gray-900 font-playfair mb-56">Add Products</h1>
-      <button onClick={addProduct} className="btn--primary w-1/4 mx-auto">
-        Add Product
-      </button>
-      <button onClick={getProducts} className="btn--primary w-1/4 mx-auto">
-        Get Products
-      </button>
-      <button onClick={testToast} className="btn--primary w-1/4 mx-auto">
-        Test Toast
-      </button>
-      <ToastContainer position="bottom-center" theme={theme} />
-    </div>
+    <>
+      <div className="container mx-auto">
+        <h1 className="text-center text-8xl text-gray-900 font-playfair mb-56">Add Products</h1>
+        <button onClick={addProduct} className="btn--primary w-1/4 mx-auto">
+          Add Product
+        </button>
+        <button onClick={getProducts} className="btn--primary w-1/4 mx-auto">
+          Get Products
+        </button>
+        <button onClick={testToast} className="btn--primary w-1/4 mx-auto">
+          Test Toast
+        </button>
+        <ToastContainer position="bottom-center" theme={theme} />
+      </div>
+    </>
   );
 };
 
