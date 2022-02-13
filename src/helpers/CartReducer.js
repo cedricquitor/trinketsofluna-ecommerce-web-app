@@ -1,5 +1,6 @@
 export const ACTIONS = {
   ADD_ITEM: "add-item",
+  INCREASE_PRODUCT_QUANTITY: "increase-product-quantity",
 };
 
 export const sumItems = (cartItems) => {
@@ -16,7 +17,7 @@ export const CartReducer = (state, action) => {
       if (!state.cartItems.find((item) => item.id === action.payload.id)) {
         state.cartItems.push({
           ...action.payload,
-          quantity: 1,
+          productQuantity: 1,
         });
       }
       return {
@@ -24,7 +25,16 @@ export const CartReducer = (state, action) => {
         cartItems: [...state.cartItems],
         ...sumItems(state.cartItems),
       };
+    case ACTIONS.INCREASE_PRODUCT_QUANTITY:
+      const increaseProductIndex = state.cartItems.findIndex((item) => item.id === action.payload.id);
+      state.cartItems[increaseProductIndex].productQuantity++;
 
+      return {
+        ...state,
+        cartItems: [...state.cartItems],
+        ...sumItems(state.cartItems),
+        increaseProductIndex,
+      };
     default:
       return state;
   }

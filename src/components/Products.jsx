@@ -1,9 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+import { isInCart } from "../helpers/IsInCart";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 // Contexts
 import { useCartContext } from "../context/CartContext";
+import { useThemeContext } from "../context/ThemeContext";
 
 // Icons
 import { BsCartPlus } from "react-icons/bs";
@@ -35,7 +39,20 @@ const Products = () => {
     }
   };
 
-  const { addProduct, cartItems } = useCartContext();
+  const { theme } = useThemeContext();
+  const { cartItems, addProduct, increaseProductQuantity } = useCartContext();
+
+  const handleAddToCart = (product, cartItems) => {
+    if (isInCart(product, cartItems)) {
+      increaseProductQuantity(product);
+      toast.success(`Added another ${product.productName} to cart! You have a total of ${cartItems[cartItems.findIndex((item) => item.id === product.id)].productQuantity} in your cart.`);
+      console.log(cartItems);
+    } else {
+      addProduct(product);
+      toast.success(`${product.productName} added to cart!`);
+      console.log(cartItems);
+    }
+  };
 
   return (
     <div className="mt-12 container mx-auto">
@@ -67,12 +84,7 @@ const Products = () => {
                 </div>
                 <h1 className="text-2xl font-lato font-bold text-gray-900 dark:text-zinc-100">&#8369;{productPrice}</h1>
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => {
-                      addProduct(product);
-                      console.log(cartItems);
-                    }}
-                  >
+                  <button onClick={() => handleAddToCart(product, cartItems)}>
                     <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600 dark:text-sky-500" />
                   </button>
                   <button
@@ -87,6 +99,7 @@ const Products = () => {
           );
         })}
       </div>
+      <ToastContainer theme={theme} />
     </div>
   );
 };
