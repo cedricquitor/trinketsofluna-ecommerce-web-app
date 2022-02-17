@@ -87,7 +87,7 @@ const Navbar = () => {
               </svg>
             </button>
           )}
-          <Link to="/shop">
+          <Link to="/cart">
             <svg xmlns="http://www.w3.org/2000/svg" className={isScrolled ? "nav__item--secondary h-4 w-4 mr-0" : "nav__item--secondary h-6 w-6 mr-0"} fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
@@ -100,9 +100,11 @@ const Navbar = () => {
         </div>
         <div className="flex lg:hidden">
           {/* Shopping Bag */}
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8 dark:text-zinc-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-          </svg>
+          <Link to="/cart" className="my-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600 my-auto mx-4 md:mx-8 dark:text-zinc-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+          </Link>
         </div>
       </div>
       <div

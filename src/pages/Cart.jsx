@@ -1,9 +1,10 @@
 import React from "react";
+import ShoppingCart from "../components/ShoppingCart";
 
 const Cart = () => {
   return (
     <div>
-      <h1 className="text-2xl text-red-500">Cart</h1>
+      <ShoppingCart />
     </div>
   );
 };
