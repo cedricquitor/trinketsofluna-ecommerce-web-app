@@ -5,8 +5,8 @@ export const ACTIONS = {
 
 export const sumItems = (cartItems) => {
   return {
-    itemCount: cartItems.reduce((total, product) => total + product.quantity, 0),
-    total: cartItems.reduce((total, product) => total + product.price * product.quantity, 0),
+    itemCount: cartItems.reduce((total, product) => total + product.productQuantity, 0),
+    total: cartItems.reduce((total, product) => total + product.productPrice * product.productQuantity, 0),
   };
 };
 

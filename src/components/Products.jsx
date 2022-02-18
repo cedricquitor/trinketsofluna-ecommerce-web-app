@@ -40,7 +40,13 @@ const Products = () => {
   };
 
   const { theme } = useThemeContext();
-  const { cartItems, addProduct, increaseProductQuantity } = useCartContext();
+  const { cartItems, itemCount, total, addProduct, increaseProductQuantity } = useCartContext();
+
+  useEffect(() => {
+    console.log(cartItems);
+    console.log(itemCount);
+    console.log(total);
+  }, [cartItems]);
 
   const handleAddToCart = (product, cartItems) => {
     if (isInCart(product, cartItems)) {
