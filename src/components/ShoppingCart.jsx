@@ -4,6 +4,9 @@ import data from "../test/data";
 // Contexts
 import { useCartContext } from "../context/CartContext";
 
+// Icons
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+
 const ShoppingCart = () => {
   const [products, setProducts] = useState(data);
   const { cartItems, itemCount, total } = useCartContext();
@@ -15,37 +18,43 @@ const ShoppingCart = () => {
   }, []);
 
   return (
-    <div>
-      <h1>ShoppingCart</h1>
-      <div className="flex flex-col w-11/12 xl:w-10/12 2xl:w-2/3 mx-auto md:mt-12">
-        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
-                      Product
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
-                      Unit Price
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
-                      Quantity
-                    </th>
-                    <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
-                      Total Price
-                    </th>
-                    <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Edit</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {cartItems.length === 0 ? (
-                    <h1>Cart is empty!</h1>
-                  ) : (
-                    <>
+    <div className="container mx-auto md:mt-12">
+      <div className="pb-14 text-center border-b-[1px] border-gray-500 dark:border-gray-400">
+        <p className="text-gray-500 text-sm font-lato uppercase tracking-widest dark:text-gray-400">Trinket of Luna's Story</p>
+        <h1 className="font-playfair font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 dark:text-zinc-100">Cart</h1>
+      </div>
+      {cartItems.length === 0 ? (
+        <>
+          <MdOutlineRemoveShoppingCart className="h-12 w-12 mt-8" />
+          <h1>Cart is empty!</h1>
+        </>
+      ) : (
+        <>
+          <div className="flex flex-col w-11/12 xl:w-10/12 2xl:w-2/3 mx-auto mt-8">
+            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                          Product
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                          Unit Price
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                          Quantity
+                        </th>
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                          Total Price
+                        </th>
+                        <th scope="col" className="relative px-6 py-3">
+                          <span className="sr-only">Edit</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
                       {cartItems.map((product) => {
                         const { id, productCategory, productName, productPrice, productThumbnail, productQuantity } = product;
                         return (
@@ -76,14 +85,14 @@ const ShoppingCart = () => {
                           </tr>
                         );
                       })}
-                    </>
-                  )}
-                </tbody>
-              </table>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 };
