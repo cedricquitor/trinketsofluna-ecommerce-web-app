@@ -9,13 +9,17 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 const ShoppingCart = () => {
   const [products, setProducts] = useState(data);
-  const { cartItems, itemCount, total } = useCartContext();
+  const { cartItems, itemCount, total, increaseProductQuantity } = useCartContext();
 
   useEffect(() => {
     console.log(cartItems);
     console.log(itemCount);
     console.log(total);
   }, []);
+
+  const handlePlus = (product, cartItems) => {
+    console.log(product);
+  };
 
   return (
     <div className="container mx-auto md:mt-12">
@@ -74,7 +78,13 @@ const ShoppingCart = () => {
                               <div className="text-sm text-gray-900">{productPrice}</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{productQuantity}</div>
+                              <div className="flex">
+                                <div>Minus</div>
+                                <div className="text-sm text-gray-900">{productQuantity}</div>
+                                <div>
+                                  <button onClick={() => handlePlus(product, cartItems)}>Plus</button>
+                                </div>
+                              </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{productPrice * productQuantity}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

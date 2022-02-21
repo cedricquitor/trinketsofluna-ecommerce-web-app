@@ -40,7 +40,7 @@ const Products = () => {
   };
 
   const { theme } = useThemeContext();
-  const { cartItems, itemCount, total, addProduct, increaseProductQuantity } = useCartContext();
+  const { cartItems, itemCount, total, addProduct, addMoreProduct } = useCartContext();
 
   useEffect(() => {
     console.log(cartItems);
@@ -50,7 +50,7 @@ const Products = () => {
 
   const handleAddToCart = (product, cartItems) => {
     if (isInCart(product, cartItems)) {
-      increaseProductQuantity(product);
+      addMoreProduct(product);
       toast.success(`Added another ${product.productName} to cart! You have a total of ${cartItems[cartItems.findIndex((item) => item.id === product.id)].productQuantity} in your cart.`);
       console.log(cartItems);
     } else {
@@ -105,7 +105,7 @@ const Products = () => {
           );
         })}
       </div>
-      <ToastContainer theme={theme} />
+      <ToastContainer theme={theme} autoClose={1000} />
     </div>
   );
 };

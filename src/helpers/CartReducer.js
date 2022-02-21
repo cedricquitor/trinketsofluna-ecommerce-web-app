@@ -1,6 +1,6 @@
 export const ACTIONS = {
   ADD_ITEM: "add-item",
-  INCREASE_PRODUCT_QUANTITY: "increase-product-quantity",
+  ADD_MORE_PRODUCT: "add-more-product",
 };
 
 export const sumItems = (cartItems) => {
@@ -11,10 +11,13 @@ export const sumItems = (cartItems) => {
 };
 
 export const CartReducer = (state, action) => {
+  const productInCart = state.cartItems.find((item) => item.id === action.payload.id);
+  const indexOfProductInCart = state.cartItems.findIndex((item) => item.id === action.payload.id);
+
   switch (action.type) {
     case ACTIONS.ADD_ITEM:
       // Check if item is already in cart
-      if (!state.cartItems.find((item) => item.id === action.payload.id)) {
+      if (!productInCart) {
         state.cartItems.push({
           ...action.payload,
           productQuantity: 1,
@@ -25,15 +28,12 @@ export const CartReducer = (state, action) => {
         cartItems: [...state.cartItems],
         ...sumItems(state.cartItems),
       };
-    case ACTIONS.INCREASE_PRODUCT_QUANTITY:
-      const increaseProductIndex = state.cartItems.findIndex((item) => item.id === action.payload.id);
-      state.cartItems[increaseProductIndex].productQuantity++;
-
+    case ACTIONS.ADD_MORE_PRODUCT:
+      state.cartItems[indexOfProductInCart].productQuantity++;
       return {
         ...state,
         cartItems: [...state.cartItems],
         ...sumItems(state.cartItems),
-        increaseProductIndex,
       };
     default:
       return state;
