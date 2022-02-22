@@ -1,26 +1,11 @@
 import React, { useState, useEffect } from "react";
-import data from "../test/data";
-
-// Contexts
-import { useCartContext } from "../context/CartContext";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
+const cartItems = 1;
+
 const ShoppingCart = () => {
-  const [products, setProducts] = useState(data);
-  const { cartItems, itemCount, total, increaseProductQuantity } = useCartContext();
-
-  useEffect(() => {
-    console.log(cartItems);
-    console.log(itemCount);
-    console.log(total);
-  }, []);
-
-  const handlePlus = (product, cartItems) => {
-    console.log(product);
-  };
-
   return (
     <div className="container mx-auto md:mt-12">
       <div className="pb-14 text-center border-b-[1px] border-gray-500 dark:border-gray-400">
@@ -82,7 +67,7 @@ const ShoppingCart = () => {
                                 <div>Minus</div>
                                 <div className="text-sm text-gray-900">{productQuantity}</div>
                                 <div>
-                                  <button onClick={() => handlePlus(product, cartItems)}>Plus</button>
+                                  <button>Plus</button>
                                 </div>
                               </div>
                             </td>

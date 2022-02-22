@@ -6,18 +6,15 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { AuthContextProvider } from "./context/AuthContext";
 import { ThemeContextProvider } from "./context/ThemeContext";
-import { CartContextProvider } from "./context/CartContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <CartContextProvider>
-        <ThemeContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ThemeContextProvider>
-      </CartContextProvider>
+      <ThemeContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeContextProvider>
     </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
