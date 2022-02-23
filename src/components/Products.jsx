@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { isInCart } from "../helpers/IsInCart";
+import { isInCart } from "../helpers/isInCart";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 // Contexts
 import { useThemeContext } from "../context/ThemeContext";
 
 // Icons
 import { BsCartPlus } from "react-icons/bs";
+import { addToCart } from "../redux/cartSlice";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -39,6 +41,12 @@ const Products = () => {
   };
 
   const { theme } = useThemeContext();
+
+  const dispatch = useDispatch();
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.productName} added to cart.`);
+  };
 
   return (
     <div className="mt-12 container mx-auto">
@@ -70,7 +78,7 @@ const Products = () => {
                 </div>
                 <h1 className="text-2xl font-lato font-bold text-gray-900 dark:text-zinc-100">&#8369;{productPrice}</h1>
                 <div className="flex justify-between mt-4">
-                  <button>
+                  <button onClick={() => handleAddToCart(product)}>
                     <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600 dark:text-sky-500" />
                   </button>
                   <button

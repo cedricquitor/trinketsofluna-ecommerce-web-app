@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ScrollToTop from "./helpers/ScrollToTop";
+import ScrollToTop from "./helpers/scrollToTop";
 
 // Layout
 import MainLayout from "./layouts/MainLayout";
@@ -16,90 +16,104 @@ import Login from "./pages/login";
 import Recovery from "./pages/recovery";
 import Admin from "./pages/admin";
 
+// Redux
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import cartReducer from "./redux/cartSlice";
+
 // Global Context
 export const AuthContext = React.createContext();
 export const ThemeContext = React.createContext();
 
+const store = configureStore({
+  reducer: {
+    cart: cartReducer,
+  },
+});
+
 const App = () => {
   return (
     <>
-      {/* Routes that will redirect to the page that matches the forward slash "/" below. */}
-      <ScrollToTop>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <MainLayout>
-                <Home />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/shop"
-            element={
-              <MainLayout>
-                <Shop />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <MainLayout>
-                <Cart />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <MainLayout>
-                <About />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <MainLayout>
-                <Contact />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <MainLayout>
-                <SignUp />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <MainLayout>
-                <Login />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/recovery"
-            element={
-              <MainLayout>
-                <Recovery />
-              </MainLayout>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <MainLayout>
-                <Admin />
-              </MainLayout>
-            }
-          />
-        </Routes>
-      </ScrollToTop>
+      {/* Redux Provider */}
+      <Provider store={store}>
+        {/* Routes that will redirect to the page that matches the forward slash "/" below. */}
+        <ScrollToTop>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <MainLayout>
+                  <Home />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/shop"
+              element={
+                <MainLayout>
+                  <Shop />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <MainLayout>
+                  <Cart />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <MainLayout>
+                  <About />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <MainLayout>
+                  <Contact />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <MainLayout>
+                  <SignUp />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <MainLayout>
+                  <Login />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/recovery"
+              element={
+                <MainLayout>
+                  <Recovery />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <MainLayout>
+                  <Admin />
+                </MainLayout>
+              }
+            />
+          </Routes>
+        </ScrollToTop>
+      </Provider>
     </>
   );
 };
