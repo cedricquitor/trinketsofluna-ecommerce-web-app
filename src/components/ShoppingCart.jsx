@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
-const cartItems = 1;
-
 const ShoppingCart = () => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <div className="container mx-auto md:mt-12">
       <div className="pb-14 text-center border-b-[1px] border-gray-500 dark:border-gray-400">
         <p className="text-gray-500 text-sm font-lato uppercase tracking-widest dark:text-gray-400">Trinket of Luna's Story</p>
         <h1 className="font-playfair font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 dark:text-zinc-100">Cart</h1>
       </div>
-      {cartItems.length === 0 ? (
+      {cart.cartItems.length === 0 ? (
         <>
           <MdOutlineRemoveShoppingCart className="h-12 w-12 mt-8" />
           <h1>Cart is empty!</h1>
@@ -44,7 +45,7 @@ const ShoppingCart = () => {
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      {cartItems.map((product) => {
+                      {cart.cartItems.map((product) => {
                         const { id, productCategory, productName, productPrice, productThumbnail, productQuantity } = product;
                         return (
                           <tr key={id}>
