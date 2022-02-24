@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import { removeFromCart } from "../redux/cartSlice";
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
@@ -11,6 +11,14 @@ const ShoppingCart = () => {
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
+  };
+
+  const handleDecreaseQuantity = (product) => {
+    dispatch(decreaseQuantity(product));
+  };
+
+  const handleIncreaseQuantity = (product) => {
+    dispatch(increaseQuantity(product));
   };
 
   return (
@@ -71,10 +79,12 @@ const ShoppingCart = () => {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex">
-                                <div>Minus</div>
+                                <div>
+                                  <button onClick={() => handleDecreaseQuantity(product)}>Minus</button>
+                                </div>
                                 <div className="text-sm text-gray-900">{productQuantity}</div>
                                 <div>
-                                  <button>Plus</button>
+                                  <button onClick={() => handleIncreaseQuantity(product)}>Plus</button>
                                 </div>
                               </div>
                             </td>
