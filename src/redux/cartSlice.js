@@ -32,6 +32,7 @@ const cartSlice = createSlice({
       const filteredCartItems = state.cartItems.filter((item) => item.id !== action.payload.id);
 
       state.cartItems = filteredCartItems;
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
   },
 });
