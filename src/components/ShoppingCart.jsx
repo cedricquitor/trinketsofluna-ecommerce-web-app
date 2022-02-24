@@ -1,11 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+import { removeFromCart } from "../redux/cartSlice";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
 
   return (
     <div className="container mx-auto md:mt-12">
@@ -73,10 +79,10 @@ const ShoppingCart = () => {
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{productPrice * productQuantity}</td>
-                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                              <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                Edit
-                              </a>
+                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
+                              <button onClick={() => handleRemoveFromCart(product)} className="text-indigo-600 hover:text-indigo-900 font-medium">
+                                Remove Item
+                              </button>
                             </td>
                           </tr>
                         );
