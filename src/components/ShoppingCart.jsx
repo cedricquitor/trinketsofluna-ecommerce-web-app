@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import { clearCart, decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
+import { clearCart, decreaseQuantity, getCartTotal, increaseQuantity, removeFromCart } from "../redux/cartSlice";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
@@ -24,6 +24,10 @@ const ShoppingCart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [cart, dispatch]);
 
   return (
     <div className="container mx-auto md:mt-12">
@@ -112,6 +116,10 @@ const ShoppingCart = () => {
       <div>
         <div>
           <button onClick={() => handleClearCart()}>Clear Cart</button>
+        </div>
+        <div>
+          <h1>Total Items: {cart.cartTotalQuantity}</h1>
+          <h1>Total Price: {cart.cartTotalAmount}</h1>
         </div>
       </div>
     </div>

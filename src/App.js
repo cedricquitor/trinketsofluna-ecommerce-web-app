@@ -19,7 +19,7 @@ import Admin from "./pages/admin";
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import cartReducer from "./redux/cartSlice";
+import cartReducer, { getCartTotal } from "./redux/cartSlice";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -30,6 +30,8 @@ const store = configureStore({
     cart: cartReducer,
   },
 });
+
+store.dispatch(getCartTotal());
 
 const App = () => {
   return (
