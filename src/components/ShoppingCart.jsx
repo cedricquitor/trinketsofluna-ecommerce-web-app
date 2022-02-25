@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
-import { decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
+import { clearCart, decreaseQuantity, increaseQuantity, removeFromCart } from "../redux/cartSlice";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
@@ -19,6 +19,10 @@ const ShoppingCart = () => {
 
   const handleIncreaseQuantity = (product) => {
     dispatch(increaseQuantity(product));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
   };
 
   return (
@@ -105,6 +109,11 @@ const ShoppingCart = () => {
           </div>
         </>
       )}
+      <div>
+        <div>
+          <button onClick={() => handleClearCart()}>Clear Cart</button>
+        </div>
+      </div>
     </div>
   );
 };
