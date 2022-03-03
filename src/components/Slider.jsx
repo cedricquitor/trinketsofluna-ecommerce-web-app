@@ -41,7 +41,7 @@ const Slider = () => {
   };
 
   return (
-    <section className="container mt-36 mx-auto">
+    <section className="container mx-auto">
       <div className="text-center mb-12">
         <p className="text-gray-500 text-xs md:text-sm font-lato uppercase tracking-widest dark:text-gray-400">Gorgeous jewelry, exquisitely crafted.</p>
         <h1 className="text-5xl md:text-8xl text-gray-900 font-playfair font-extrabold tracking-tight dark:text-zinc-100">Our Favorites</h1>

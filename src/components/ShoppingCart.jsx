@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+import { FiPlus, FiMinus, FiTrash2 } from "react-icons/fi";
 import { clearCart, decreaseQuantity, getCartTotal, increaseQuantity, removeFromCart } from "../redux/cartSlice";
+import { Link } from "react-router-dom";
+import Slider from "./Slider";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
@@ -37,8 +40,26 @@ const ShoppingCart = () => {
       </div>
       {cart.cartItems.length === 0 ? (
         <>
-          <MdOutlineRemoveShoppingCart className="h-12 w-12 mt-8" />
-          <h1>Cart is empty!</h1>
+          <div>
+            <div className="flex flex-col">
+              <MdOutlineRemoveShoppingCart className="h-[12rem] w-[12rem] mt-12 mx-auto text-sky-300" />
+              <h1 className="mt-6 font-playfair text-4xl text-center text-gray-900">Oops! Your cart is empty!</h1>
+              <p className="mt-4 font-lato text-gray-500 text-2xl text-center">
+                Looks like you have no items in your shopping bag.
+                <br />
+                Let's go buy something!
+              </p>
+              <Link to="/shop" className="btn--primary mt-12 2xl:w-1/5 mx-auto">
+                Shop Now
+              </Link>
+              <a href="#slider" className="mt-4 font-lato text-gray-400 text-xs lg:text-sm text-center">
+                or browse our favorites
+              </a>
+            </div>
+            <div className="mt-28" id="slider">
+              <Slider />
+            </div>
+          </div>
         </>
       ) : (
         <>
@@ -83,16 +104,18 @@ const ShoppingCart = () => {
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-900">{productPrice}</div>
+                              <div className="text-sm text-gray-500">{productPrice}</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex">
                                 <div>
-                                  <button onClick={() => handleDecreaseQuantity(product)}>Minus</button>
+                                  <button onClick={() => handleDecreaseQuantity(product)}>{productQuantity > 1 ? <FiMinus className="text-gray-500" /> : <FiTrash2 className="text-gray-500" />}</button>
                                 </div>
-                                <div className="text-sm text-gray-900">{productQuantity}</div>
+                                <div className="text-sm text-gray-900 mx-4">{productQuantity}</div>
                                 <div>
-                                  <button onClick={() => handleIncreaseQuantity(product)}>Plus</button>
+                                  <button onClick={() => handleIncreaseQuantity(product)}>
+                                    <FiPlus className="text-gray-500" />
+                                  </button>
                                 </div>
                               </div>
                             </td>
@@ -113,15 +136,22 @@ const ShoppingCart = () => {
           </div>
         </>
       )}
-      <div>
-        <div>
-          <button onClick={() => handleClearCart()}>Clear Cart</button>
+      {cart.cartItems.length === 0 ? null : (
+        <div className="flex justify-end">
+          <div className="flex flex-col bg-white py-8 pl-8 pr-12 rounded-lg shadow-lg mt-8 2xl:mr-64">
+            <div>
+              <h1 className="font-lato text-lg text-gray-900">Total Items: {cart.cartTotalQuantity} items.</h1>
+              <h1 className="font-lato text-lg text-gray-900">Total Price: &#8369;{cart.cartTotalAmount}</h1>
+            </div>
+            <div className="flex">
+              <button className="btn--primary py-2 px-6 mt-4 my-auto">Checkout</button>
+              <button onClick={() => handleClearCart()} className="btn--secondary py-2 px-6 ml-4 mt-4 my-auto">
+                Clear Cart
+              </button>
+            </div>
+          </div>
         </div>
-        <div>
-          <h1>Total Items: {cart.cartTotalQuantity}</h1>
-          <h1>Total Price: {cart.cartTotalAmount}</h1>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
