@@ -2,14 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+// Contexts
 import { useAuthContext } from "../context/AuthContext";
 import { useThemeContext } from "../context/ThemeContext";
-import { ToastContainer } from "react-toastify";
+
+// Icons
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Registration = () => {
   // State handler for index and assigning data to products.
   const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
+  const [passwordIsHidden, setPasswordIsHidden] = useState(true);
   const featuredProducts = products.filter((product) => product.productFeatured);
 
   // Getting form input values using UseRef.
@@ -131,7 +137,10 @@ const Registration = () => {
                     </label>
                   </div>
                   <div className="mb-10">
-                    <input type="password" id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
+                    <button onClick={() => setPasswordIsHidden(!passwordIsHidden)} className="absolute mt-3 right-8">
+                      {passwordIsHidden ? <AiOutlineEye className="h-6 w-6 text-sky-300" /> : <AiOutlineEyeInvisible className="h-6 w-6 text-sky-300" />}
+                    </button>
+                    <input type={passwordIsHidden ? "password" : "text"} id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
                     <label htmlFor="password" className="input__label top-[9.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
                       Password
                     </label>

@@ -42,9 +42,9 @@ const ShoppingCart = () => {
         <>
           <div>
             <div className="flex flex-col">
-              <MdOutlineRemoveShoppingCart className="h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] mt-12 mx-auto text-sky-300" />
-              <h1 className="mt-6 font-playfair text-3xl md:text-4xl text-center text-gray-900">Oops! Your cart is empty!</h1>
-              <p className="mt-4 font-lato text-gray-500 text-sm md:text-2xl text-center">
+              <MdOutlineRemoveShoppingCart className="h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] mt-12 mx-auto text-sky-300 dark:text-sky-500" />
+              <h1 className="mt-6 font-playfair text-3xl md:text-4xl text-center text-gray-900 dark:text-zinc-100">Oops! Your cart is empty!</h1>
+              <p className="mt-4 font-lato text-gray-500 text-sm md:text-2xl text-center dark:text-gray-400">
                 Looks like you have no items in your shopping bag.
                 <br />
                 Let's go buy something!
@@ -52,7 +52,7 @@ const ShoppingCart = () => {
               <Link to="/shop" className="btn--primary mt-6 mx-auto md:w-1/4 2xl:mt-12 2xl:w-1/5">
                 Shop Now
               </Link>
-              <a href="#slider" className="mt-4 font-lato text-gray-400 text-xs lg:text-sm text-center">
+              <a href="#slider" className="mt-4 font-lato text-gray-500 text-xs lg:text-sm text-center dark:text-gray-400">
                 or browse our favorites
               </a>
             </div>
