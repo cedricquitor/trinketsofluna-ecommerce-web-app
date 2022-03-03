@@ -42,14 +42,14 @@ const ShoppingCart = () => {
         <>
           <div>
             <div className="flex flex-col">
-              <MdOutlineRemoveShoppingCart className="h-[12rem] w-[12rem] mt-12 mx-auto text-sky-300" />
-              <h1 className="mt-6 font-playfair text-4xl text-center text-gray-900">Oops! Your cart is empty!</h1>
-              <p className="mt-4 font-lato text-gray-500 text-2xl text-center">
+              <MdOutlineRemoveShoppingCart className="h-[9rem] w-[9rem] md:h-[12rem] md:w-[12rem] mt-12 mx-auto text-sky-300" />
+              <h1 className="mt-6 font-playfair text-3xl md:text-4xl text-center text-gray-900">Oops! Your cart is empty!</h1>
+              <p className="mt-4 font-lato text-gray-500 text-sm md:text-2xl text-center">
                 Looks like you have no items in your shopping bag.
                 <br />
                 Let's go buy something!
               </p>
-              <Link to="/shop" className="btn--primary mt-12 2xl:w-1/5 mx-auto">
+              <Link to="/shop" className="btn--primary mt-6 mx-auto md:w-1/4 2xl:mt-12 2xl:w-1/5">
                 Shop Now
               </Link>
               <a href="#slider" className="mt-4 font-lato text-gray-400 text-xs lg:text-sm text-center">
@@ -138,7 +138,7 @@ const ShoppingCart = () => {
       )}
       {cart.cartItems.length === 0 ? null : (
         <div className="flex justify-end">
-          <div className="flex flex-col bg-white py-8 pl-8 pr-12 rounded-lg shadow-lg mt-8 2xl:mr-64">
+          <div className="flex flex-col bg-white py-8 pl-8 pr-12 rounded-lg shadow-lg mt-8 mr-4 md:mr-8 lg:mr-[6.7rem] 2xl:mr-64">
             <div>
               <h1 className="font-lato text-lg text-gray-900">Total Items: {cart.cartTotalQuantity} items.</h1>
               <h1 className="font-lato text-lg text-gray-900">Total Price: &#8369;{cart.cartTotalAmount}</h1>
