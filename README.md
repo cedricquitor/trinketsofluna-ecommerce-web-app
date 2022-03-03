@@ -24,7 +24,7 @@ Receiving a version output confirms that you have installed Node.js correctly.
 
 ## Installation
 To clone the repository: 
-- Navigate to the directory you plan to clone the project.
+- Navigate to the directory where you plan to clone the project in.
 ```
 git clone https://github.com/cedricquitor/trinketsofluna-ecommerce-web-app.git
 ```
