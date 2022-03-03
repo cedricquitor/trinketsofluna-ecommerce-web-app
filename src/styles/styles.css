@@ -64,15 +64,17 @@
   /* ---------- SignIn Styles Start ---------- */
   /* SignIn Input */
   .input__text {
-    @apply block mb-4 py-2 px-3 w-full text-xl shadow-sm border-2 border-sky-100 placeholder-transparent transition 
+    @apply block mb-4 py-2 px-3 w-full text-xl shadow-sm border-2 border-sky-100 placeholder-transparent transition text-gray-900
     hover:border-sky-200 
-    focus:outline-none focus:border-sky-300;
+    focus:outline-none focus:border-sky-300
+    dark:bg-gray-700 dark:border-sky-500 dark:hover:border-sky-600 dark:text-zinc-100;
   }
 
   .input__label {
     @apply absolute px-2 left-8 bg-white font-lato text-xs text-gray-900 transition-all 
     peer-focus:bg-white peer-focus:px-2 peer-focus:left-8 peer-focus:text-xs peer-focus:text-gray-900 
-    peer-placeholder-shown:text-xl peer-placeholder-shown:left-[1.9rem] peer-placeholder-shown:text-gray-400 peer-placeholder-shown:bg-none peer-placeholder-shown:px-0;
+    peer-placeholder-shown:text-xl peer-placeholder-shown:left-[1.9rem] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:bg-none peer-placeholder-shown:px-0
+    dark:peer-focus:bg-gray-700 dark:bg-gray-700 dark:peer-focus:text-zinc-100 dark:peer-placeholder-shown:text-gray-400 dark:text-zinc-100;
   }
 
   /* SignIn Carousel */
