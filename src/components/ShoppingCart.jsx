@@ -66,20 +66,20 @@ const ShoppingCart = () => {
           <div className="flex flex-col w-11/12 xl:w-10/12 2xl:w-2/3 mx-auto mt-8">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
+                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg dark:border-gray-500">
+                  <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-500">
+                    <thead className="bg-gray-50 dark:bg-gray-800">
                       <tr>
-                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider dark:text-gray-400">
                           Product
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider dark:text-gray-400">
                           Unit Price
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider dark:text-gray-400">
                           Quantity
                         </th>
-                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider">
+                        <th scope="col" className="px-6 py-3 text-left text-base font-medium font-playfair text-gray-500 uppercase tracking-wider dark:text-gray-400">
                           Total Price
                         </th>
                         <th scope="col" className="relative px-6 py-3">
@@ -87,7 +87,7 @@ const ShoppingCart = () => {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+                    <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-700 dark:divide-gray-500">
                       {cart.cartItems.map((product) => {
                         const { id, productCategory, productName, productPrice, productThumbnail, productQuantity } = product;
                         return (
@@ -98,30 +98,30 @@ const ShoppingCart = () => {
                                   <img className="h-10 w-10 rounded-full" src={productThumbnail} alt="" />
                                 </div>
                                 <div className="ml-4">
-                                  <div className="text-sm font-medium text-gray-900">{productName}</div>
-                                  <div className="text-sm text-gray-500">{productCategory}</div>
+                                  <div className="text-sm font-medium text-gray-900 dark:text-zinc-100">{productName}</div>
+                                  <div className="text-sm text-gray-500 dark:text-gray-400">{productCategory}</div>
                                 </div>
                               </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm text-gray-500">{productPrice}</div>
+                              <div className="text-sm text-gray-500 dark:text-gray-400">{productPrice}</div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                               <div className="flex">
                                 <div>
-                                  <button onClick={() => handleDecreaseQuantity(product)}>{productQuantity > 1 ? <FiMinus className="text-gray-500" /> : <FiTrash2 className="text-gray-500" />}</button>
+                                  <button onClick={() => handleDecreaseQuantity(product)}>{productQuantity > 1 ? <FiMinus className="text-gray-500 dark:text-gray-400" /> : <FiTrash2 className="text-gray-500 dark:text-gray-400" />}</button>
                                 </div>
-                                <div className="text-sm text-gray-900 mx-4">{productQuantity}</div>
+                                <div className="text-sm text-gray-900 mx-4 dark:text-zinc-100">{productQuantity}</div>
                                 <div>
                                   <button onClick={() => handleIncreaseQuantity(product)}>
-                                    <FiPlus className="text-gray-500" />
+                                    <FiPlus className="text-gray-500 dark:text-gray-400" />
                                   </button>
                                 </div>
                               </div>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{productPrice * productQuantity}</td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{productPrice * productQuantity}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
-                              <button onClick={() => handleRemoveFromCart(product)} className="text-indigo-600 hover:text-indigo-900 font-medium">
+                              <button onClick={() => handleRemoveFromCart(product)} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
                                 Remove Item
                               </button>
                             </td>
@@ -138,10 +138,10 @@ const ShoppingCart = () => {
       )}
       {cart.cartItems.length === 0 ? null : (
         <div className="flex justify-end">
-          <div className="flex flex-col bg-white py-8 pl-8 pr-12 rounded-lg shadow-lg mt-8 mr-4 md:mr-8 lg:mr-[6.7rem] 2xl:mr-64">
+          <div className="flex flex-col bg-white py-8 pl-8 pr-12 rounded-lg shadow-lg mt-8 mr-4 md:mr-8 lg:mr-[6.7rem] 2xl:mr-64 dark:bg-gray-700">
             <div>
-              <h1 className="font-lato text-lg text-gray-900">Total Items: {cart.cartTotalQuantity} items.</h1>
-              <h1 className="font-lato text-lg text-gray-900">Total Price: &#8369;{cart.cartTotalAmount}</h1>
+              <h1 className="font-lato text-lg text-gray-900 dark:text-zinc-100">Total Items: {cart.cartTotalQuantity} items.</h1>
+              <h1 className="font-lato text-lg text-gray-900 dark:text-zinc-100">Total Price: &#8369;{cart.cartTotalAmount}</h1>
             </div>
             <div className="flex">
               <button className="btn--primary py-2 px-6 mt-4 my-auto">Checkout</button>
