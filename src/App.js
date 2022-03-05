@@ -20,6 +20,7 @@ import Admin from "./pages/admin";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer, { getCartTotal } from "./redux/cartSlice";
+import account from "./pages/account";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -94,6 +95,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <Login />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/account"
+              element={
+                <MainLayout>
+                  <Account />
                 </MainLayout>
               }
             />
