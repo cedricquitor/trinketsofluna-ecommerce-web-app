@@ -138,7 +138,7 @@ const Registration = () => {
                   </div>
                   <div className="mb-10">
                     <button onClick={() => setPasswordIsHidden(!passwordIsHidden)} className="absolute mt-3 right-8">
-                      {passwordIsHidden ? <AiOutlineEye className="h-6 w-6 text-sky-200 dark:text-sky-600" /> : <AiOutlineEyeInvisible className="h-6 w-6 text-sky-300 dark:text-sky-600" />}
+                      {passwordIsHidden ? <AiOutlineEye className="h-6 w-6 text-sky-200 dark:text-sky-800" /> : <AiOutlineEyeInvisible className="h-6 w-6 text-sky-300 dark:text-sky-800" />}
                     </button>
                     <input type={passwordIsHidden ? "password" : "text"} id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
                     <label htmlFor="password" className="input__label top-[9.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">

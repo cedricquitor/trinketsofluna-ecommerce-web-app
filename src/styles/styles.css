@@ -67,7 +67,7 @@
     @apply block mb-4 py-2 px-3 w-full text-xl shadow-sm border-2 border-sky-100 placeholder-transparent transition text-gray-900
     hover:border-sky-200 
     focus:outline-none focus:border-sky-300
-    dark:bg-gray-700 dark:border-sky-500 dark:hover:border-sky-600 dark:text-zinc-100;
+    dark:bg-gray-700 dark:border-sky-700 dark:hover:border-sky-500 dark:focus:border-sky-500 dark:text-zinc-100;
   }
 
   .input__label {

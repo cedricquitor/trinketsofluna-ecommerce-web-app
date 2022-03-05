@@ -1,15 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { auth } from "../firebase/config";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-  signOut,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const AuthContext = createContext();
@@ -91,9 +82,7 @@ export const AuthContextProvider = ({ children }) => {
         toast.error(error.message);
       })
       .finally(() => {
-        toast.success(
-          "Password Reset request sent. Click the link in that message to reset your password."
-        );
+        toast.success("Password Reset request sent. Click the link in that message to reset your password.");
       });
   };
 
