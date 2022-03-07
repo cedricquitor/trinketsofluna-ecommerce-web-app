@@ -20,6 +20,7 @@ import Login from "./pages/login";
 import Recovery from "./pages/recovery";
 import Admin from "./pages/admin";
 import Account from "./pages/account";
+import NotFound from "./components/NotFound";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
@@ -124,6 +125,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <Admin />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <MainLayout>
+                  <NotFound />
                 </MainLayout>
               }
             />

@@ -13,7 +13,6 @@ const SignIn = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
-
   const { signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
 
   useEffect(() => {
