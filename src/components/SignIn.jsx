@@ -21,7 +21,7 @@ const SignIn = () => {
 
   useEffect(() => {
     getProducts();
-    console.log(user.displayName);
+    console.log(user);
   }, []);
 
   const getProducts = async () => {

@@ -4,7 +4,11 @@ import { useAuthContext } from "../context/AuthContext";
 import Loading from "./Loading";
 
 const Profile = () => {
-  const { user, loading } = useAuthContext();
+  const { user, loading, logoutUser } = useAuthContext();
+
+  const handleLogout = () => {
+    logoutUser();
+  };
 
   return (
     <>
@@ -21,6 +25,9 @@ const Profile = () => {
               <p className="font-lato text-gray-500 text-base md:text-lg dark:text-gray-400">Personal Information</p>
               <p className="font-lato text-gray-900 text-lg md:text-xl dark:text-zinc-100">{user.email}</p>
             </div>
+            <button onClick={() => handleLogout()} className="btn--secondary my-auto mx-auto py-3">
+              Logout
+            </button>
           </div>
         </section>
       )}
