@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 
 // Contexts
 import { useAuthContext } from "../context/AuthContext";
-import { useThemeContext } from "../context/ThemeContext";
 
 // Icons
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -23,7 +21,6 @@ const Registration = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { theme } = useThemeContext();
   const { registerUserWithEmail } = useAuthContext();
 
   useEffect(() => {
@@ -160,7 +157,6 @@ const Registration = () => {
           </div>
         </div>
       </div>
-      <ToastContainer theme={theme} />
     </section>
   );
 };

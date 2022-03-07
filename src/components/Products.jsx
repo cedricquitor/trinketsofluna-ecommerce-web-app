@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { isInCart } from "../helpers/isInCart";
-import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-
-// Contexts
-import { useThemeContext } from "../context/ThemeContext";
 
 // Icons
 import { BsCartPlus } from "react-icons/bs";
@@ -39,8 +34,6 @@ const Products = () => {
       console.log(error);
     }
   };
-
-  const { theme } = useThemeContext();
 
   const dispatch = useDispatch();
   const handleAddToCart = (product) => {
@@ -93,7 +86,6 @@ const Products = () => {
           );
         })}
       </div>
-      <ToastContainer theme={theme} autoClose={1000} />
     </div>
   );
 };

@@ -1,6 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "./helpers/scrollToTop";
+import { ToastContainer } from "react-toastify";
+
+// Use Context
+import { useThemeContext } from "./context/ThemeContext";
 
 // Layout
 import MainLayout from "./layouts/MainLayout";
@@ -35,6 +39,7 @@ const store = configureStore({
 store.dispatch(getCartTotal());
 
 const App = () => {
+  const { theme } = useThemeContext();
   return (
     <>
       {/* Redux Provider */}
@@ -123,6 +128,7 @@ const App = () => {
               }
             />
           </Routes>
+          <ToastContainer position="bottom-center" theme={theme} />
         </ScrollToTop>
       </Provider>
     </>

@@ -2,7 +2,7 @@ import React from "react";
 import { db } from "../firebase/config";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useThemeContext } from "../context/ThemeContext";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddProducts = () => {
@@ -56,7 +56,6 @@ const AddProducts = () => {
         <button onClick={testToast} className="btn--primary w-1/4 mx-auto">
           Test Toast
         </button>
-        <ToastContainer position="bottom-center" theme={theme} />
       </div>
     </>
   );

@@ -1,14 +1,11 @@
 import React, { useRef } from "react";
 import { BiLock } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
-import { useThemeContext } from "../context/ThemeContext";
 
 const ForgotPassword = () => {
   const emailRef = useRef();
 
-  const { theme } = useThemeContext();
   const { forgotPassword } = useAuthContext();
 
   const handleSubmit = async (e) => {
@@ -55,7 +52,6 @@ const ForgotPassword = () => {
           </p>
         </div>
       </div>
-      <ToastContainer theme={theme} />
     </section>
   );
 };
