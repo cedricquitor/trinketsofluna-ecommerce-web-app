@@ -52,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
       })
       .finally(() => {
         setLoading(false);
-        toast.success(`Sign-in confirmed. Welcome back, ${user.displayName}!`);
+        toast.success(`Sign-in confirmed. Welcome back!`);
       });
   };
 
@@ -67,7 +67,7 @@ export const AuthContextProvider = ({ children }) => {
       })
       .finally(() => {
         setLoading(false);
-        toast.success(`Sign in confirmed. Welcome back, ${user.displayName}!`);
+        toast.success(`Sign in confirmed. Welcome back!`);
       });
   };
 

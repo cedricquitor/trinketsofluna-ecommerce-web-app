@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Contexts
 import { useAuthContext } from "../context/AuthContext";
@@ -22,6 +22,7 @@ const Registration = () => {
   const passwordRef = useRef();
 
   const { registerUserWithEmail } = useAuthContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProducts();
@@ -75,6 +76,7 @@ const Registration = () => {
 
     if (name && email && password) {
       registerUserWithEmail(name, email, password);
+      navigate("/login", { replace: true });
     }
   };
 
@@ -134,15 +136,15 @@ const Registration = () => {
                     </label>
                   </div>
                   <div className="mb-10">
-                    <button onClick={() => setPasswordIsHidden(!passwordIsHidden)} className="absolute mt-3 right-8">
-                      {passwordIsHidden ? <AiOutlineEye className="h-6 w-6 text-sky-200 dark:text-sky-800" /> : <AiOutlineEyeInvisible className="h-6 w-6 text-sky-300 dark:text-sky-800" />}
-                    </button>
+                    <span onClick={() => setPasswordIsHidden(!passwordIsHidden)} className="absolute mt-3 right-8 cursor-pointer">
+                      {passwordIsHidden ? <AiOutlineEye className="h-6 w-6 text-sky-200 dark:text-sky-800 cursor-pointer" /> : <AiOutlineEyeInvisible className="h-6 w-6 text-sky-300 dark:text-sky-800" />}
+                    </span>
                     <input type={passwordIsHidden ? "password" : "text"} id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
                     <label htmlFor="password" className="input__label top-[9.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
                       Password
                     </label>
                   </div>
-                  <button onClick={() => handleSubmit()} className="btn--primary py-3 w-full mx-auto md:w-2/3">
+                  <button onClick={handleSubmit} className="btn--primary py-3 w-full mx-auto md:w-2/3">
                     Create your account
                   </button>
                   <p className="block font-playfair font-normal text-sm text-gray-500 mb-4 mt-4 dark:text-gray-400">

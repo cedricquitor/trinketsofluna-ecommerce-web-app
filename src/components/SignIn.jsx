@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "../context/AuthContext";
 
@@ -14,6 +14,8 @@ const SignIn = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProducts();
@@ -65,7 +67,13 @@ const SignIn = () => {
     const password = passwordRef.current.value;
     if (email && password) {
       signInUserWithEmail(email, password);
+      navigate("/account", { replace: true });
     }
+  };
+
+  const handleSignInWithGoogle = async () => {
+    const signIn = await signInUserWithGoogle();
+    navigate("/account", { replace: true });
   };
 
   return (
@@ -135,7 +143,7 @@ const SignIn = () => {
                   </button>
                   <p className="font-playfair text-base font-medium text-left text-gray-900 mt-6 md:mt-0 mb-2 dark:text-zinc-100">Connect with Socials</p>
                   <button
-                    onClick={signInUserWithGoogle}
+                    onClick={() => handleSignInWithGoogle()}
                     className="w-[99%] mx-auto flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600 dark:outline-sky-500 dark:hover:bg-sky-400 dark:active:bg-sky-700"
                   >
                     <FcGoogle className="mr-4 my-auto" />

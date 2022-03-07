@@ -1,13 +1,17 @@
 import React from "react";
 import { BiUserCircle } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import Loading from "./Loading";
 
 const Profile = () => {
   const { user, loading, logoutUser } = useAuthContext();
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     logoutUser();
+    navigate("/login", { replace: true });
   };
 
   return (
