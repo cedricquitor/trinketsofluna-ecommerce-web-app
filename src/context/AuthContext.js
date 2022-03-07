@@ -11,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
   /* TODO: Use this context as a reference.
   Set up state handlers for loading and error */
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -87,6 +87,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const contextValue = {
+    auth,
     user,
     loading,
     registerUserWithEmail,

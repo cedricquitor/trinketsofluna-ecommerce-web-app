@@ -15,12 +15,12 @@ import SignUp from "./pages/signup";
 import Login from "./pages/login";
 import Recovery from "./pages/recovery";
 import Admin from "./pages/admin";
+import Account from "./pages/account";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer, { getCartTotal } from "./redux/cartSlice";
-import account from "./pages/account";
 
 // Global Context
 export const AuthContext = React.createContext();
