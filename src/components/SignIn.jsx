@@ -17,11 +17,10 @@ const SignIn = () => {
   const passwordRef = useRef();
 
   const { theme } = useThemeContext();
-  const { user, signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
+  const { signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
 
   useEffect(() => {
     getProducts();
-    console.log(user);
   }, []);
 
   const getProducts = async () => {
