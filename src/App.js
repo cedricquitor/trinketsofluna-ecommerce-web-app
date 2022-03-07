@@ -43,7 +43,6 @@ const App = () => {
   const { theme } = useThemeContext();
   return (
     <>
-      {/* Redux Provider */}
       <Provider store={store}>
         {/* Routes that will redirect to the page that matches the forward slash "/" below. */}
         <ScrollToTop>

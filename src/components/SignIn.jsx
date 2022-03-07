@@ -72,7 +72,7 @@ const SignIn = () => {
   };
 
   const handleSignInWithGoogle = async () => {
-    const signIn = await signInUserWithGoogle();
+    signInUserWithGoogle();
     navigate("/account", { replace: true });
   };
 
