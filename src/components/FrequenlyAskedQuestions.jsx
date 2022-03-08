@@ -2,8 +2,8 @@ import React from "react";
 
 const FrequenlyAskedQuestions = () => {
   return (
-    <div>
-      <h1>FrequenlyAskedQuestions</h1>
+    <div className="mx-auto container mt-12">
+      <h1>FrequenlyAskedQuestions Placeholder</h1>
     </div>
   );
 };
