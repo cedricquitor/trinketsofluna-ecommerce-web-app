@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useThemeContext } from "../context/ThemeContext";
 import { toast } from "react-toastify";
+import PaymongoClient from "paymongo.js";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddProducts = () => {
+  const [data, setData] = useState([]);
   const { theme } = useThemeContext();
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   const addProduct = async () => {
     try {
@@ -43,6 +49,58 @@ const AddProducts = () => {
     console.log(theme);
   };
 
+  const testCreateSource = async () => {
+    const createResponse = await client.source.create({
+      type: "gcash", // gcash | grab_pay
+      currency: "PHP",
+      amount: 10000,
+      redirect: {
+        success: "https://trinketsofluna-ecommerce-fbase.firebaseapp.com/success",
+        failed: "https://trinketsofluna-ecommerce-fbase.firebaseapp.com/error",
+      },
+    });
+    setData(createResponse);
+    console.log(createResponse);
+    console.log(createResponse.data.attributes.redirect.checkout_url);
+  };
+
+  const testCreateSourceManual = () => {
+    const options = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Basic cGtfdGVzdF9RODJieUxGcGpzVnU1TTJKZ0JvbjRHVXA6",
+      },
+      body: JSON.stringify({
+        data: {
+          attributes: {
+            amount: 10000,
+            redirect: {
+              success: "https://trinketsofluna-ecommerce-fbase.firebaseapp.com/success",
+              failed: "https://trinketsofluna-ecommerce-fbase.firebaseapp.com/failed",
+            },
+            billing: {
+              address: { line1: "Line 1", postal_code: "Postal Code", city: "City" },
+              name: "Name",
+              phone: "Phone",
+              email: "emailaddress@gmail.com",
+            },
+            type: "gcash",
+            currency: "PHP",
+          },
+        },
+      }),
+    };
+
+    fetch("https://api.paymongo.com/v1/sources", options)
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+  };
+
+  const client = PaymongoClient("sk_test_u5J2nkk6Q3jvZL3gJEkCffEM");
+
   return (
     <>
       <div className="container mx-auto">
@@ -55,6 +113,10 @@ const AddProducts = () => {
         </button>
         <button onClick={testToast} className="btn--primary w-1/4 mx-auto">
           Test Toast
+        </button>
+
+        <button onClick={() => testCreateSourceManual()} className="btn--primary w-1/4 mx-auto">
+          Checkout
         </button>
       </div>
     </>
