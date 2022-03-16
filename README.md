@@ -12,6 +12,7 @@ Trinkets of Luna💎: Ecommerce Web Application
 - NodeJS
 - TailwindCSS
 
+This project uses PayMongo's API for its payment gateway.
 
 ## Getting Started
 Download and install 	[Node.js](https://nodejs.org/en/).
