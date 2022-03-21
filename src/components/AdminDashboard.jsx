@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [products, setProducts] = useState([]);
@@ -58,7 +59,9 @@ const AdminDashboard = () => {
         </div>
         <div className="flex justify-between mt-4">
           <h1 className="mx-64 my-auto font-medium font-playfair text-xl text-gray-900 dark:text-zinc-100">List of Active Products</h1>
-          <button className="mx-64 py-3 btn--primary">Add Product</button>
+          <Link to="add" className="mx-64 py-3 btn--primary">
+            Add Product
+          </Link>
         </div>
         <div className="flex flex-col w-11/12 xl:w-10/12 2xl:w-2/3 mx-auto mt-4">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -110,7 +113,9 @@ const AdminDashboard = () => {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{productFeatured ? "Featured" : "Not Featured"}</td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
-                            <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Edit Item</button>
+                            <button onClick={() => console.log(product)} className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
+                              Edit Item
+                            </button>
                             <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Archive Item</button>
                             <button className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Remove Item</button>
                           </td>
@@ -178,7 +183,9 @@ const AdminDashboard = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                             <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Edit Item</button>
                             <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Activate Item</button>
-                            <button className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Remove Item</button>
+                            <button onClick={() => console.log(archivedProduct)} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
+                              Remove Item
+                            </button>
                           </td>
                         </tr>
                       );

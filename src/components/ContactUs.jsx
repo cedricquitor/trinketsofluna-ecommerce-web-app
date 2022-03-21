@@ -60,7 +60,7 @@ const ContactUs = () => {
           <div>
             <div className="flex">
               <HiOutlineChatAlt2 className="w-6 h-6 mr-4 my-auto text-sky-300 dark:text-sky-500" />
-              <h2 className="font-lato font-semibold text-lg text-gray-900 uppercase dark:text-zinc-100">Live Chat</h2>
+              <h2 className="font-lato font-semibold text-lg text-gray-900 uppercase dark:text-zinc-100">Chat With Us</h2>
             </div>
             <p className="font-lato text-gray-500 dark:text-gray-400">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, libero possimus quae laborum ex facere temporibus tenetur ullam hic! Eaque labore corrupti quod dicta cupiditate vero voluptatibus. Deserunt, itaque in.
