@@ -5,6 +5,20 @@ const AddProduct = () => {
     console.log(e);
   };
 
+  const [isFeatured, setIsFeatured] = useState(true);
+
+  const handleRadioChange = () => {
+    if (isFeatured === true) {
+      setIsFeatured(false);
+    } else if (isFeatured === false) {
+      setIsFeatured(true);
+    }
+  };
+
+  useEffect(() => {
+    console.log(isFeatured);
+  }, [isFeatured]);
+
   const productNameRef = useRef();
   const productCategoryRef = useRef();
   const productPriceRef = useRef();
@@ -42,9 +56,27 @@ const AddProduct = () => {
                 Product Thumbnail
               </label>
             </div>
+            <div className="mt-8">
+              <p>Is this product featured?</p>
+              <div className="flex">
+                <div className="pr-2 w-full">
+                  <input className="hidden" id="radio_1" type="radio" name="radio" onChange={handleRadioChange} defaultChecked />
+                  <label className="flex flex-col p-4 border-2 border-gray-400 cursor-pointer" htmlFor="radio_1">
+                    <span className="text-xl font-bold font-playfair mt-2">Yes</span>
+                  </label>
+                </div>
+                <div className="pl-2 w-full">
+                  <input className="hidden" id="radio_2" type="radio" name="radio" onChange={handleRadioChange} />
+                  <label className="flex flex-col p-4 border-2 border-gray-400 cursor-pointer" htmlFor="radio_2">
+                    <span className="text-xl font-bold font-playfair mt-2">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
+      <button onClick={() => console.log(isFeatured)}>Check</button>
     </section>
   );
 };
