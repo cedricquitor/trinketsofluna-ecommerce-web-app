@@ -3,6 +3,17 @@ import { useLocation } from "react-router-dom";
 
 const EditProduct = () => {
   // Getting props from AdminDashboard
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state) {
+      if (location.state.productFeatured === false) {
+        setIsFeatured(false);
+      } else {
+        setIsFeatured(true);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     console.log(e);
@@ -18,11 +29,6 @@ const EditProduct = () => {
       setIsFeatured(true);
     }
   };
-
-  useEffect(() => {
-    console.log(isFeatured);
-    console.log();
-  }, [isFeatured]);
 
   const productIdRef = useRef();
   const productNameRef = useRef();
@@ -42,31 +48,31 @@ const EditProduct = () => {
         <div className="relative px-10">
           <form onSubmit={handleSubmit} className="mx-4">
             <div>
-              <input type="text" id="productId" placeholder="Product ID" ref={productIdRef} className="input__text peer" value="123123123123" disabled />
+              <input type="text" id="productId" placeholder="Product ID" ref={productIdRef} className="input__text peer" defaultValue={location.state ? location.state.id : null} disabled />
               <label htmlFor="productId" className="input__label left-[4.7rem] -top-[0.6rem] peer-placeholder-shown:top-[0.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:-top-[0.6rem] peer-focus:left-[4.7rem]">
                 Product ID
               </label>
             </div>
             <div>
-              <input type="text" id="productName" placeholder="Product Name" ref={productNameRef} className="input__text peer" />
+              <input type="text" id="productName" placeholder="Product Name" ref={productNameRef} defaultValue={location.state ? location.state.productName : null} className="input__text peer" />
               <label htmlFor="productName" className="input__label left-[4.7rem] top-[3.6rem] peer-placeholder-shown:top-[4.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[3.6rem] peer-focus:left-[4.7rem]">
                 Product Name
               </label>
             </div>
             <div>
-              <input type="text" id="productCategory" placeholder="Product Category" ref={productCategoryRef} className="input__text peer" />
+              <input type="text" id="productCategory" placeholder="Product Category" ref={productCategoryRef} defaultValue={location.state ? location.state.productCategory : null} className="input__text peer" />
               <label htmlFor="productCategory" className="input__label left-[4.7rem] top-[7.6rem] peer-placeholder-shown:top-[8.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[7.6rem] peer-focus:left-[4.7rem]">
                 Product Category
               </label>
             </div>
             <div>
-              <input type="text" id="productPrice" placeholder="Product Price" ref={productPriceRef} className="input__text peer" />
+              <input type="text" id="productPrice" placeholder="Product Price" ref={productPriceRef} defaultValue={location.state ? location.state.productPrice : null} className="input__text peer" />
               <label htmlFor="productPrice" className="input__label left-[4.7rem] top-[11.6rem] peer-placeholder-shown:top-[12.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[11.6rem] peer-focus:left-[4.7rem]">
                 Product Price
               </label>
             </div>
             <div>
-              <input type="text" id="productThumbnail" placeholder="Product Thumbnail" ref={productThumbnailRef} className="input__text peer" />
+              <input type="text" id="productThumbnail" placeholder="Product Thumbnail" ref={productThumbnailRef} defaultValue={location.state ? location.state.productThumbnail : null} className="input__text peer" />
               <label htmlFor="productThumbnail" className="input__label left-[4.7rem] top-[15.6rem] peer-placeholder-shown:top-[16.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[15.6rem] peer-focus:left-[4.7rem]">
                 Product Thumbnail
               </label>
@@ -84,14 +90,14 @@ const EditProduct = () => {
                   </label>
                 </div>
                 <div className="pl-2 w-full">
-                  <input className="hidden input__radio" id="radio_2" type="radio" name="radio" onChange={handleRadioChange} />
+                  <input className="hidden input__radio" id="radio_2" type="radio" name="radio" onChange={handleRadioChange} checked={location.state ? (location.state.productFeatured ? false : true) : false} />
                   <label className="input__radioLabel" htmlFor="radio_2">
                     <span className="text-xl font-bold font-playfair mt-2 mx-auto">No</span>
                   </label>
                 </div>
               </div>
             </div>
-            <button className="btn--primary mt-6 mx-auto">Add Product</button>
+            <button className="btn--primary mt-6 mx-auto">Edit Product</button>
           </form>
         </div>
       </div>
