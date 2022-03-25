@@ -20,6 +20,7 @@ const EditProduct = () => {
     console.log(isFeatured);
   }, [isFeatured]);
 
+  const productIdRef = useRef();
   const productNameRef = useRef();
   const productCategoryRef = useRef();
   const productPriceRef = useRef();
@@ -37,26 +38,32 @@ const EditProduct = () => {
         <div className="relative px-10">
           <form onSubmit={handleSubmit} className="mx-4">
             <div>
+              <input type="text" id="productId" placeholder="Product ID" ref={productIdRef} className="input__text peer" value="123123123123" disabled />
+              <label htmlFor="productId" className="input__label left-[4.7rem] -top-[0.6rem] peer-placeholder-shown:top-[0.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:-top-[0.6rem] peer-focus:left-[4.7rem]">
+                Product ID
+              </label>
+            </div>
+            <div>
               <input type="text" id="productName" placeholder="Product Name" ref={productNameRef} className="input__text peer" />
-              <label htmlFor="productName" className="input__label left-[4.7rem] -top-[0.6rem] peer-placeholder-shown:top-[0.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:-top-[0.6rem] peer-focus:left-[4.7rem]">
+              <label htmlFor="productName" className="input__label left-[4.7rem] top-[3.6rem] peer-placeholder-shown:top-[4.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[3.6rem] peer-focus:left-[4.7rem]">
                 Product Name
               </label>
             </div>
             <div>
               <input type="text" id="productCategory" placeholder="Product Category" ref={productCategoryRef} className="input__text peer" />
-              <label htmlFor="productCategory" className="input__label left-[4.7rem] top-[3.6rem] peer-placeholder-shown:top-[4.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[3.6rem] peer-focus:left-[4.7rem]">
+              <label htmlFor="productCategory" className="input__label left-[4.7rem] top-[7.6rem] peer-placeholder-shown:top-[8.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[7.6rem] peer-focus:left-[4.7rem]">
                 Product Category
               </label>
             </div>
             <div>
               <input type="text" id="productPrice" placeholder="Product Price" ref={productPriceRef} className="input__text peer" />
-              <label htmlFor="productPrice" className="input__label left-[4.7rem] top-[7.6rem] peer-placeholder-shown:top-[8.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[7.6rem] peer-focus:left-[4.7rem]">
+              <label htmlFor="productPrice" className="input__label left-[4.7rem] top-[11.6rem] peer-placeholder-shown:top-[12.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[11.6rem] peer-focus:left-[4.7rem]">
                 Product Price
               </label>
             </div>
             <div>
               <input type="text" id="productThumbnail" placeholder="Product Thumbnail" ref={productThumbnailRef} className="input__text peer" />
-              <label htmlFor="productThumbnail" className="input__label left-[4.7rem] top-[11.6rem] peer-placeholder-shown:top-[12.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[11.6rem] peer-focus:left-[4.7rem]">
+              <label htmlFor="productThumbnail" className="input__label left-[4.7rem] top-[15.6rem] peer-placeholder-shown:top-[16.6rem] peer-placeholder-shown:left-[4.2rem] peer-focus:top-[15.6rem] peer-focus:left-[4.7rem]">
                 Product Thumbnail
               </label>
             </div>
