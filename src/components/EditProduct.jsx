@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 const EditProduct = () => {
+  // Getting props from AdminDashboard
+
   const handleSubmit = async (e) => {
     console.log(e);
     e.preventDefault();
@@ -18,6 +21,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     console.log(isFeatured);
+    console.log();
   }, [isFeatured]);
 
   const productIdRef = useRef();
@@ -75,13 +79,13 @@ const EditProduct = () => {
               <div className="flex">
                 <div className="pr-2 w-full">
                   <input className="hidden input__radio" id="radio_1" type="radio" name="radio" onChange={handleRadioChange} defaultChecked />
-                  <label className="flex flex-col p-2 border-2 border-gray-500 cursor-pointer transition duration-300 hover:border-sky-200 hover:shadow-md active:border-sky-500 dark:border-gray-400 md:p-3" htmlFor="radio_1">
+                  <label className="input__radioLabel" htmlFor="radio_1">
                     <span className="text-xl font-bold font-playfair mt-2 mx-auto">Yes</span>
                   </label>
                 </div>
                 <div className="pl-2 w-full">
                   <input className="hidden input__radio" id="radio_2" type="radio" name="radio" onChange={handleRadioChange} />
-                  <label className="flex flex-col p-2 border-2 border-gray-500 cursor-pointer transition duration-300 hover:border-sky-200 hover:shadow-md active:border-sky-500 dark:border-gray-400 md:p-3" htmlFor="radio_2">
+                  <label className="input__radioLabel" htmlFor="radio_2">
                     <span className="text-xl font-bold font-playfair mt-2 mx-auto">No</span>
                   </label>
                 </div>

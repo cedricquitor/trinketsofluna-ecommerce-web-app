@@ -110,3 +110,7 @@
 .input__radio:checked + label {
   @apply border-sky-300 shadow-lg text-sky-300 dark:border-sky-500 dark:text-sky-500;
 }
+
+.input__radioLabel {
+  @apply flex flex-col p-2 border-2 border-gray-500 cursor-pointer transition duration-300 hover:border-sky-200 hover:shadow-md active:border-sky-500 dark:border-gray-400 dark:hover:shadow-md dark:hover:border-sky-600 md:p-3;
+}
