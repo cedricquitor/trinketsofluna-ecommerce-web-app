@@ -146,6 +146,14 @@ const App = () => {
               }
             />
             <Route
+              path="/admin/delete"
+              element={
+                <MainLayout>
+                  <EditProduct />
+                </MainLayout>
+              }
+            />
+            <Route
               path="*"
               element={
                 <MainLayout>
