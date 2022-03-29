@@ -7,11 +7,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     if (location.state) {
-      if (location.state.productFeatured === false) {
-        setIsFeatured(false);
-      } else {
-        setIsFeatured(true);
-      }
+      setIsFeatured(location.state.productFeatured);
     }
   }, []);
 
@@ -23,11 +19,7 @@ const EditProduct = () => {
   const [isFeatured, setIsFeatured] = useState(true);
 
   const handleRadioChange = () => {
-    if (isFeatured === true) {
-      setIsFeatured(false);
-    } else if (isFeatured === false) {
-      setIsFeatured(true);
-    }
+    setIsFeatured(!isFeatured);
   };
 
   const productIdRef = useRef();
@@ -84,13 +76,13 @@ const EditProduct = () => {
               </div>
               <div className="flex">
                 <div className="pr-2 w-full">
-                  <input className="hidden input__radio" id="radio_1" type="radio" name="radio" onChange={handleRadioChange} defaultChecked />
+                  <input className="hidden input__radio" id="radio_1" type="radio" name="radio" onChange={handleRadioChange} defaultChecked={location.state ? (location.state.productFeatured ? true : true) : false} />
                   <label className="input__radioLabel" htmlFor="radio_1">
                     <span className="text-xl font-bold font-playfair mt-2 mx-auto">Yes</span>
                   </label>
                 </div>
                 <div className="pl-2 w-full">
-                  <input className="hidden input__radio" id="radio_2" type="radio" name="radio" onChange={handleRadioChange} checked={location.state ? (location.state.productFeatured ? false : true) : false} />
+                  <input className="hidden input__radio" id="radio_2" type="radio" name="radio" onChange={handleRadioChange} defaultChecked={location.state ? (location.state.productFeatured ? false : true) : false} />
                   <label className="input__radioLabel" htmlFor="radio_2">
                     <span className="text-xl font-bold font-playfair mt-2 mx-auto">No</span>
                   </label>

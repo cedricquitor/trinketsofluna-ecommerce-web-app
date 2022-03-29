@@ -23,6 +23,7 @@ import Account from "./pages/account";
 import NotFound from "./components/NotFound";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
+import RemoveProduct from "./components/DeleteProduct";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
@@ -146,10 +147,10 @@ const App = () => {
               }
             />
             <Route
-              path="/admin/delete"
+              path="/admin/remove"
               element={
                 <MainLayout>
-                  <EditProduct />
+                  <RemoveProduct />
                 </MainLayout>
               }
             />

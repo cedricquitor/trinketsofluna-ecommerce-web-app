@@ -117,7 +117,9 @@ const AdminDashboard = () => {
                               Edit Item
                             </Link>
                             <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Archive Item</button>
-                            <button className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Remove Item</button>
+                            <Link to="remove" state={product} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
+                              Remove Item
+                            </Link>
                           </td>
                         </tr>
                       );
