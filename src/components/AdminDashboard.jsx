@@ -27,7 +27,7 @@ const AdminDashboard = () => {
       });
       // TODO: Remove the clg when deploying to production.
       setProducts(getProductsResult);
-      console.log(getProductsResult);
+      console.log("Active Products: ", getProductsResult);
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
       });
       // TODO: Remove the clg when deploying to production.
       setArchivedProducts(getArchivedProductsResult);
-      console.log(getArchivedProductsResult);
+      console.log("Archived Products: ", getArchivedProductsResult);
     } catch (error) {
       console.log(error);
     }
