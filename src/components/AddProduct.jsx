@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
+import { db } from "../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const handleSubmit = async (e) => {
-    console.log(e);
     e.preventDefault();
+    addProduct();
   };
 
   const [isFeatured, setIsFeatured] = useState(true);
+  const productsCollectionRef = collection(db, "products");
+  const navigate = useNavigate();
 
   const handleRadioChange = () => {
     if (isFeatured === true) {
@@ -24,6 +30,25 @@ const AddProduct = () => {
   const productCategoryRef = useRef();
   const productPriceRef = useRef();
   const productThumbnailRef = useRef();
+
+  const addProduct = async () => {
+    await addDoc(productsCollectionRef, {
+      productName: productNameRef.current.value,
+      productCategory: productCategoryRef.current.value,
+      productPrice: productPriceRef.current.value,
+      productThumbnail: productThumbnailRef.current.value,
+      productFeatured: isFeatured,
+    })
+      .then((result) => {
+        console.log(result);
+        toast.success(`Added product ${productNameRef.current.value} with ID of ${result.id} successfully!`);
+        navigate("/admin", { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
 
   return (
     <section className="mt-20 flex justify-center">

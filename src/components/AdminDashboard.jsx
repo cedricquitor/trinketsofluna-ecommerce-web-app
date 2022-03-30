@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const AdminDashboard = () => {
   const [products, setProducts] = useState([]);
   const [archivedProducts, setArchivedProducts] = useState([]);
+  const productsCollectionRef = collection(db, "products");
 
   useEffect(() => {
     getProducts();
@@ -15,7 +16,7 @@ const AdminDashboard = () => {
   // Fetching Products from Firebase
   const getProducts = async () => {
     try {
-      const getProductsQuery = await getDocs(collection(db, "products"));
+      const getProductsQuery = await getDocs(productsCollectionRef);
       const getProductsResult = [];
       getProductsQuery.forEach((doc) => {
         const object = {
