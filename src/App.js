@@ -24,6 +24,7 @@ import NotFound from "./components/NotFound";
 import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
 import RemoveProduct from "./components/DeleteProduct";
+import ArchiveProduct from "./components/ArchiveProduct";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
@@ -151,6 +152,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <RemoveProduct />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/admin/archive"
+              element={
+                <MainLayout>
+                  <ArchiveProduct />
                 </MainLayout>
               }
             />
