@@ -21,7 +21,6 @@ const EditProduct = () => {
   };
 
   const [isFeatured, setIsFeatured] = useState(true);
-  const productsCollectionRef = collection(db, "products");
   const navigate = useNavigate();
 
   const handleRadioChange = () => {
