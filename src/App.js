@@ -25,6 +25,7 @@ import AddProduct from "./components/AddProduct";
 import EditProduct from "./components/EditProduct";
 import RemoveProduct from "./components/DeleteProduct";
 import ArchiveProduct from "./components/ArchiveProduct";
+import ActivateProduct from "./components/ActivateProduct";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
@@ -160,6 +161,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <ArchiveProduct />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/admin/activate"
+              element={
+                <MainLayout>
+                  <ActivateProduct />
                 </MainLayout>
               }
             />
