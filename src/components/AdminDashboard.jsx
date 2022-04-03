@@ -192,9 +192,9 @@ const AdminDashboard = () => {
                             <Link to="activate" state={archivedProduct} className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
                               Activate Item
                             </Link>
-                            <button onClick={() => console.log(archivedProduct)} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
+                            <Link to="remove" state={archivedProduct} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
                               Remove Item
-                            </button>
+                            </Link>
                           </td>
                         </tr>
                       );
