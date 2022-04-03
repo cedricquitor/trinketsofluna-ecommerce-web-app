@@ -187,7 +187,9 @@ const AdminDashboard = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{productFeatured ? "Featured" : "Not Featured"}</td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
                             <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Edit Item</button>
-                            <button className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">Activate Item</button>
+                            <Link to="activate" state={archivedProduct} className="mr-6 text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
+                              Activate Item
+                            </Link>
                             <button onClick={() => console.log(archivedProduct)} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
                               Remove Item
                             </button>
