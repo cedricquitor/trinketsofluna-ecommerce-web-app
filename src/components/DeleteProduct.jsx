@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { db } from "../firebase/config";
-import { collection, doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -59,7 +59,7 @@ const RemoveProduct = () => {
             Back
           </button>
           <button onClick={() => deleteProduct()} className="w-44 btn--primary ml-4 mx-auto px-16">
-            Yes
+            Remove
           </button>
         </div>
       </div>
