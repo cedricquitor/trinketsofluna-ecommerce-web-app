@@ -14,6 +14,7 @@ import Home from "./pages";
 import About from "./pages/about";
 import Shop from "./pages/shop";
 import Cart from "./pages/cart";
+import Checkout from "./pages/checkout";
 import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
@@ -73,6 +74,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <Cart />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/checkout"
+              element={
+                <MainLayout>
+                  <Checkout />
                 </MainLayout>
               }
             />
