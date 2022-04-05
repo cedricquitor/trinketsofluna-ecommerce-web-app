@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "./Slider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Redux
 import { clearCart, decreaseQuantity, getCartTotal, increaseQuantity, removeFromCart } from "../redux/cartSlice";
@@ -9,10 +9,13 @@ import { clearCart, decreaseQuantity, getCartTotal, increaseQuantity, removeFrom
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { FiPlus, FiMinus, FiTrash2 } from "react-icons/fi";
+import { useAuthContext } from "../context/AuthContext";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const { auth } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
@@ -34,6 +37,12 @@ const ShoppingCart = () => {
     dispatch(getCartTotal());
     console.log(localStorage.getItem("cartItems"));
   }, [cart, dispatch]);
+
+  useEffect(() => {
+    if (auth.currentUser === null) {
+      navigate("/login", { replace: true });
+    }
+  }, []);
 
   return (
     <div className="container mx-auto md:mt-12">
