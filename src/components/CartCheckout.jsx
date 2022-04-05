@@ -1,13 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuthContext } from "../context/AuthContext";
 
 // Redux
 import { getCartTotal } from "../redux/cartSlice";
 
 const CartCheckout = () => {
+  const [price, setPrice] = useState(0);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const standardizedPrice = parseInt(cart.cartTotalAmount + "00");
+  const { auth } = useAuthContext();
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -20,6 +25,42 @@ const CartCheckout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const createSourceManual = async () => {
+    const options = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Basic c2tfdGVzdF91NUoybmtrNlEzanZaTDNnSkVrQ2ZmRU06",
+      },
+      body: JSON.stringify({
+        data: {
+          attributes: {
+            amount: standardizedPrice,
+            redirect: {
+              success: "http://localhost:3000/success",
+              failed: "http://localhost:3000/failed",
+            },
+            billing: { address: { line1: `${addressRef.current.value}`, city: `${cityRef.current.value}` }, name: `${nameRef.current.value}`, phone: `${phoneNumberRef.current.value}`, email: auth.currentUser.email },
+            type: "gcash",
+            currency: "PHP",
+          },
+        },
+      }),
+    };
+
+    fetch("https://api.paymongo.com/v1/sources", options)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        window.open(response.data.attributes.redirect.checkout_url, "_blank");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -131,7 +172,9 @@ const CartCheckout = () => {
                 <Link to="/cart" className="btn--secondary w-44 mt-6 mr-4 mx-auto my-auto">
                   Back
                 </Link>
-                <button className="btn--primary w-44 mt-6 ml-4 mx-auto">Confirm</button>
+                <button className="btn--primary w-44 mt-6 ml-4 mx-auto" onClick={() => createSourceManual()}>
+                  Confirm
+                </button>
               </div>
             </form>
           </div>
