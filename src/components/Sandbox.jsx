@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import PaymongoClient from "paymongo.js";
 import "react-toastify/dist/ReactToastify.css";
 
-const AddProducts = () => {
+const Sandbox = () => {
   const [data, setData] = useState([]);
   const { theme } = useThemeContext();
 
@@ -75,16 +75,16 @@ const AddProducts = () => {
       body: JSON.stringify({
         data: {
           attributes: {
-            amount: 10000,
+            amount: 30000,
             redirect: {
               success: "https://trinketsofluna-ecommerce-fbase.firebaseapp.com/success",
               failed: "https://trinketsofluna-ecommerce-fbase.firebaseapp.com/failed",
             },
             billing: {
               address: { line1: "Line 1", postal_code: "Postal Code", city: "City" },
-              name: "Name",
-              phone: "Phone",
-              email: "emailaddress@gmail.com",
+              name: "Name Test",
+              phone: "Phone Test",
+              email: "emailaddresstest@gmail.com",
             },
             type: "gcash",
             currency: "PHP",
@@ -105,16 +105,15 @@ const AddProducts = () => {
     <>
       <div className="container mx-auto">
         <h1 className="text-center text-8xl text-gray-900 font-playfair mb-56">Add Products</h1>
-        <button onClick={addProduct} className="btn--primary w-1/4 mx-auto">
+        <button onClick={addProduct} className="mb-2 btn--primary w-1/4 mx-auto">
           Add Product
         </button>
-        <button onClick={getProducts} className="btn--primary w-1/4 mx-auto">
+        <button onClick={getProducts} className="mb-2 btn--primary w-1/4 mx-auto">
           Get Products
         </button>
-        <button onClick={testToast} className="btn--primary w-1/4 mx-auto">
+        <button onClick={testToast} className="mb-2 btn--primary w-1/4 mx-auto">
           Test Toast
         </button>
-
         <button onClick={() => testCreateSourceManual()} className="btn--primary w-1/4 mx-auto">
           Checkout
         </button>
@@ -123,4 +122,4 @@ const AddProducts = () => {
   );
 };
 
-export default AddProducts;
+export default Sandbox;

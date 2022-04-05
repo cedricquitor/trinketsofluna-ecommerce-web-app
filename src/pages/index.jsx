@@ -16,7 +16,7 @@ const Home = () => {
         <Slider />
       </div>
       <Personalize />
-      <FrequentlyAskedQuestions />
+      {/* <FrequentlyAskedQuestions /> */}
     </div>
   );
 };

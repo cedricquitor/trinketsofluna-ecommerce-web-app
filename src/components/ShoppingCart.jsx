@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Slider from "./Slider";
+import { Link } from "react-router-dom";
+
+// Redux
+import { clearCart, decreaseQuantity, getCartTotal, increaseQuantity, removeFromCart } from "../redux/cartSlice";
 
 // Icons
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { FiPlus, FiMinus, FiTrash2 } from "react-icons/fi";
-import { clearCart, decreaseQuantity, getCartTotal, increaseQuantity, removeFromCart } from "../redux/cartSlice";
-import { Link } from "react-router-dom";
-import Slider from "./Slider";
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
@@ -144,10 +146,12 @@ const ShoppingCart = () => {
               <h1 className="font-lato text-lg text-gray-900 dark:text-zinc-100">Total Price: &#8369;{cart.cartTotalAmount}</h1>
             </div>
             <div className="flex">
-              <button className="btn--primary py-2 px-6 mt-4 my-auto">Checkout</button>
-              <button onClick={() => handleClearCart()} className="btn--secondary py-2 px-6 ml-4 mt-4 my-auto">
+              <button onClick={() => handleClearCart()} className="btn--secondary py-2 px-6 mt-4 my-auto">
                 Clear Cart
               </button>
+              <Link to="/checkout" className="btn--primary py-2 px-6 mt-4 ml-4 my-auto">
+                Checkout
+              </Link>
             </div>
           </div>
         </div>

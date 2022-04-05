@@ -27,11 +27,13 @@ import EditProduct from "./components/EditProduct";
 import RemoveProduct from "./components/DeleteProduct";
 import ArchiveProduct from "./components/ArchiveProduct";
 import ActivateProduct from "./components/ActivateProduct";
+import Sandbox from "./components/Sandbox";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer, { getCartTotal } from "./redux/cartSlice";
+import tempReducer from "./redux/tempSlice";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -40,6 +42,7 @@ export const ThemeContext = React.createContext();
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    temp: tempReducer,
   },
 });
 
@@ -178,6 +181,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <ActivateProduct />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/sandbox"
+              element={
+                <MainLayout>
+                  <Sandbox />
                 </MainLayout>
               }
             />
