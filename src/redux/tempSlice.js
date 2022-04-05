@@ -11,15 +11,19 @@ const tempSlice = createSlice({
   reducers: {
     storeCartItems(state, action) {
       state.cartTemp.push(action.payload);
+      localStorage.setItem("cartTemp", JSON.stringify(state.cartTemp));
     },
     storePaymongoResponse(state, action) {
       state.paymongoTemp.push(action.payload);
+      localStorage.setItem("paymongoTemp", JSON.stringify(state.paymongoTemp));
     },
     clearCartItems(state) {
       state.cartTemp = [];
+      localStorage.removeItem("cartTemp");
     },
     clearPaymongoResponse(state) {
       state.paymongoTemp = [];
+      localStorage.removeItem("paymongoTemp");
     },
   },
 });
