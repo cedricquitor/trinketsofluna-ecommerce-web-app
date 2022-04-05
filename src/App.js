@@ -34,6 +34,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer, { getCartTotal } from "./redux/cartSlice";
 import tempReducer from "./redux/tempSlice";
+import CheckoutSuccess from "./components/CheckoutSuccess";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -85,6 +86,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <Checkout />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/checkout/success"
+              element={
+                <MainLayout>
+                  <CheckoutSuccess />
                 </MainLayout>
               }
             />
