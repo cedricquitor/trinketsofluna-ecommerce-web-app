@@ -15,6 +15,8 @@ import About from "./pages/about";
 import Shop from "./pages/shop";
 import Cart from "./pages/cart";
 import Checkout from "./pages/checkout";
+import CheckoutSuccess from "./components/CheckoutSuccess";
+import CheckoutFailed from "./components/CheckoutFailed";
 import Contact from "./pages/contact";
 import SignUp from "./pages/signup";
 import Login from "./pages/login";
@@ -34,7 +36,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer, { getCartTotal } from "./redux/cartSlice";
 import tempReducer from "./redux/tempSlice";
-import CheckoutSuccess from "./components/CheckoutSuccess";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -94,6 +95,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <CheckoutSuccess />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/checkout/failed"
+              element={
+                <MainLayout>
+                  <CheckoutFailed />
                 </MainLayout>
               }
             />
