@@ -1,21 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
 
 // Redux
 import { getCartTotal } from "../redux/cartSlice";
+import { storeCartItems, storePaymongoResponse, clearCartItems, clearPaymongoResponse } from "../redux/tempSlice";
 
 const CartCheckout = () => {
-  const [price, setPrice] = useState(0);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const standardizedPrice = parseInt(cart.cartTotalAmount + "00");
   const { auth } = useAuthContext();
+  const navigate = useNavigate();
+  const temp = useSelector((state) => state.temp);
 
   useEffect(() => {
     dispatch(getCartTotal());
+    console.log(cart);
   }, [cart, dispatch]);
 
   const nameRef = useRef();
@@ -23,8 +26,22 @@ const CartCheckout = () => {
   const addressRef = useRef();
   const cityRef = useRef();
 
+  const handleStoreCartItems = (items) => {
+    dispatch(storeCartItems(items));
+  };
+
+  const handleStorePaymongoResponse = (response) => {
+    dispatch(storePaymongoResponse(response));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const backToCart = () => {
+    dispatch(clearCartItems());
+    dispatch(clearPaymongoResponse());
+    navigate("/cart", { replace: true });
   };
 
   const createSourceManual = async () => {
@@ -55,6 +72,8 @@ const CartCheckout = () => {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
+        handleStorePaymongoResponse(response);
+        handleStoreCartItems(cart);
         window.open(response.data.attributes.redirect.checkout_url, "_blank");
       })
       .catch((error) => {
@@ -169,10 +188,10 @@ const CartCheckout = () => {
                 </div>
               </div>
               <div className="flex">
-                <Link to="/cart" className="btn--secondary w-44 mt-6 mr-4 mx-auto my-auto">
+                <button onClick={() => backToCart()} className="btn--secondary w-44 mt-6 mr-4 mx-auto my-auto">
                   Back
-                </Link>
-                <button className="btn--primary w-44 mt-6 ml-4 mx-auto" onClick={() => createSourceManual()}>
+                </button>
+                <button onClick={() => createSourceManual()} className="btn--primary w-44 mt-6 ml-4 mx-auto">
                   Confirm
                 </button>
               </div>

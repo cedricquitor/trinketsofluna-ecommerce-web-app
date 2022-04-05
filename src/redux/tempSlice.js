@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cartItems: [],
-  paymongo: [],
+  cartTemp: localStorage.getItem("cartTemp") ? JSON.parse(localStorage.getItem("cartTemp")) : [],
+  paymongoTemp: localStorage.getItem("paymongoTemp") ? JSON.parse(localStorage.getItem("paymongoTemp")) : [],
 };
 
 const tempSlice = createSlice({
@@ -10,18 +10,20 @@ const tempSlice = createSlice({
   initialState,
   reducers: {
     storeCartItems(state, action) {
-      state.cartItems.push(action.payload);
+      state.cartTemp.push(action.payload);
     },
     storePaymongoResponse(state, action) {
-      state.paymongo.push(action.payload);
+      state.paymongoTemp.push(action.payload);
     },
     clearCartItems(state) {
-      state.cartItems = [];
+      state.cartTemp = [];
     },
     clearPaymongoResponse(state) {
-      state.paymongo = [];
+      state.paymongoTemp = [];
     },
   },
 });
+
+export const { storeCartItems, storePaymongoResponse, clearCartItems, clearPaymongoResponse } = tempSlice.actions;
 
 export default tempSlice.reducer;

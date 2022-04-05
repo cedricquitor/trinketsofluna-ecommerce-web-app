@@ -32,6 +32,7 @@ const ShoppingCart = () => {
 
   useEffect(() => {
     dispatch(getCartTotal());
+    console.log(localStorage.getItem("cartItems"));
   }, [cart, dispatch]);
 
   return (
