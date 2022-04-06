@@ -11,9 +11,9 @@ import { storeCartItems, storePaymongoResponse, clearCartItems, clearPaymongoRes
 const CartCheckout = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const standardizedPrice = parseInt(cart.cartTotalAmount + "00");
   const { auth } = useAuthContext();
-  const navigate = useNavigate();
   const temp = useSelector((state) => state.temp);
 
   useEffect(() => {
