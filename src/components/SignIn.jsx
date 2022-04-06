@@ -14,7 +14,7 @@ const SignIn = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { signInUserWithEmail, GoogleAuthProvider, signInWithPopup, setLoading, auth } = useAuthContext();
+  const { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, setLoading, auth } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,18 +66,16 @@ const SignIn = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     if (email && password) {
-      const provider = new GoogleAuthProvider();
       setLoading(true);
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          console.log(result);
-        })
+      signInWithEmailAndPassword(auth, email, password)
         .catch((error) => {
           toast.error(error.message);
         })
+        .then((result) => {
+          console.log(result);
+        })
         .finally(() => {
           setLoading(false);
-          toast.success(`Sign-in confirmed. Welcome back!`);
           navigate("/account", { replace: true });
         });
     }
@@ -92,10 +90,10 @@ const SignIn = () => {
       })
       .catch((error) => {
         toast.error(error.message);
+        Promise.reject(error.message);
       })
       .finally(() => {
         setLoading(false);
-        toast.success(`Sign-in confirmed. Welcome back!`);
         navigate("/account", { replace: true });
       });
   };

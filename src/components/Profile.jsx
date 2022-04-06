@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
-import Loading from "./Loading";
 
 const Profile = () => {
   const { auth, user, loading, logoutUser } = useAuthContext();
@@ -11,8 +11,10 @@ const Profile = () => {
   useEffect(() => {
     if (auth.currentUser === null) {
       navigate("/login", { replace: true });
+    } else {
+      toast.success(`Sign in confirmed. Welcome back!`);
     }
-  }, []);
+  }, [auth]);
 
   const handleLogout = () => {
     logoutUser();
@@ -21,8 +23,8 @@ const Profile = () => {
 
   return (
     <>
-      {loading ? (
-        <Loading />
+      {auth.currentUser === null ? (
+        navigate("/login", { replace: true })
       ) : (
         <section className="mt-20 flex justify-center">
           <div className="mx-auto my-auto py-8 w-5/6 md:w-2/3 xl:w-1/3 2xl:w-1/4 bg-white shadow-lg dark:bg-gray-700">
@@ -36,10 +38,10 @@ const Profile = () => {
               <p className="font-lato text-gray-900 text-lg md:text-xl dark:text-zinc-100">{user.email}</p>
             </div>
             <div className="flex">
-              <button onClick={() => handleLogout()} className="btn--secondary my-auto mx-auto py-3">
+              <button onClick={() => handleLogout()} className="btn--secondary my-auto mx-auto py-3 w-48">
                 Logout
               </button>
-              {user.uid === "d64TMtbWfhNntekeJKF8U2RafcE3" ? <button className="btn--primary py-3 mx-auto my-auto">Admin Panel</button> : null}
+              {user.uid === "d64TMtbWfhNntekeJKF8U2RafcE3" ? <button className="btn--primary py-3 mx-auto my-auto w-48">Admin Panel</button> : null}
             </div>
           </div>
         </section>
