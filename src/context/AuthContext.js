@@ -40,36 +40,36 @@ export const AuthContextProvider = ({ children }) => {
       });
   };
 
-  const signInUserWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    setLoading(true);
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-        toast.success(`Sign-in confirmed. Welcome back!`);
-      });
-  };
+  // const signInUserWithGoogle = () => {
+  //   const provider = new GoogleAuthProvider();
+  //   setLoading(true);
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       console.log(result);
+  //     })
+  //     .catch((error) => {
+  //       toast.error(error.message);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //       toast.success(`Sign-in confirmed. Welcome back!`);
+  //     });
+  // };
 
-  const signInUserWithEmail = (email, passowrd) => {
-    setLoading(true);
-    signInWithEmailAndPassword(auth, email, passowrd)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-        toast.success(`Sign in confirmed. Welcome back!`);
-      });
-  };
+  // const signInUserWithEmail = (email, passowrd) => {
+  //   setLoading(true);
+  //   signInWithEmailAndPassword(auth, email, passowrd)
+  //     .then((result) => {
+  //       console.log(result);
+  //     })
+  //     .catch((error) => {
+  //       toast.error(error.message);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //       toast.success(`Sign in confirmed. Welcome back!`);
+  //     });
+  // };
 
   const logoutUser = () => {
     signOut(auth);
@@ -90,11 +90,16 @@ export const AuthContextProvider = ({ children }) => {
     auth,
     user,
     loading,
+    setLoading,
     registerUserWithEmail,
-    signInUserWithGoogle,
-    signInUserWithEmail,
+    // signInUserWithGoogle,
+    // signInUserWithEmail,
     logoutUser,
     forgotPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInWithEmailAndPassword,
+    updateProfile,
   };
 
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;

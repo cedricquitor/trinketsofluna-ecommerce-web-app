@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   // State handler for index and assigning data to products.
@@ -13,8 +14,7 @@ const SignIn = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { signInUserWithEmail, signInUserWithGoogle } = useAuthContext();
-
+  const { signInUserWithEmail, GoogleAuthProvider, signInWithPopup, setLoading, auth } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,14 +66,38 @@ const SignIn = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     if (email && password) {
-      signInUserWithEmail(email, password);
-      navigate("/account", { replace: true });
+      const provider = new GoogleAuthProvider();
+      setLoading(true);
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          toast.error(error.message);
+        })
+        .finally(() => {
+          setLoading(false);
+          toast.success(`Sign-in confirmed. Welcome back!`);
+          navigate("/account", { replace: true });
+        });
     }
   };
 
   const handleSignInWithGoogle = async () => {
-    signInUserWithGoogle();
-    navigate("/account", { replace: true });
+    const provider = new GoogleAuthProvider();
+    setLoading(true);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+        toast.success(`Sign-in confirmed. Welcome back!`);
+        navigate("/account", { replace: true });
+      });
   };
 
   return (
