@@ -4,23 +4,26 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { clearCartItems, clearPaymongoResponse } from "../redux/tempSlice";
-import { Timestamp } from "firebase/firestore";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 const CheckoutSuccess = () => {
   const paymongoTemp = JSON.parse(localStorage.getItem("paymongoTemp"));
   const cartTemp = JSON.parse(localStorage.getItem("cartTemp"));
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const ordersCollectionRef = collection(db, "orders");
 
   useEffect(() => {
-    // createPayment();
+    createPayment();
+    addOrder();
   }, []);
 
   const testTemps = () => {
     console.log("PayMongo Temp:", paymongoTemp);
     console.log("Cart Temp:", cartTemp);
-    console.log(paymongoTemp[0].data.attributes.amount);
-    console.log(Timestamp.now());
+    console.log(cartTemp[0].cartTotalQuantity.toString());
+    // addOrder();
   };
 
   const createPayment = async () => {
@@ -43,10 +46,32 @@ const CheckoutSuccess = () => {
       }),
     };
 
-    fetch("https://api.paymongo.com/v1/payments", options)
+    await fetch("https://api.paymongo.com/v1/payments", options)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+      });
+  };
+
+  const addOrder = async () => {
+    await addDoc(ordersCollectionRef, {
+      orderId: paymongoTemp[0].data.id,
+      orderName: paymongoTemp[0].data.attributes.billing.name,
+      orderPhoneNumber: paymongoTemp[0].data.attributes.billing.phone,
+      orderEmail: paymongoTemp[0].data.attributes.billing.email,
+      orderAddress: paymongoTemp[0].data.attributes.billing.address.line1,
+      orderCity: paymongoTemp[0].data.attributes.billing.address.city,
+      orderTime: Timestamp.now(),
+      orderTotalAmount: cartTemp[0].cartTotalAmount + ".00",
+      orderTotalQuantity: cartTemp[0].cartTotalQuantity.toString(),
+      orderItems: cartTemp[0].cartItems,
+    })
+      .then((result) => {
+        console.log(result);
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +87,7 @@ const CheckoutSuccess = () => {
 
   return (
     <>
-      {localStorage.getItem("paymongoTemp") ? (
+      {localStorage.getItem("paymongoTemp") && localStorage.getItem("cartTemp") ? (
         <section className="mt-20 flex justify-center">
           <div className="mx-auto my-auto py-8 w-5/6 md:w-2/3 xl:w-1/3 2xl:w-1/4 bg-white shadow-lg dark:bg-gray-700">
             <div className="mx-8 md:mx-16 mb-4 md:mb-8">
@@ -95,7 +120,7 @@ const CheckoutSuccess = () => {
               </div>
             </div>
             <div className="flex">
-              <button onClick={() => testTemps()} className="btn--secondary my-auto mx-auto py-3">
+              <button onClick={() => backToHome()} className="btn--secondary my-auto mx-auto py-3">
                 Back to Home
               </button>
             </div>
