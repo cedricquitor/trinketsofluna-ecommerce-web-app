@@ -74,7 +74,7 @@ const CartCheckout = () => {
         console.log(response);
         handleStorePaymongoResponse(response);
         handleStoreCartItems(cart);
-        window.open(response.data.attributes.redirect.checkout_url, "_blank");
+        window.location.assign(response.data.attributes.redirect.checkout_url);
       })
       .catch((error) => {
         console.log(error);

@@ -17,9 +17,6 @@ const Collections = () => {
           <p className="mt-6 lg:pr-24 font-lato text-xl text-gray-500 dark:text-gray-400">
             Non distinctio eius modi earum provident qui, nesciunt fugit libero quo ex inventore officia, exercitationem tempora ullam necessitatibus porro maxime totam sapiente!
           </p>
-          <p className="mt-8 w-fit text-gray-600 text-2xl font-playfair font-extrabold border-b-2 border-gray-600 cursor-pointer transition duration-200 hover:text-cyan-400 hover:border-cyan-400 hover:-translate-y-1 active:text-cyan-600 active:border-cyan-600 dark:text-gray-300 dark:border-gray-300 dark:hover:border-cyan-500 dark:hover:text-cyan-500 dark:active:text-cyan-600">
-            View Collection
-          </p>
         </div>
         <div className="block basis-1/2 my-auto mx-auto">
           <img className="2xl:w-3/4 object-cover drop-shadow-2xl" src="https://pbs.twimg.com/media/FEzJSkyVIAcTBeq?format=jpg&name=medium" alt="A jewelry from Collection 1" />
@@ -36,9 +33,6 @@ const Collections = () => {
           </p>
           <p className="mt-6 lg:pr-4 2xl:pr-24 font-lato text-xl text-gray-500 dark:text-gray-400">
             Non distinctio eius modi earum provident qui, nesciunt fugit libero quo ex inventore officia, exercitationem tempora ullam necessitatibus porro maxime totam sapiente!
-          </p>
-          <p className="mt-8 w-fit text-gray-600 text-2xl font-playfair font-extrabold border-b-2 border-gray-600 cursor-pointer transition duration-200 hover:text-cyan-400 hover:border-cyan-400 hover:-translate-y-1 active:text-cyan-600 active:border-cyan-600 dark:text-gray-300 dark:border-gray-300 dark:hover:border-cyan-500 dark:hover:text-cyan-500 dark:active:text-cyan-600">
-            View Collection
           </p>
         </div>
       </div>

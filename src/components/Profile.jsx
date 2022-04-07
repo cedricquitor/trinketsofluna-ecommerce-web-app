@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
 import { clearCart } from "../redux/cartSlice";
+import { clearCartItems, clearPaymongoResponse } from "../redux/tempSlice";
 
 const Profile = () => {
   const { auth, user, loading, logoutUser } = useAuthContext();
@@ -22,6 +23,9 @@ const Profile = () => {
   const handleLogout = () => {
     logoutUser();
     dispatch(clearCart());
+    dispatch(clearCartItems());
+    dispatch(clearPaymongoResponse());
+    localStorage.removeItem("cartItems");
     navigate("/login", { replace: true });
   };
 
