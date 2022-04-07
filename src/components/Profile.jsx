@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { BiUserCircle } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
+import { clearCart } from "../redux/cartSlice";
 
 const Profile = () => {
   const { auth, user, loading, logoutUser } = useAuthContext();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (auth.currentUser === null) {
@@ -18,6 +21,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     logoutUser();
+    dispatch(clearCart());
     navigate("/login", { replace: true });
   };
 
@@ -41,7 +45,11 @@ const Profile = () => {
               <button onClick={() => handleLogout()} className="btn--secondary my-auto mx-auto py-3 w-48">
                 Logout
               </button>
-              {user.uid === "d64TMtbWfhNntekeJKF8U2RafcE3" ? <button className="btn--primary py-3 mx-auto my-auto w-48">Admin Panel</button> : null}
+              {user.uid === "d64TMtbWfhNntekeJKF8U2RafcE3" ? (
+                <Link to="/admin" className="btn--primary py-3 mx-auto my-auto w-48">
+                  Admin Panel
+                </Link>
+              ) : null}
             </div>
           </div>
         </section>

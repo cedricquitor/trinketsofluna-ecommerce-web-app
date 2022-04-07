@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 import { BsArrowLeftSquare, BsArrowRightSquare, BsCartPlus } from "react-icons/bs";
+import { addToCart } from "../redux/cartSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const Slider = () => {
   const [slides, setSlides] = useState([]);
@@ -40,6 +43,12 @@ const Slider = () => {
     slider.scrollLeft += 450;
   };
 
+  const dispatch = useDispatch();
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.productName} added to cart.`);
+  };
+
   return (
     <section className="container mx-auto">
       <div className="text-center mb-12">
@@ -75,10 +84,13 @@ const Slider = () => {
                     </div>
                     <h1 className="text-2xl font-lato font-bold text-gray-900 dark:text-zinc-100">&#8369;{productPrice}</h1>
                     <div className="flex justify-between mt-4">
-                      <BsCartPlus className="h-[1.6rem] w-[1.6rem] text-sky-300 my-auto cursor-pointer transition duration-300 hover:text-sky-500 active:text-sky-600 dark:text-sky-500" />
-                      <a href="#" className="btn--primary md:py-2 md:px-8 focus:ring-2">
-                        Buy Now
-                      </a>
+                      <button
+                        onClick={() => handleAddToCart(slide)}
+                        className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium shadow-md transition duration-300 hover:shadow-2xl text-white bg-sky-300 hover:bg-sky-500 md:py-2 md:text-lg md:px-8 focus:ring-2 focus:ring-offset-2 focus:ring-sky-300 active:bg-sky-600"
+                      >
+                        <BsCartPlus className="my-auto mr-2" />
+                        Add to Cart
+                      </button>
                     </div>
                   </div>
                 </div>

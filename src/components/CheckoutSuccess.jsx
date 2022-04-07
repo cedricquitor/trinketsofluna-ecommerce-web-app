@@ -4,15 +4,16 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { clearCartItems, clearPaymongoResponse } from "../redux/tempSlice";
+import { clearCart } from "../redux/cartSlice";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 const CheckoutSuccess = () => {
-  const paymongoTemp = JSON.parse(localStorage.getItem("paymongoTemp"));
-  const cartTemp = JSON.parse(localStorage.getItem("cartTemp"));
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ordersCollectionRef = collection(db, "orders");
+  const paymongoTemp = JSON.parse(localStorage.getItem("paymongoTemp"));
+  const cartTemp = JSON.parse(localStorage.getItem("cartTemp"));
 
   useEffect(() => {
     createPayment();
@@ -82,6 +83,7 @@ const CheckoutSuccess = () => {
   const backToHome = () => {
     dispatch(clearCartItems());
     dispatch(clearPaymongoResponse());
+    dispatch(clearCart());
     navigate("/", { replace: true });
   };
 
