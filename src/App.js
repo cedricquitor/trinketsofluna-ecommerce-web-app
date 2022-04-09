@@ -30,6 +30,8 @@ import RemoveProduct from "./components/DeleteProduct";
 import ArchiveProduct from "./components/ArchiveProduct";
 import ActivateProduct from "./components/ActivateProduct";
 import Sandbox from "./components/Sandbox";
+import Orders from "./pages/orders";
+import Order from "./components/Order";
 
 // Redux
 import { configureStore } from "@reduxjs/toolkit";
@@ -199,6 +201,22 @@ const App = () => {
               element={
                 <MainLayout>
                   <ActivateProduct />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/admin/orders"
+              element={
+                <MainLayout>
+                  <Orders />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/admin/orders/view"
+              element={
+                <MainLayout>
+                  <Order />
                 </MainLayout>
               }
             />
