@@ -8,15 +8,13 @@ import { clearCart } from "../redux/cartSlice";
 import { clearCartItems, clearPaymongoResponse } from "../redux/tempSlice";
 
 const Profile = () => {
-  const { auth, user, loading, logoutUser } = useAuthContext();
+  const { auth, user, logoutUser } = useAuthContext();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (auth.currentUser === null) {
       navigate("/login", { replace: true });
-    } else {
-      toast.success(`Sign in confirmed. Welcome back!`);
     }
   }, [auth]);
 

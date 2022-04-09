@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 const SignIn = () => {
   // State handler for index and assigning data to products.
   const [products, setProducts] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [index, setIndex] = useState(0);
   const featuredProducts = products.filter((product) => product.productFeatured);
 
@@ -65,25 +66,23 @@ const SignIn = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    if (email && password) {
-      setLoading(true);
-      signInWithEmailAndPassword(auth, email, password)
-        .catch((error) => {
-          toast.error(error.message);
-        })
-        .then((result) => {
-          console.log(result);
-        })
-        .finally(() => {
-          setLoading(false);
-          navigate("/account", { replace: true });
-        });
+    try {
+      if (email && password) {
+        await signInWithEmailAndPassword(auth, email, password);
+      }
+      setIsLoggedIn(true);
+    } catch (error) {
+      setIsLoggedIn(false);
+      toast.error(error.message);
+    } finally {
+      if (isLoggedIn === true) {
+        navigate("/account", { replace: true });
+      }
     }
   };
 
   const handleSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    setLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
@@ -93,7 +92,6 @@ const SignIn = () => {
         Promise.reject(error.message);
       })
       .finally(() => {
-        setLoading(false);
         navigate("/account", { replace: true });
       });
   };
@@ -164,13 +162,13 @@ const SignIn = () => {
                     Login
                   </button>
                   <p className="font-playfair text-base font-medium text-left text-gray-900 mt-6 md:mt-0 mb-2 dark:text-zinc-100">Connect with Socials</p>
-                  <button
+                  <div
                     onClick={() => handleSignInWithGoogle()}
-                    className="w-[99%] mx-auto flex items-center justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600 dark:outline-sky-500 dark:hover:bg-sky-400 dark:active:bg-sky-700"
+                    className="w-[99%] mx-auto flex items-center cursor-pointer justify-center px-8 py-3 outline outline-2 outline-sky-300 text-base font-medium shadow-md text-sky-300 bg-tranparent transition duration-300 hover:bg-sky-200 hover:text-white hover:shadow-2xl md:mb-4 md:py-3 md:text-lg md:px-10 focus:ring-2 focus:ring-offset-4 focus:ring-sky-200 active:bg-sky-600 dark:outline-sky-500 dark:hover:bg-sky-400 dark:active:bg-sky-700"
                   >
                     <FcGoogle className="mr-4 my-auto" />
                     Sign in with Google
-                  </button>
+                  </div>
                   <p className="block font-playfair font-normal text-sm text-gray-500 mt-4 mb-2 md:mt-0 md:mb-4 dark:text-gray-400">
                     Don't have an account?
                     <Link to="/signup" className="ml-2 text-sky-300 transition hover:text-sky-500 hover:drop-shadow-sm active:text-sky-600 dark:text-sky-500 dark:hover:text-sky-600">
