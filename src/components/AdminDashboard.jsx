@@ -60,9 +60,14 @@ const AdminDashboard = () => {
         </div>
         <div className="flex justify-between mt-4">
           <h1 className="mx-64 my-auto font-medium font-playfair text-xl text-gray-900 dark:text-zinc-100">List of Active Products</h1>
-          <Link to="add" className="mx-64 py-3 btn--primary">
-            Add Product
-          </Link>
+          <div className="flex mx-64">
+            <Link to="orders" className="py-3 btn--primary w-44">
+              View Orders
+            </Link>
+            <Link to="add" className="py-3 btn--primary w-44">
+              Add Product
+            </Link>
+          </div>
         </div>
         <div className="flex flex-col w-11/12 xl:w-10/12 2xl:w-2/3 mx-auto mt-4">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
