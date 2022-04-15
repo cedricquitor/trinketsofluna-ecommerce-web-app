@@ -63,8 +63,10 @@ const OrdersList = () => {
                   Order for: <span className="ml-1 font-playfair text-sky-300 dark:text-sky-500">{orderName}</span>
                 </h1>
                 <div className="flex justify-between">
-                  <h1 className="text-lg font-medium font-lato text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700 dark:text-gray-400">Set as Inactive</h1>
-                  <h1 className="text-lg font-medium font-lato text-sky-300 cursor-pointer transition duration-300 hover:text-sky-500 dark:text-sky-500">View Order</h1>
+                  <Link to="remove" state={order} className="text-lg font-medium font-lato text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700 dark:text-gray-400">
+                    Set as Inactive
+                  </Link>
+                  <button className="text-lg font-medium font-lato text-sky-300 cursor-pointer transition duration-300 hover:text-sky-500 dark:text-sky-500">View Order</button>
                 </div>
               </div>
             </div>
