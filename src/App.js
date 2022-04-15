@@ -38,6 +38,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import cartReducer, { getCartTotal } from "./redux/cartSlice";
 import tempReducer from "./redux/tempSlice";
+import RemoveOrder from "./components/RemoveOrder";
 
 // Global Context
 export const AuthContext = React.createContext();
@@ -217,6 +218,14 @@ const App = () => {
               element={
                 <MainLayout>
                   <Order />
+                </MainLayout>
+              }
+            />
+            <Route
+              path="/admin/orders/remove"
+              element={
+                <MainLayout>
+                  <RemoveOrder />
                 </MainLayout>
               }
             />
