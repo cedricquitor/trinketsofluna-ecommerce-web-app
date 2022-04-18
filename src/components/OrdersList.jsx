@@ -66,7 +66,9 @@ const OrdersList = () => {
                   <Link to="remove" state={order} className="text-lg font-medium font-lato text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700 dark:text-gray-400">
                     Set as Inactive
                   </Link>
-                  <button className="text-lg font-medium font-lato text-sky-300 cursor-pointer transition duration-300 hover:text-sky-500 dark:text-sky-500">View Order</button>
+                  <Link to="view" state={order} className="text-lg font-medium font-lato text-sky-300 cursor-pointer transition duration-300 hover:text-sky-500 dark:text-sky-500">
+                    View Order
+                  </Link>
                 </div>
               </div>
             </div>

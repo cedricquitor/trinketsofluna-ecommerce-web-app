@@ -5,8 +5,8 @@ import { doc, deleteDoc, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
 const RemoveOrder = () => {
-  const location = useLocation();
   const [order, setOrder] = useState(null);
+  const location = useLocation();
   const navigate = useNavigate();
 
   const backToOrders = () => {
@@ -17,7 +17,6 @@ const RemoveOrder = () => {
     if (location.state) {
       setOrder(location.state);
       console.log(location.state);
-      console.log(order);
     }
   }, []);
 
