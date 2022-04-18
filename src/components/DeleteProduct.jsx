@@ -17,11 +17,12 @@ const RemoveProduct = () => {
   useEffect(() => {
     if (location.state) {
       setProduct(location.state);
+      console.log(location.state);
     }
   }, []);
 
   const deleteProduct = async () => {
-    const productDoc = doc(db, "products", product.id);
+    const productDoc = doc(db, location.state.productType === "active" ? "products" : "archived-products", product.id);
     await deleteDoc(productDoc)
       .then(() => {
         toast.success(`Deleted product with ID of ${product.id} successfully!`);
