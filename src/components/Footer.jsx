@@ -14,9 +14,9 @@ const Footer = () => {
               <span className="text-sky-700 dark:text-sky-500">Trinkets</span> of Luna
             </Link>
             <p className="my-4 hidden lg:block">
-              123 Address Street
+              España Blvd., Sampaloc
               <br />
-              City, Metro Manila
+              1008 Manila, Metro Manila
               <br />
               Philippines{" "}
             </p>
@@ -32,23 +32,33 @@ const Footer = () => {
             <div className="mx-auto lg:mx-12 mt-2 lg:mt-0">
               <h4 className="lg:mb-2 text-lg md:text-xl text-gray-900 font-playfair font-medium dark:text-zinc-100 text-center lg:text-left">Brand</h4>
               <ul className="text-gray-500 font-lato leading-loose dark:text-gray-400 flex lg:block">
-                <li className="mr-4 lg:mr-0">About</li>
-                <li>Contact</li>
-                <li className="ml-4 lg:ml-0">Store</li>
+                <li>
+                  <Link to="/about" className="mr-4 lg:mr-0">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
               </ul>
             </div>
             <div className="mx-auto lg:mx-12 mt-2 lg:mt-0">
               <h4 className="lg:mb-2 text-lg md:text-xl text-gray-900 font-playfair font-medium dark:text-zinc-100 text-center lg:text-left">Products</h4>
               <ul className="text-gray-500 font-lato leading-loose dark:text-gray-400 flex lg:block">
-                <li className="mr-4 lg:mr-0">Collections</li>
-                <li>Shop</li>
-                <li className="ml-4 lg:ml-0">Shopee Link</li>
+                <Link to="/shop">Shop</Link>
+                <li className="ml-4 lg:ml-0">
+                  <a href="https://shopee.ph/trinketsofluna/" target="_new">
+                    Shopee Link
+                  </a>
+                </li>
               </ul>
             </div>
             <div className="mx-auto lg:mx-0 lg:ml-12 mt-2 lg:mt-0">
               <h4 className="lg:mb-2 text-lg md:text-xl text-gray-900 font-playfair font-medium dark:text-zinc-100 text-center lg:text-left">Support</h4>
               <ul className="text-gray-500 font-lato leading-loose dark:text-gray-400 flex lg:block">
-                <li className="mr-4 lg:mr-0">Help Center</li>
+                <a href="https://www.facebook.com/messages/t/218950794836813" target="_new" className="mr-4 lg:mr-0">
+                  Messenger
+                </a>
                 <li>Terms of Service</li>
                 <li className="ml-4 lg:ml-0">Privacy Policy</li>
               </ul>

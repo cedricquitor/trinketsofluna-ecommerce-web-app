@@ -15,7 +15,7 @@ const SignIn = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, setLoading, auth } = useAuthContext();
+  const { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, auth } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,7 +68,10 @@ const SignIn = () => {
     const password = passwordRef.current.value;
     try {
       if (email && password) {
-        await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email, password).then((result) => {
+          console.log(result);
+          localStorage.setItem("authUID", JSON.stringify(result.user.uid));
+        });
       }
       setIsLoggedIn(true);
     } catch (error) {
@@ -85,7 +88,8 @@ const SignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
+        console.log(JSON.stringify(result.user.uid));
+        localStorage.setItem("authUID", JSON.stringify(result.user.uid));
       })
       .catch((error) => {
         toast.error(error.message);

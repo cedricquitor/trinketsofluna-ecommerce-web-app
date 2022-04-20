@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 const AdminDashboard = () => {
   const [products, setProducts] = useState([]);
   const [archivedProducts, setArchivedProducts] = useState([]);
   const productsCollectionRef = collection(db, "products");
+  const { auth } = useAuthContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (auth.currentUser === null && localStorage.getItem("authUID") !== "d64TMtbWfhNntekeJKF8U2RafcE3") {
+      navigate("/", { replace: true });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(auth);
     getProducts();
     getArchivedProducts();
   }, []);
@@ -59,12 +69,12 @@ const AdminDashboard = () => {
           <h1 className="font-playfair font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-gray-900 dark:text-zinc-100">Admin Panel</h1>
         </div>
         <div className="flex justify-between mt-4">
-          <h1 className="mx-64 my-auto font-medium font-playfair text-xl text-gray-900 dark:text-zinc-100">List of Active Products</h1>
+          <h1 className="mx-64 my-auto font-medium font-playfair text-xl text-gray-900 dark:text-zinc-100">Active Products</h1>
           <div className="flex mx-64">
-            <Link to="orders" className="py-3 btn--primary w-44">
+            <Link to="orders" className="py-3 btn--primary w-52">
               View Orders
             </Link>
-            <Link to="add" className="py-3 btn--primary w-44">
+            <Link to="add" className="py-3 btn--primary w-52 ml-4">
               Add Product
             </Link>
           </div>

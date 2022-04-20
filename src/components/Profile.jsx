@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useAuthContext } from "../context/AuthContext";
 import { clearCart } from "../redux/cartSlice";
 import { clearCartItems, clearPaymongoResponse } from "../redux/tempSlice";
@@ -24,6 +23,7 @@ const Profile = () => {
     dispatch(clearCartItems());
     dispatch(clearPaymongoResponse());
     localStorage.removeItem("cartItems");
+    localStorage.removeItem("authUID");
     navigate("/login", { replace: true });
   };
 
