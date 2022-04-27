@@ -14,6 +14,7 @@ const Registration = () => {
   // State handler for index and assigning data to products.
   const [products, setProducts] = useState([]);
   const [index, setIndex] = useState(0);
+  const [isChecked, setIsChecked] = useState(false);
   const [passwordIsHidden, setPasswordIsHidden] = useState(true);
   const featuredProducts = products.filter((product) => product.productFeatured);
 
@@ -44,6 +45,15 @@ const Registration = () => {
       setProducts(getProductsResult);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleCheckbox = (e) => {
+    const checked = e.target.checked;
+    if (checked) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
     }
   };
 
@@ -91,7 +101,7 @@ const Registration = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    if (name && email && password) {
+    if (name && email && password && isChecked) {
       if (validatePassword(password)) {
         registerUserWithEmail(name, email, password);
         navigate("/login", { replace: true });
@@ -99,7 +109,7 @@ const Registration = () => {
         toast.error("Password must be at least 8 characters containing a upper case character, a lower case character, a number, and a special character!");
       }
     } else {
-      toast.error("Name, email, and password must be filled.");
+      toast.error("Name, email, and password must be filled. You must also agree to the Terms of Service to register!");
     }
   };
 
@@ -172,7 +182,7 @@ const Registration = () => {
                       <input
                         id="terms"
                         type="checkbox"
-                        value=""
+                        onClick={(e) => handleCheckbox(e)}
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-sky-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-sky-500 dark:ring-offset-gray-800"
                         required
                       />
