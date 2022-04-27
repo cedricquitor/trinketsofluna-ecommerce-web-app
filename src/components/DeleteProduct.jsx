@@ -41,10 +41,10 @@ const RemoveProduct = () => {
           <h1 className="text-center font-playfair text-gray-500 dark:text-zinc-100">
             <span className="text-sky-300 dark:text-sky-500">Trinkets</span> of Luna
           </h1>
-          <h1 className="mb-2 font-playfair font-medium text-gray-900 text-2xl md:text-3xl text-center dark:text-zinc-100">Remove Product</h1>
+          <h1 className="mb-2 font-playfair font-medium text-gray-900 text-2xl md:text-3xl text-center dark:text-zinc-100">Delete Product</h1>
         </div>
         <div>
-          <h1 className="mb-6 font-playfair font-medium text-gray-900 text-base text-center md:text-lg dark:text-zinc-100">Are you sure you want to remove this product?</h1>
+          <h1 className="mb-6 font-playfair font-medium text-gray-900 text-base text-center md:text-lg dark:text-zinc-100">Are you sure you want to delete this product?</h1>
         </div>
         <div className="flex items-center justify-center mb-6">
           <div className="flex-shrink-0 h-16 w-16">

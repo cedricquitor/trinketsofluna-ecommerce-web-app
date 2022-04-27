@@ -136,7 +136,7 @@ const AdminDashboard = () => {
                               Archive Item
                             </Link>
                             <Link to="remove" state={{ ...product, productType: "active" }} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
-                              Remove Item
+                              Delete Item
                             </Link>
                           </td>
                         </tr>
@@ -208,7 +208,7 @@ const AdminDashboard = () => {
                               Activate Item
                             </Link>
                             <Link to="remove" state={{ ...archivedProduct, productType: "archived" }} className="text-sky-300 transition duration-300 hover:text-sky-500 font-medium dark:text-sky-500 dark:hover:text-sky-600">
-                              Remove Item
+                              Delete Item
                             </Link>
                           </td>
                         </tr>
