@@ -8,6 +8,7 @@ import { useAuthContext } from "../context/AuthContext";
 
 // Icons
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 const Registration = () => {
   // State handler for index and assigning data to products.
@@ -46,6 +47,22 @@ const Registration = () => {
     }
   };
 
+  // Checks if password is at least 8 characters, contains a upper case letter, a lower case letter, a number, and a special character.
+  const validatePassword = (password) => {
+    var numbers = /[0-9]/g;
+    var upperCaseLetters = /[A-Z]/g;
+    var lowerCaseLetters = /[a-z]/g;
+    var specialCharacters = /[\!\@\#\$\%\^\&\*\)\(\+\=\.\<\>\{\}\[\]\:\;\'\"\|\~\`\_\-]/g;
+
+    if (password.match(numbers) && password.match(upperCaseLetters) && password.match(lowerCaseLetters) && password.match(specialCharacters) && password.length >= 8) {
+      console.log("Password is valid.");
+      return true;
+    } else {
+      console.log("Password is invalid.");
+      return false;
+    }
+  };
+
   // UseEffect hook that solves the slider's caveat.
   useEffect(() => {
     const lastIndex = featuredProducts.length - 1;
@@ -75,8 +92,14 @@ const Registration = () => {
     const password = passwordRef.current.value;
 
     if (name && email && password) {
-      registerUserWithEmail(name, email, password);
-      navigate("/login", { replace: true });
+      if (validatePassword(password)) {
+        registerUserWithEmail(name, email, password);
+        navigate("/login", { replace: true });
+      } else {
+        toast.error("Password must be at least 8 characters containing a upper case character, a lower case character, a number, and a special character!");
+      }
+    } else {
+      toast.error("Name, email, and password must be filled.");
     }
   };
 
@@ -135,13 +158,27 @@ const Registration = () => {
                       Email Address
                     </label>
                   </div>
-                  <div className="mb-10">
+                  <div>
                     <span onClick={() => setPasswordIsHidden(!passwordIsHidden)} className="absolute mt-3 right-8 cursor-pointer">
                       {passwordIsHidden ? <AiOutlineEye className="h-6 w-6 text-sky-200 dark:text-sky-800 cursor-pointer" /> : <AiOutlineEyeInvisible className="h-6 w-6 text-sky-300 dark:text-sky-800" />}
                     </span>
                     <input type={passwordIsHidden ? "password" : "text"} id="password" placeholder="Password" ref={passwordRef} className="input__text peer" />
                     <label htmlFor="password" className="input__label top-[9.5rem] peer-placeholder-shown:top-[10.6rem] peer-focus:top-[9.5rem]">
                       Password
+                    </label>
+                  </div>
+                  <div class="flex items-start mb-10">
+                    <div class="flex items-center h-5">
+                      <input
+                        id="terms"
+                        type="checkbox"
+                        value=""
+                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-sky-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-sky-500 dark:ring-offset-gray-800"
+                        required
+                      />
+                    </div>
+                    <label for="terms" class="ml-2 text-sm font-lato font-medium text-gray-500 dark:text-gray-400">
+                      I agree to the <span className="cursor-pointer text-sky-300 dark:text-sky-500">Terms of Service</span>
                     </label>
                   </div>
                   <button onClick={handleSubmit} className="btn--primary py-3 w-full mx-auto md:w-2/3">
