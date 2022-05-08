@@ -57,8 +57,8 @@ const CartCheckout = () => {
           attributes: {
             amount: standardizedPrice,
             redirect: {
-              success: "http://localhost:3000/checkout/success",
-              failed: "http://localhost:3000/checkout/failed",
+              success: "https://trinketsofluna-ecommerce-fbase.web.app/checkout/success",
+              failed: "https://trinketsofluna-ecommerce-fbase.web.app/checkout/failed",
             },
             billing: { address: { line1: `${addressRef.current.value}`, city: `${cityRef.current.value}` }, name: `${nameRef.current.value}`, phone: `${phoneNumberRef.current.value}`, email: auth.currentUser.email },
             type: "gcash",
