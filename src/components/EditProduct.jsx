@@ -34,7 +34,7 @@ const EditProduct = () => {
   const productThumbnailRef = useRef();
 
   const editProduct = async () => {
-    const productDoc = doc(db, location.state.productType === "active" ? "products" : "archived-products", product.id);
+    const productDoc = doc(db, location.state.productType === "active" ? "products" : "archived-products", productIdRef.current.value);
     await updateDoc(productDoc, {
       productName: productNameRef.current.value,
       productCategory: productCategoryRef.current.value,
