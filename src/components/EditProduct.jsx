@@ -117,8 +117,6 @@ const EditProduct = () => {
           </form>
         </div>
       </div>
-      <button onClick={() => console.log(isFeatured)}>Check isFeatured</button>
-      <button onClick={() => console.log(productIdRef.current.value)}>Check Refs</button>
     </section>
   );
 };
