@@ -14,6 +14,17 @@ Trinkets of Luna💎: Ecommerce Web Application
 
 This project uses PayMongo's API for its payment gateway.
 
+## 📸 Screenshots
+![Hero](https://i.imgur.com/T0DTfTF.jpg)
+
+![Slider](https://i.imgur.com/Ce8A2dR.jpg)
+
+![Shop](https://i.imgur.com/Zg9h0tQ.jpg)
+
+![Login](https://i.imgur.com/HxuKZTF.jpg)
+
+![Cart](https://i.imgur.com/YcYXBp9.jpg)
+
 ## Getting Started
 Download and install 	[Node.js](https://nodejs.org/en/).
 
