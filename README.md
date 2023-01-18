@@ -1,16 +1,8 @@
+![Mockup](https://i.imgur.com/2xCAkd8.jpg)
 
-<div align="center">
-Trinkets of Luna💎: Ecommerce Web Application
+# Trinkets of Luna 💎
 
-🚧 WIP 🚧
-</div>
-
-**Built With**
-- React
-- Firebase
-- Express
-- NodeJS
-- TailwindCSS
+**Trinkets of Luna** is an e-commerce platform that offers a curated collection of luxurious, yet affordable dainty jewelries, handcrafted by skilled artisans in Manila, Philippines. Built using React for the frontend, Firebase for the backend and database, and PayMongo for secure payment gateway integration, the platform is designed to provide a seamless and elegant shopping experience for all customers.
 
 This project uses PayMongo's API for its payment gateway.
 
@@ -40,16 +32,16 @@ Receiving a version output confirms that you have installed Node.js correctly.
 ## Installation
 To clone the repository: 
 - Navigate to the directory where you plan to clone the project in.
-```
-git clone https://github.com/cedricquitor/trinketsofluna-ecommerce-web-app.git
+```bash
+git clone cedricquitor/trinketsofluna-ecommerce-web-app
 ```
 
 To install the dependencies:
-```
+```bash
 npm install
 ```
 
 To run the local dev server:
-```
+```bash
 npm run start
 ```
