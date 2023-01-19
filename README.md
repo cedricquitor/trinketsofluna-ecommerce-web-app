@@ -22,7 +22,7 @@ Download and install 	[Node.js](https://nodejs.org/en/).
 
 To verify, type these commands to your terminal:
 
-```
+```bash
 npm --version
 node --version
 ```
